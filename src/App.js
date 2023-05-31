@@ -6,6 +6,7 @@ import DestinationPOIInspiration from './elements/home/destination';
 import Popper from "popper.js";
 import $ from 'jquery';
 import CTA from "./elements/home/cta";
+import Footer from "./elements/home/footer";
 
 export default function App() {
     return (
@@ -17,6 +18,7 @@ export default function App() {
             title={"Feature"}
             text={"Now"}
             button={"Call to Action"}/>
+            <Footer/>
             <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
                     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
                     crossOrigin="anonymous"></script>

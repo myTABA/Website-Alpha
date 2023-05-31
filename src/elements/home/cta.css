@@ -11,3 +11,11 @@
     width: fit-content;
     border-radius: 20px;
 }
+.cta-card > .card-header{
+    background-color: white;
+    border-bottom: none;
+}
+.cta-card .card-title{
+    font-size: 2em;
+    font-weight: bold;
+}

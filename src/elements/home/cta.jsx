@@ -38,5 +38,6 @@ export default function CTA({title, text, button}) {
 
 function Width() {
     let elem = $('.cta-card > .card-body.text-center > a.card-link');
-    elem.width(elem.width() + 18);
+    // $ around elem makes it undefined
+    $(elem).width($(elem).width() + 18);
 }
