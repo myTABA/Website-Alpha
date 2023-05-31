@@ -1,0 +1,13 @@
+.cta-card{
+    min-width: 30vw;
+    max-width: fit-content;
+}
+.cta-card > .card-header, .cta-card > .card-body{
+    /*display: flex;*/
+    /*align-content: center;*/
+    /*justify-content: center;*/
+}
+.cta-card > .card-body > .card-link{
+    width: fit-content;
+    border-radius: 20px;
+}
