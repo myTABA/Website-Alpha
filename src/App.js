@@ -1,12 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js'
+import "./App.css";
 import Hero from "./elements/home/hero";
 import Navbar from "./elements/home/navbar";
 import DestinationPOIInspiration from './elements/home/destination';
-import Popper from "popper.js";
-import $ from 'jquery';
 import CTA from "./elements/home/cta";
 import Footer from "./elements/home/footer";
+import TravelGuide from "./elements/home/travelguide";
 
 export default function App() {
     return (
@@ -14,6 +14,7 @@ export default function App() {
             <Navbar/>
             <Hero />
             <DestinationPOIInspiration />
+            <TravelGuide/>
             <CTA
             title={"Feature"}
             text={"Now"}

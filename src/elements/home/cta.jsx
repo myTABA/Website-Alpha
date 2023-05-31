@@ -26,12 +26,16 @@ export default function CTA({title, text, button}) {
     </div>
 
     return (
-        <div className={"row"}>
-            <div className={"col d-flex justify-content-center"}>
-                {val}
+        <div className={"cta my-5"}>
+            <div className={"container"}>
+                <div className={"row"}>
+                    <div className={"col d-flex justify-content-center"}>
+                        {val}
+                    </div>
+                    {/*todo try to execute this thing*/}
+                    <Width/>
+                </div>
             </div>
-            {/*try to execute this thing*/}
-            <Width/>
         </div>
     );
 }

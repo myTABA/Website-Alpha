@@ -1,11 +1,23 @@
-export default function Footer(){
+import "./footer.css";
+import {SocialIcon} from "react-social-icons";
+
+export default function Footer() {
+
+    let icon_css =
+        {
+            borderRadius: "30px",
+            margin: "1.2em .2em ",
+            height: "2.2em",
+            width: "2.2em"
+        }
+
     let val =
-        <div className={"container-fluid"}>
+        <div className={"container-fluid mt-5 py-5"}>
             <div className={"row text-center"}>
                 <div className={"col-12 col-md"}>
                     <ul className={"navbar-nav"}>
                         <li className={"nav-item nav-head"}>
-                            made with &heart; in PIT
+                            made with &#10084; in PIT
                         </li>
                         <li className={"nav-item"}>
                             &copy; 2023 myTABA
@@ -18,16 +30,16 @@ export default function Footer(){
                             myTABA
                         </li>
                         <li className={"nav-item nav-link"}>
-                            <a href={"#"}>Blog</a>
+                            <a className={"nav-link"} href={"#"}>Blog</a>
                         </li>
                         <li className={"nav-item nav-link"}>
-                            <a href={"#"}>Destination Guides</a>
+                            <a className={"nav-link"} href={"#"}>Destination Guides</a>
                         </li>
                         <li className={"nav-item nav-link"}>
-                            <a href={"#"}>About Us</a>
+                            <a className={"nav-link"} href={"#"}>About Us</a>
                         </li>
                         <li className={"nav-item nav-link"}>
-                            <a href={"#"}>Contact Us</a>
+                            <a className={"nav-link"} href={"#"}>Contact Us</a>
                         </li>
                     </ul>
                 </div>
@@ -37,15 +49,30 @@ export default function Footer(){
                             Say "hi"
                         </li>
                         <li className={"nav-item nav-link"}>
-                            logos
+                            <SocialIcon
+                                url={"https://facebook.com"}
+                                className={"facebook"}
+                                style={icon_css}/>
+                            <SocialIcon
+                                url={"https://linkedin.com"}
+                                className={"linkedin"}
+                                style={icon_css}/>
+                            <SocialIcon
+                                url={"https://youtube.com"}
+                                className={"youtube"}
+                                style={icon_css}/>
+                            <SocialIcon
+                                url={"https://instagram.com"}
+                                className={"instagram"}
+                                style={icon_css}/>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>;
 
-    return(
-        <div className={"footer"}>
+    return (
+        <div className={"footer mt-5"}>
             {val}
         </div>
     );

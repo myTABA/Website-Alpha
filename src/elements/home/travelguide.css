@@ -1,0 +1,11 @@
+.travelGuide .card-body {
+    padding: 0.3em;
+}
+
+.travelGuide .card-img-top {
+    border-radius: 1em 1em 0.5em 0.5em;
+}
+
+.travelGuide .card {
+    border-radius: 1em;
+}

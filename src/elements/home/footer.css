@@ -1,0 +1,27 @@
+div.footer {
+    background-color: #61dafb;
+}
+
+.navbar-nav > .nav-item.nav-head {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+div.footer .col-12.col-md{
+    margin: 1.5em 0;
+}
+
+li.nav-item.nav-link{
+    padding: 0;
+}
+
+.navbar-nav > .nav-item .nav-link:active,
+.nav-item .nav-link:visited,
+.nav-item .nav-link:link {
+    text-decoration: none;
+    padding: 0;
+}
+
+.navbar-nav > .nav-item .nav-link:hover{
+    color: blue;
+}
