@@ -1,4 +1,4 @@
-import "./travelguide.css";
+import "../css/travelguide.css";
 export default function TravelGuide() {
     let val =
         <div className={"container"}>

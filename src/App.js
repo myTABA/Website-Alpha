@@ -1,12 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js'
 import "./App.css";
-import Hero from "./elements/home/hero";
-import Navbar from "./elements/home/navbar";
-import DestinationPOIInspiration from './elements/home/destination';
-import CTA from "./elements/home/cta";
-import Footer from "./elements/home/footer";
-import TravelGuide from "./elements/home/travelguide";
+import Hero from "./elements/home/jsx/hero";
+import Navbar from "./elements/home/jsx/navbar";
+import DestinationPOIInspiration from './elements/home/jsx/destination';
+import CTA from "./elements/home/jsx/cta";
+import Footer from "./elements/home/jsx/footer";
+import TravelGuide from "./elements/home/jsx/travelguide";
 
 export default function App() {
     return (

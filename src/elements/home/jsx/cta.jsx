@@ -1,5 +1,6 @@
-import "./cta.css";
+import "../css/cta.css";
 import $ from "jquery";
+import {useEffect} from "react";
 
 export default function CTA({title, text, button}) {
     let val;
@@ -23,7 +24,18 @@ export default function CTA({title, text, button}) {
             </a>
 
         </div>
-    </div>
+    </div>;
+
+    //using react hook to execute the width extension
+    useEffect(() => {
+        const widthAdjust = () => {
+            let elem = document.querySelector('.cta-card > .card-body.text-center > a.card-link');
+            if (elem) {
+                elem.style.width = elem.offsetWidth + 18 + "px";
+            }
+        };
+        widthAdjust();
+    },[]); //no dependencies to ensure one exec
 
     return (
         <div className={"cta my-5"}>
@@ -32,16 +44,8 @@ export default function CTA({title, text, button}) {
                     <div className={"col d-flex justify-content-center"}>
                         {val}
                     </div>
-                    {/*todo try to execute this thing*/}
-                    <Width/>
                 </div>
             </div>
         </div>
     );
-}
-
-function Width() {
-    let elem = $('.cta-card > .card-body.text-center > a.card-link');
-    // $ around elem makes it undefined
-    $(elem).width($(elem).width() + 18);
 }

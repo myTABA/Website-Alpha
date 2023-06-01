@@ -1,4 +1,4 @@
-import "./footer.css";
+import "../css/footer.css";
 import {SocialIcon} from "react-social-icons";
 
 export default function Footer() {
