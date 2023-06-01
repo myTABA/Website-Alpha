@@ -1,5 +1,6 @@
 .travelGuide .card-body {
     padding: 0.3em;
+    position: relative;
 }
 
 .travelGuide .card-img-top {
@@ -8,4 +9,11 @@
 
 .travelGuide .card {
     border-radius: 1em;
+    min-height: 10em;
+}
+
+.travelGuide .travel-text{
+    position: absolute;
+    bottom: 0.3em;
+    left: 0.4em;
 }

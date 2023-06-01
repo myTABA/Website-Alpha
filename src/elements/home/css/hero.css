@@ -10,9 +10,11 @@
     width: 100%;
     height: 100%;
 }
-.bg-parent{
+.hero-parent{
     position: relative;
     min-height: 40vh;
+    font-weight: 450;
+
 }
 
 #GetStarted{
@@ -25,4 +27,25 @@
     transition: 0.2s;
     color: whitesmoke;
     border-color: var(--secondary);
+}
+
+@media only screen and (min-width: 768px){
+    .hero-parent{
+        min-height: 40vh;
+        font-size: x-large;
+    }
+    #GetStarted{
+        font-size: x-large;
+        font-weight: 480;
+    }
+}
+@media only screen and (min-width: 992px){
+    .hero-parent{
+        min-height: 20vh;
+        font-size: xx-large;
+    }
+    #GetStarted{
+        font-size: xx-large;
+        font-weight: 480;
+    }
 }

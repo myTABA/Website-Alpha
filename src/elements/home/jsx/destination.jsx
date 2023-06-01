@@ -104,7 +104,7 @@ export default function DestinationPOIInspiration() {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-3">
+                    <div className="col-6 col-md-4 col-lg-3">
                         <div className="card">
                             <img className="card-image-top"
                                  src="https://cdn.britannica.com/46/154246-050-7C72E12F/view-Rome.jpg"/>
@@ -118,7 +118,7 @@ export default function DestinationPOIInspiration() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-3">
+                    <div className="col-6 col-md-4 col-lg-3">
                         <div className="card">
                             <img className="card-image-top"
                                  src="https://cdn.britannica.com/46/154246-050-7C72E12F/view-Rome.jpg"/>
@@ -132,7 +132,7 @@ export default function DestinationPOIInspiration() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-3">
+                    <div className="col-6 col-md-4 col-lg-3">
                         <div className="card">
                             <img className="card-image-top"
                                  src="https://cdn.britannica.com/46/154246-050-7C72E12F/view-Rome.jpg"/>
@@ -146,7 +146,7 @@ export default function DestinationPOIInspiration() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-3">
+                    <div className="col-6 col-md-4 col-lg-3">
                         <div className="card">
                             <img className="card-image-top"
                                  src="https://cdn.britannica.com/46/154246-050-7C72E12F/view-Rome.jpg"/>
@@ -160,9 +160,7 @@ export default function DestinationPOIInspiration() {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="row">
-                    <div className="col-3">
+                    <div className="col-6 col-md-4 col-lg-3">
                         <div className="card">
                             <img className="card-image-top"
                                  src="https://cdn.britannica.com/46/154246-050-7C72E12F/view-Rome.jpg"/>
@@ -176,7 +174,7 @@ export default function DestinationPOIInspiration() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-3">
+                    <div className="col-6 col-md-4 col-lg-3">
                         <div className="card">
                             <img className="card-image-top"
                                  src="https://cdn.britannica.com/46/154246-050-7C72E12F/view-Rome.jpg"/>
@@ -190,7 +188,7 @@ export default function DestinationPOIInspiration() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-3">
+                    <div className="col-6 col-md-4 col-lg-3">
                         <div className="card">
                             <img className="card-image-top"
                                  src="https://cdn.britannica.com/46/154246-050-7C72E12F/view-Rome.jpg"/>
@@ -204,7 +202,7 @@ export default function DestinationPOIInspiration() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-3">
+                    <div className="col-6 col-md-4 col-lg-3">
                         <div className="card">
                             <img className="card-image-top"
                                  src="https://cdn.britannica.com/46/154246-050-7C72E12F/view-Rome.jpg"/>

@@ -1,9 +1,11 @@
 import "jquery/dist/jquery.min.js";
+import $ from "jquery";
 import "bootstrap/dist/js/bootstrap.min.js";
+import React, {useEffect} from "react";
 function Logo() {
     return (
         <>
-            <a className="navbar-brand" href="#"><img src={"https://mytaba.com/assets/images/image01.svg?v=c07231be"} height={"50px"}/></a>
+            <a className="navbar-brand" href="#"><img src={"https://mytaba.com/assets/images/image01.svg?v=c07231be"} height={"50rem"}/></a>
             <button className="navbar-toggler" type={"button"} data-toggle={"collapse"}
                     data-target={"#collapseButton"} aria-expanded={"false"}>
                 <i className="navbar-toggler-icon"></i>
