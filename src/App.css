@@ -1,3 +1,17 @@
+/*colour palette definitions*/
+:root{
+    /*red-pink*/
+    --primary: #FF4A83;
+    /*pink*/
+    --secondary: #FFC8DD;
+    /*yellow*/
+    --tertiary: #FFDA7C;
+    /*bright-cyan*/
+    --extra1: #CBF2FE;
+    /*cobalt*/
+    --extra2: #67AAF9;
+}
+
 .card {
     border-radius: 0.75em;
 }

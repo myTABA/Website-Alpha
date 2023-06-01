@@ -25,3 +25,15 @@
     font-size: 2em;
     font-weight: bold;
 }
+.cta-card .cta-button{
+    position:relative;
+    background-color: var(--extra2);
+    border-color: var(--extra2);
+    transition: background-color 0.2s ease-in-out;
+}
+
+.cta-card .cta-button:hover{
+    background-color: var(--extra1);
+    border-color: var(--extra1);
+    color: black;
+}

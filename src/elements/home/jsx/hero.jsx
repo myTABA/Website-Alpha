@@ -28,6 +28,6 @@ export default function Hero() {
 
 function GetStarted() {
     return (
-        <a href="#" className="btn btn-outline-success">Personalise your Travel</a>
+        <a href="#" id="GetStarted" className="btn btn-outline-success">Personalise your Travel</a>
     );
 }

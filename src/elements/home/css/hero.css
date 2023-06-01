@@ -14,3 +14,15 @@
     position: relative;
     min-height: 40vh;
 }
+
+#GetStarted{
+    background-color: var(--secondary);
+    color: black;
+    border-color: var(--primary);
+}
+#GetStarted:hover{
+    background-color: var(--primary);
+    transition: 0.2s;
+    color: whitesmoke;
+    border-color: var(--secondary);
+}

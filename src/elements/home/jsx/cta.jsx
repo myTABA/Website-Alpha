@@ -19,7 +19,7 @@ export default function CTA({title, text, button}) {
                 {text}
             </p>
 
-            <a href={"#"} className={"card-link btn btn-primary"}>
+            <a href={"#"} className={"cta-button card-link btn btn-primary"}>
                 {button}
             </a>
 
