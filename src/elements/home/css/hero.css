@@ -41,11 +41,11 @@
 }
 @media only screen and (min-width: 992px){
     .hero-parent{
-        min-height: 20vh;
-        font-size: xx-large;
+        min-height: 40vh;
+        font-size: x-large;
     }
     #GetStarted{
-        font-size: xx-large;
+        font-size: x-large;
         font-weight: 480;
     }
 }

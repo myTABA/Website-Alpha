@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import $ from "jquery";
-import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import "bootstrap/dist/js/bootstrap.min";
 import "./App.css";
 import Hero from "./elements/home/jsx/hero";
 import Navbar from "./elements/home/jsx/navbar";
@@ -9,20 +10,22 @@ import CTA from "./elements/home/jsx/cta";
 import Footer from "./elements/home/jsx/footer";
 import TravelGuide from "./elements/home/jsx/travelguide";
 import {useEffect} from "react";
+import RecApp from "./elements/recommendation/recApp";
 
 export default function App() {
     return (
         <>
             <Navbar/>
-            <Hero />
-            <DestinationPOIInspiration />
-            <TravelGuide/>
-            <CTA
-            title={"Feature"}
-            text={"Now"}
-            button={"Call to Action"}/>
-            {/*component for debugging*/}
-            <RandomBootstrapComponent/>
+            {/*<Hero />*/}
+            {/*<DestinationPOIInspiration />*/}
+            {/*<TravelGuide/>*/}
+            {/*<CTA*/}
+            {/*title={"Feature"}*/}
+            {/*text={"Now"}*/}
+            {/*button={"Call to Action"}/>*/}
+            {/*/!*component for debugging*!/*/}
+            {/*/!*<RandomBootstrapComponent/>*!/*/}
+            <RecApp/>
             <Footer/>
 
         </>

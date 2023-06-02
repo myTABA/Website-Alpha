@@ -1,0 +1,21 @@
+div.destinationInspiration div.bigobj > .card {
+    height: 20em;
+}
+div.destinationInspiration div.bigobj > .card >img.card-img-top{
+    height: 12em;
+    object-fit: cover;
+
+}
+div.bigobj{
+    margin: .25em 0;
+}
+
+div.lilobj >.card{
+    height: 3.5em;
+}
+
+div.lilobj >.card >img.card-img-top{
+    height: 50%;
+    /*this should adjust for portrait orientations*/
+    object-fit: cover;
+}
