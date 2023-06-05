@@ -1,49 +1,66 @@
-.rec-img{
+.rec-img {
     width: 100%;
 }
-.rec-img > img{
+
+.rec-img > img {
     object-fit: cover;
     width: inherit;
 }
-.recommendation > .row{
+
+.recommendation > .row {
     height: 100vh;
 }
 
-.recommendation > .row > div{
+.recommendation > .row > div {
     height: inherit;
 }
-.recommendation .map{
+
+.recommendation .map {
     width: 100%;
 }
-.recommendation .map > img{
+
+.recommendation .map > img {
     object-fit: cover;
     width: inherit;
 }
+
 /*scrollbar stuff*/
-.recommendation .col-12.col-lg-4{
+.recommendation .col-12.col-lg-4 {
     overflow-y: scroll;
     border-right: 1px black solid;
 }
-.recommendation .col-12.col-lg-4::-webkit-scrollbar{
+
+/*remove border for smaller screens*/
+@media only screen and (max-width: 991px) {
+    .recommendation .col-12.col-lg-4 {
+        border-right: none;
+    }
+}
+
+.recommendation .col-12.col-lg-4::-webkit-scrollbar {
     /*for some reason any width does not show up at all*/
     width: 0;
 }
 
 
-.rec-item, .rec-map{
+.rec-item, .rec-map {
     margin: 3em 0;
 }
-.rec-match{
+
+.rec-match {
     margin-top: 1em;
 }
-.rec-rating{
+
+.rec-rating {
     font-size: .75em;
     margin-bottom: 1em;
 }
-.rec-description{
+
+.rec-description {
     font-size: .9em;
 }
-.rec-add >a{
+
+.rec-add > a {
     font-size: .85em;
     margin-top: .6em;
 }

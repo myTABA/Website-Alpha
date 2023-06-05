@@ -1,5 +1,4 @@
 import "../css/cta.css";
-import $ from "jquery";
 import {useEffect} from "react";
 
 export default function CTA({title, text, button}) {

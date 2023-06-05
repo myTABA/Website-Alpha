@@ -51,18 +51,22 @@ export default function Footer() {
                         <li className={"nav-item nav-link"}>
                             <SocialIcon
                                 url={"https://facebook.com"}
+                                target={"_blank"}
                                 className={"facebook"}
                                 style={icon_css}/>
                             <SocialIcon
                                 url={"https://linkedin.com"}
+                                target={"_blank"}
                                 className={"linkedin"}
                                 style={icon_css}/>
                             <SocialIcon
                                 url={"https://youtube.com"}
+                                target={"_blank"}
                                 className={"youtube"}
                                 style={icon_css}/>
                             <SocialIcon
                                 url={"https://instagram.com"}
+                                target={"_blank"}
                                 className={"instagram"}
                                 style={icon_css}/>
                         </li>

@@ -1,7 +1,7 @@
 import Map from "./jsx/map";
 import RecommendationPane from "./jsx/recommendationList";
 
-export default function RecApp() {
+export default function Recommendation() {
 
     let items =[
         {},

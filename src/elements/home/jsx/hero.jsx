@@ -1,4 +1,5 @@
 import "../css/hero.css";
+import {NavLink} from "react-router-dom";
 export default function Hero() {
     return (
         <div className={"hero"}>
@@ -28,6 +29,8 @@ export default function Hero() {
 
 function GetStarted() {
     return (
-        <a href="#" id="GetStarted" className="btn btn-outline-success">Personalise your Travel</a>
+        <NavLink to={"/recommendations"} id={"GetStarted"} className={"btn btn-outline-success"}>Personalise your Travel</NavLink>
+        //equivalent to the below but for react router need to use Link
+        // <a href="#" id="GetStarted" className="btn btn-outline-success">Personalise your Travel</a>
     );
 }
