@@ -20,13 +20,14 @@
 #GetStarted{
     background-color: var(--secondary);
     color: black;
-    border-color: var(--primary);
+    /*border-color: var(--primary);*/
+    border: none;
 }
 #GetStarted:hover{
     background-color: var(--primary);
     transition: 0.2s;
     color: whitesmoke;
-    border-color: var(--secondary);
+    /*border-color: var(--secondary);*/
 }
 
 @media only screen and (min-width: 768px){

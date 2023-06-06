@@ -1,4 +1,6 @@
 import "../css/recommendations.css";
+import Recommendation from "../rec";
+import Star from "./Star";
 
 function RecItem({img, name, num, match, rating_star, rating_count, description, itinerary_link}) {
 
@@ -39,16 +41,20 @@ function RecItem({img, name, num, match, rating_star, rating_count, description,
                     {description}
                 </div>
                 <div className={"rec-add"}>
-                    <a href={itinerary_link} className={"btn btn-primary"}>
+                    {/*todo this part needs to be changed, discuss*/}
+                    <button type={"button"} className={"btn btn-primary"} data-bs-toggle={"modal"} data-bs-target={"#overlayContent"}>
                         Add to itinerary
-                    </a>
+                    </button>
+                    {/*<a href={itinerary_link} className={"btn btn-primary"}>*/}
+                    {/*    Add to itinerary*/}
+                    {/*</a>*/}
                 </div>
             </div>
         </div>;
     return val;
 }
 
-export default function RecommendationPane({items}) {
+function RecommendationPane({items}) {
     //items is an array of objects for populating the RecItems
     let val = [];
     for (const [i, elem] of items.entries()) {    //similar to py's enumerate()
@@ -71,8 +77,4 @@ export default function RecommendationPane({items}) {
     );
 };
 
-function Star() {
-    return (
-        <i className={"rec-star"}>&#11088;</i>
-    );
-}
+export default RecommendationPane;

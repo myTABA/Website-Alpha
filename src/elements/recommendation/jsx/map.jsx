@@ -3,7 +3,7 @@ import ModalContent from "./modal";
 function Map() {
     let val =
         <div className={"d-none d-md-flex row rec-map"}>
-            <div className={"col"}>
+            <div className={"col map-popup"}>
                 <div className={"map-overlay"}></div>
                 <ModalContent/>
                 <div className={"map"}>
@@ -15,3 +15,5 @@ function Map() {
 }
 
 export default Map;
+
+// todo max height 100vh

@@ -12,6 +12,19 @@
     --extra2: #67AAF9;
 }
 
+body{
+    margin-top: 76px;
+}
+nav.navbar{
+    transition: transform 0.3s ease-in-out;
+}
+nav.navbar-hide{
+    transform: translateY(-100%);
+}
+nav.navbar-show{
+    transform: translateY(0);
+}
+
 .card {
     border-radius: 0.75em;
 }

@@ -64,3 +64,23 @@
     font-size: .85em;
     margin-top: .6em;
 }
+
+/*popup stuff*/
+div.map-popup.col {
+    position: relative;
+}
+
+/*#closebtn, #overlayContent {*/
+/*    position: absolute;*/
+/*}*/
+
+/*modal*/
+div.modal-content > div.modal-body div.side-img > img, p.dayChart > img, div.map-img > img, div.modal-nearby-images img, div.modal-review-pfp > img{
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+div.modal-review-pfp > img{
+    border-radius: 50em;
+    height: 100%;
+}
