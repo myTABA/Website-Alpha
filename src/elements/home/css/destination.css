@@ -1,21 +1,67 @@
 div.destinationInspiration div.bigobj > .card {
     height: 20em;
+    border: none;
 }
-div.destinationInspiration div.bigobj > .card >img.card-img-top{
+
+div.destinationInspiration div.bigobj > .card > img.card-img-top {
     height: 12em;
     object-fit: cover;
-
 }
-div.bigobj{
+
+@media only screen and (min-width: 992px) {
+    div.destinationInspiration div.bigobj > .card {
+        height: 28em;
+    }
+
+    div.destinationInspiration div.bigobj > .card > img.card-img-top {
+        height: 20em;
+    }
+}
+
+div.bigobj {
     margin: .25em 0;
 }
 
-div.lilobj >.card{
+div.lilobj > .card {
     height: 3.5em;
+    width: 2em;
+    border: none;
 }
 
-div.lilobj >.card >img.card-img-top{
+/*media queries for changing size of little icons*/
+@media only screen and (min-width: 768px) {
+    div.lilobj > .card {
+        width: 2.4em;
+        height: 3em;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    div.lilobj > .card {
+        width: 3.5em;
+        height: 3.5em;
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    div.lilobj > .card {
+        width: 5em;
+        height: 5em;
+    }
+}
+
+div.lilobj > .card > img.card-img-top {
     height: 50%;
     /*this should adjust for portrait orientations*/
     object-fit: cover;
+}
+
+/*the following 2 selectors handle adjusting the text in a singular line*/
+div.bigobj div.card-body {
+    position: relative;
+}
+
+div.bigobj p.card-text {
+    position: absolute;
+    bottom: 1em;
 }

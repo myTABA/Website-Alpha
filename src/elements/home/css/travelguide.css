@@ -12,21 +12,32 @@
     min-height: 10em;
 }
 
-.travelGuide .travel-text{
+.travelGuide .travel-text {
     position: absolute;
     bottom: 0.3em;
     left: 0.4em;
 }
 
-.travelGuide .card.travel{
-    height: 14em;
+.travelGuide .card.travel {
+    height: 25em;
+    border: none;
 }
 
-.travelGuide .card.travel div.travel-img{
-    height: 12em;
+.travelGuide .card.travel div.travel-img {
+    height: 23em;
 }
 
-.travelGuide .card.travel div.travel-img > img{
+@media only screen and (min-width: 992px) {
+    .travelGuide .card.travel {
+        height: 35em;
+    }
+
+    .travelGuide .card.travel div.travel-img {
+        height: 33em;
+    }
+}
+
+.travelGuide .card.travel div.travel-img > img {
     height: inherit;
     object-fit: cover;
 }

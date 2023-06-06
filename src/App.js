@@ -1,33 +1,11 @@
-import 'bootstrap/dist/css/bootstrap.css';
-import $ from "jquery";
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import "bootstrap/dist/js/bootstrap.min";
 import "./App.css";
 import Navbar from "./elements/home/jsx/navbar";
 import Footer from "./elements/home/jsx/footer";
-import {useEffect} from "react";
 import {Route, Routes} from "react-router-dom";
 import Home from "./elements/home/home";
 import Recommendation from "./elements/recommendation/rec";
 
 export default function App() {
-    // return (
-    //     <>
-    //         <Navbar/>
-    //         {/*<Hero />*/}
-    //         {/*<DestinationPOIInspiration />*/}
-    //         {/*<TravelGuide/>*/}
-    //         {/*<CTA*/}
-    //         {/*title={"Feature"}*/}
-    //         {/*text={"Now"}*/}
-    //         {/*button={"Call to Action"}/>*/}
-    //         {/*/!*component for debugging*!/*/}
-    //         {/*/!*<RandomBootstrapComponent/>*!/*/}
-    //         <RecApp/>
-    //         <Footer/>
-    //
-    //     </>
-    // );
 
     return (
         <>
@@ -40,30 +18,5 @@ export default function App() {
             </Routes>
             <Footer/>
         </>
-    );
-}
-
-function RandomBootstrapComponent() {
-    useEffect(() => {
-        // Initialize any Bootstrap JavaScript functionality here
-
-        // Example: Toggle collapse functionality
-        $(".collapse-button").click(function () {
-            $(".collapse-content").collapse("toggle");
-        });
-    }, []);
-
-    return (
-        <div>
-            <button type="button" className="btn btn-primary collapse-button">
-                Toggle Collapse
-            </button>
-
-            <div className="collapse collapse-content">
-                <div className="card card-body">
-                    This is a collapsible content.
-                </div>
-            </div>
-        </div>
     );
 }

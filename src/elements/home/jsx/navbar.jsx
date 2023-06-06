@@ -18,44 +18,24 @@ function Logo() {
 
 function NavButtons() {
 
-    const [isCollapsed, setIsCollapsed] = useState(false);
-
-    const handleToggle = () => {
-        setIsCollapsed(!isCollapsed);
-    };
-
-    // Add event listener on component mount to handle collapse state changes
-    // useEffect(() => {
-    //     const collapseButton = $('#collapseButton');
-    //     collapseButton.on('hide.bs.collapse', () => {
-    //         setIsCollapsed(false);
-    //     });
-    //     collapseButton.on('show.bs.collapse', () => {
-    //         setIsCollapsed(true);
-    //     });
-    //
-    //     return () => {
-    //         collapseButton.off('hide.bs.collapse');
-    //         collapseButton.off('show.bs.collapse');
-    //     };
-    // }, []);
-
-    const collapseClass = isCollapsed ? 'show' : '';
-
     return (
-        <div className={`collapse navbar-collapse ${collapseClass}`} id="collapseButton">
-            <ul className="navbar-nav mr-auto">
-                <li className="nav-item">
-                    <a className="btn nav-link btn" href="#">About Us</a>
-                </li>
-                <li className="nav-item">
-                    <a className="btn nav-link btn" href="#">Pricing</a>
-                </li>
-                <li className="nav-item">
-                    <a className="btn nav-link btn" href="#">Explore Destinations</a>
-                </li>
-            </ul>
-        </div>
+        <>
+            <div className={`collapse navbar-collapse`} id="collapseButton">
+                <div className="navbar-nav me-auto">
+                    <NavLink to={"https://google.com"} className={"nav-link"}>About Us</NavLink>
+                    <NavLink to={"https://google.com"} className={"nav-link"}>Pricing</NavLink>
+                    <NavLink to={"https://google.com"} className={"nav-link"}>Explore Destinations</NavLink>
+
+                    <span id={"signup-login"}>
+                        <NavLink to={"#"} className={"nav-link"}>Sign Up</NavLink>
+                        <NavLink to={"#"} className={"nav-link"}>Login</NavLink>
+                    </span>
+
+                </div>
+
+            </div>
+
+        </>
     );
 }
 

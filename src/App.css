@@ -1,5 +1,5 @@
 /*colour palette definitions*/
-:root{
+:root {
     /*red-pink*/
     --primary: #FF4A83;
     /*pink*/
@@ -12,16 +12,35 @@
     --extra2: #67AAF9;
 }
 
-body{
+body {
     margin-top: 76px;
 }
-nav.navbar{
+
+#signup-login{
+    display: block;
+}
+
+@media only screen and (min-width: 992px){
+    #collapseButton{
+        position: relative;
+    }
+
+    #signup-login{
+        display: inherit;
+        position: absolute;
+        right: 0;
+    }
+}
+
+nav.navbar {
     transition: transform 0.3s ease-in-out;
 }
-nav.navbar-hide{
+
+nav.navbar-hide {
     transform: translateY(-100%);
 }
-nav.navbar-show{
+
+nav.navbar-show {
     transform: translateY(0);
 }
 
@@ -30,5 +49,6 @@ nav.navbar-show{
 }
 
 img.card-img-top {
-    border-radius: .75rem .75rem 0 0;
+    /*border-radius: .75rem .75rem 0 0;*/
+    border-radius: .75rem;
 }

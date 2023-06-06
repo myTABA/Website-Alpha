@@ -9,7 +9,7 @@ function LittleObjects({img, name}) {
 
     return (
         <div className="col-1 lilobj">
-            <div className="card" style={{width: 2 + "em"}}>
+            <div className="card">
                 <img className={"card-img-top"}
                      src={img}/>
                 <p className="card-text text-center" style={{fontSize: .5 + "em"}}>{name}</p>
@@ -23,7 +23,7 @@ function BigObjects({img, name, location}) {
     name = name ? name : 'POI Name';
     location = location ? location : 'POI Location';
     return(
-        <div className="col-6 col-md-4 col-lg-3 bigobj">
+        <div className="col-6 col-md-4 col-lg-3 bigobj p-2 m-0">
             <div className="card">
                 <img className="card-img-top"
                      src={img} height={"100em"}/>
@@ -45,7 +45,7 @@ export default function DestinationPOIInspiration() {
         <div className={"destinationInspiration my-5"}>
             <div className="container">
                 <div className="row my-2">
-                    <h3>Destination Inspiration</h3>
+                    <h3>Not sure where to go?<br/>Get Inspired</h3>
                 </div>
                 <div className="row my-2">
                     <LittleObjects
