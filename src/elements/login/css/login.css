@@ -1,0 +1,22 @@
+#loginModal div.modal-content{
+    padding-bottom: 1.5em;
+}
+div.loginModal form.container input{
+    margin: 1em 0;
+    border-radius: 3em;
+    height: 3em;
+}
+div.loginModal form.container input:nth-child(2){
+    margin-bottom: 0;
+}
+div.loginModal a.form-text{
+    text-decoration: none;
+}
+div.loginModal div.form-fields{
+    margin-bottom: .75em;
+}
+div.loginModal div.alt-login a.btn{
+    border-radius: 50px;
+    width: 75%;
+    justify-content: space-between;
+}

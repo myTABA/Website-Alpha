@@ -27,8 +27,14 @@ function NavButtons() {
                     <NavLink to={"https://google.com"} className={"nav-link"}>Explore Destinations</NavLink>
 
                     <span id={"signup-login"}>
-                        <NavLink to={"#"} className={"nav-link"}>Sign Up</NavLink>
-                        <NavLink to={"#"} className={"nav-link"}>Login</NavLink>
+                        <NavLink to={"#"} className={"nav-link"}
+                                 data-bs-target={"#loginModal"} data-bs-toggle={"modal"}>
+                            Sign Up
+                        </NavLink>
+                        <NavLink to={"#"} className={"nav-link"}
+                                 data-bs-target={"#loginModal"} data-bs-toggle={"modal"}>
+                            Login
+                        </NavLink>
                     </span>
 
                 </div>
