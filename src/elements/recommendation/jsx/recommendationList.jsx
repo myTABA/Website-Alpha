@@ -41,7 +41,7 @@ function RecItem({img, name, num, match, rating_star, rating_count, description,
                     {description}
                 </div>
                 <div className={"rec-add"}>
-                    {/*todo this part needs to be changed, discuss*/}
+                    {/*todo click override based on screen size - js check screen size and render appropriately*/}
                     <button type={"button"} className={"btn btn-primary"} data-bs-toggle={"modal"} data-bs-target={"#overlayContent"}>
                         Add to itinerary
                     </button>

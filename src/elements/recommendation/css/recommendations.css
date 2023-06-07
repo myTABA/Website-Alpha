@@ -8,20 +8,28 @@
 }
 
 .recommendation > .row {
-    height: 100vh;
+    height: calc(100vh - 76px);
+}
+
+.recommendation .rec-map {
+    height: calc(100vh - 76px);
 }
 
 .recommendation > .row > div {
     height: inherit;
 }
 
-.recommendation .map {
-    width: 100%;
+.recommendation .rec-map .map {
+    height: calc(100vh - 76px - 48px * 2);
+    display: flex;
+    justify-content: center;
 }
 
 .recommendation .map > img {
     object-fit: cover;
-    width: inherit;
+    height: 100%;
+    width: 100%;
+    /*if you delete width 100% then it doesnt crop but then the map is smaller*/
 }
 
 /*scrollbar stuff*/
@@ -44,7 +52,7 @@
 
 
 .rec-item, .rec-map {
-    margin: 3em 0;
+    padding: 3em 0;
 }
 
 .rec-match {
@@ -75,12 +83,13 @@ div.map-popup.col {
 /*}*/
 
 /*modal*/
-div.modal-content > div.modal-body div.side-img > img, p.dayChart > img, div.map-img > img, div.modal-nearby-images img, div.modal-review-pfp > img{
+div.modal-content > div.modal-body div.side-img > img, p.dayChart > img, div.map-img > img, div.modal-nearby-images img, div.modal-review-pfp > img {
     width: 100%;
     object-fit: cover;
     height: 100%;
 }
-div.modal-review-pfp > img{
+
+div.modal-review-pfp > img {
     border-radius: 50em;
     height: 100%;
 }
