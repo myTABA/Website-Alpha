@@ -10,7 +10,7 @@ function ModalContent() {
             <div className={"modal-dialog modal-xl"}>
                 <div className={"modal-content"}>
                     <div className={"modal-body"}>
-                        {/*this is where the entire modal body is staying*/}
+                        {/*this is where the entire modal body is*/}
                         <div className={"container-fluid"}>
                             <div className={"row"}>
                                 <div className={"col-2 side-img"}>

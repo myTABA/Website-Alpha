@@ -3,6 +3,8 @@
     max-width: fit-content;
     border: none;
 }
+
+/*forgot what this was for, but can be safely deleted(hopefully)*/
 .cta-card > .card-header, .cta-card > .card-body{
     /*display: flex;*/
     /*align-content: center;*/

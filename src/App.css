@@ -16,6 +16,13 @@ body {
     margin-top: 76px;
 }
 
+/*todo test this*/
+@media only screen and (max-width: 991px){
+    nav.navbar > div.container{
+        width: 100%;
+    }
+}
+
 #signup-login{
     display: block;
 }

@@ -1,5 +1,6 @@
 import "../css/footer.css";
 import {SocialIcon} from "react-social-icons";
+import {NavLink} from "react-router-dom";
 
 export default function Footer() {
 
@@ -14,6 +15,7 @@ export default function Footer() {
     let val =
         <div className={"container-fluid mt-5 py-5"}>
             <div className={"row text-center"}>
+                {/*three columns for footer*/}
                 <div className={"col-12 col-md"}>
                     <ul className={"navbar-nav"}>
                         <li className={"nav-item nav-head"}>
@@ -30,16 +32,16 @@ export default function Footer() {
                             myTABA
                         </li>
                         <li className={"nav-item nav-link"}>
-                            <a className={"nav-link"} href={"#"}>Blog</a>
+                            <NavLink className={"nav-link"} to={"#"}>Blog</NavLink>
                         </li>
                         <li className={"nav-item nav-link"}>
-                            <a className={"nav-link"} href={"#"}>Destination Guides</a>
+                            <NavLink className={"nav-link"} to={"#"}>Destination Guides</NavLink>
                         </li>
                         <li className={"nav-item nav-link"}>
-                            <a className={"nav-link"} href={"#"}>About Us</a>
+                            <NavLink className={"nav-link"} to={"#"}>About Us</NavLink>
                         </li>
                         <li className={"nav-item nav-link"}>
-                            <a className={"nav-link"} href={"#"}>Contact Us</a>
+                            <NavLink className={"nav-link"} to={"#"}>Contact Us</NavLink>
                         </li>
                     </ul>
                 </div>

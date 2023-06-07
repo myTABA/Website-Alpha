@@ -50,6 +50,10 @@
     width: 0;
 }
 
+a.rec-item-navlink{
+    text-decoration: none;
+    color: black;
+}
 
 .rec-item, .rec-map {
     padding: 3em 0;

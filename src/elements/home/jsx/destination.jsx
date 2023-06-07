@@ -1,12 +1,16 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faArrowRight, faBars} from "@fortawesome/free-solid-svg-icons";
+import {faBars} from "@fortawesome/free-solid-svg-icons";
 import "../css/destination.css";
 import {useEffect, useState} from "react";
 
 function LittleObjects({img, name, isVisible}) {
 
+    // set defaults
+    // ❗❗ Only for testing ❗❗
     img = img ? img : 'https://cdn.britannica.com/46/154246-050-7C72E12F/view-Rome.jpg';
     name = name ? name : 'Icon Name';
+    // this variable below is a little tricky
+    // read below to understand
     isVisible = isVisible ? "" : "d-none";
 
     return (
@@ -44,6 +48,19 @@ function BigObjects({img, name, location}) {
 
 export default function DestinationPOIInspiration() {
 
+    // this is all code for littleobjs
+    // here is what we're doing.
+    //     we need to figure out the screen size.
+    //     for small screens, we display limited littleobjs
+    //
+    // hence, we get window width. BUT, it would only get it once, so if window resizes, rip.
+    //     so, i've written a function for recalculating everything on window resize.
+    //     if the window size is greater than 768px(tablet screen), then the variable display is set, else reset
+    //
+    // the top 4 filters are always visible, so theyre set as visibility true,
+    //     for others we set them dynamically based on value of display
+    // this means for small screens, all other filters are not displayed.
+
     function getWindowWidth() {
         return window.innerWidth;
     }
@@ -55,11 +72,15 @@ export default function DestinationPOIInspiration() {
             setScreenWidth(getWindowWidth());
         }
 
+        // on resize, handler is called which just sets the screen width to current width.
+        //     this is pretty redundant code which a browser tackles on its own
+        // what this means is that when user resizes screen, we read current screen width and set it
+        // this is imporant because the screen size variables wont automatically set the display variable
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    const display = screenWidth >= 768 ? true : false;
+    const display = screenWidth >= 768;
 
     return (
         <div className={"destinationInspiration my-5"}>

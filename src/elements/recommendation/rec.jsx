@@ -1,7 +1,7 @@
 import Map from "./jsx/map";
 import RecommendationPane from "./jsx/recommendationList";
-import ModalContent from "./jsx/modal";
 
+// this design was the most painful, so it has been very very compartmentalised
 export default function Recommendation() {
 
     let items = [
@@ -13,6 +13,7 @@ export default function Recommendation() {
 
     let val =
         <>
+            {/*divide the screen into two halves for the map and the list*/}
             <div className={"container-fluid recommendation"}>
                 <div className={"row"}>
                     <div className={"col-12 col-lg-4"}>

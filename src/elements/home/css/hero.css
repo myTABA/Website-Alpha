@@ -1,4 +1,5 @@
 .bg-img{
+    /*set hero image here*/
     background-image: url("https://cdn.britannica.com/46/154246-050-7C72E12F/view-Rome.jpg");
     opacity: 0.3;
     z-index: -1;

@@ -3,27 +3,30 @@ import {useEffect} from "react";
 
 export default function CTA({title, text, button}) {
     let val;
+    // set default vals for when data is not provided
+    // ❗❗ Only for testing ❗❗
     if (!button) {
         button = "Call to Action";
     }
     if (!title) {
         title = "Feature";
     }
-    val = <div className={"card cta-card"}>
-        <div className={"card-header"}>
-            <p className={"card-title"}>{title}</p>
-        </div>
-        <div className={"card-body text-center"}>
-            <p className={"card-text"}>
-                {text}
-            </p>
+    val =
+        <div className={"card cta-card"}>
+            <div className={"card-header"}>
+                <p className={"card-title"}>{title}</p>
+            </div>
+            <div className={"card-body text-center"}>
+                <p className={"card-text"}>
+                    {text}
+                </p>
 
-            <a href={"#"} className={"cta-button card-link btn btn-primary"}>
-                {button}
-            </a>
+                <a href={"#"} className={"cta-button card-link btn btn-primary"}>
+                    {button}
+                </a>
 
-        </div>
-    </div>;
+            </div>
+        </div>;
 
     //using react hook to execute the width extension
     useEffect(() => {
@@ -34,7 +37,7 @@ export default function CTA({title, text, button}) {
             }
         };
         widthAdjust();
-    },[]); //no dependencies to ensure one exec
+    }, []); //no dependencies to ensure one exec; callback
 
     return (
         <div className={"cta my-5"}>

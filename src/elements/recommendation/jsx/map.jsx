@@ -1,5 +1,6 @@
 import ModalContent from "./modal";
 
+// this is simple, just plots the map
 function Map() {
     let val =
         <div className={"d-none d-md-flex row rec-map"}>
@@ -15,5 +16,3 @@ function Map() {
 }
 
 export default Map;
-
-// todo max height 100vh
