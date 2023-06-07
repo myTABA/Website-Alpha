@@ -32,7 +32,6 @@ function NavButtons() {
                     </span>
 
                 </div>
-
             </div>
 
         </>
