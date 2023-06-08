@@ -12,7 +12,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     // browser router is for complete url match,
     // hashrouter just takes the latter part for URLs
-    <HashRouter>
+    <HashRouter hashType={"noslash"}>
         <App/>
     </HashRouter>
 );
