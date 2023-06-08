@@ -12,9 +12,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     // browser router is for complete url match,
     // hashrouter just takes the latter part for URLs
-    <HashRouter>
+    <BrowserRouter basename={"/"}>
         <App/>
-    </HashRouter>
+    </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function
