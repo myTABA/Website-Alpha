@@ -45,12 +45,12 @@
     }
 }
 
-.recommendation .col-12.col-lg-4::-webkit-scrollbar {
+.recommendation .col-12.col-lg-4::-webkit-scrollbar, #overlayContent::-webkit-scrollbar {
     /*for some reason any width does not show up at all*/
     width: 0;
 }
 
-a.rec-item-navlink{
+a.rec-item-navlink {
     text-decoration: none;
     color: black;
 }
@@ -82,9 +82,33 @@ div.map-popup.col {
     position: relative;
 }
 
-/*#closebtn, #overlayContent {*/
-/*    position: absolute;*/
-/*}*/
+div.recommendation div.rec-map div.map-overlay{
+    display: block;
+    height: 100%;
+    width: calc(100% - 24px);
+    background-color: #a0a0a0aa;
+    z-index: -1;
+    position: absolute;
+}
+
+div.recommendation div.rec-map div.map{
+    position: relative;
+}
+
+#closebtn, #overlayContent {
+    position: absolute;
+}
+#closebtn{
+    top: 1em;
+    left: 1.8em;
+}
+#closebtn > button{
+    border-radius: 50px;
+}
+#closebtn > button > i{
+    margin-right: 5px;
+    font-size: 15px;
+}
 
 /*modal*/
 div.modal-content > div.modal-body div.side-img > img, p.dayChart > img, div.map-img > img, div.modal-nearby-images img, div.modal-review-pfp > img {
