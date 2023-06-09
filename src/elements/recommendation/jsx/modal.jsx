@@ -9,31 +9,31 @@ function ModalContent({overlayRef}) {
     // define the modal element that needs to be checked
     const mapModal = useRef(null);
     // define the element that needs to be manipulated
-    useEffect(() => {
-        const show = () => {
-            if (overlayRef.current) {
-                overlayRef.current.style.zIndex = 1;
-            }
-        }
-        const hide = () => {
-            if (overlayRef.current) {
-                overlayRef.current.style.zIndex = -1;
-            }
-        }
-
-        // instead of using react states i used eventlisteneers cause the usestate was getting complicated
-        if (mapModal) {
-            mapModal.current.addEventListener("show.bs.modal", show);
-            mapModal.current.addEventListener("hide.bs.modal", hide);
-        }
-        return () => {
-            if (mapModal) {
-                // when done, unlink the event listeners
-                mapModal.current.removeEventListener("show.bs.modal", show);
-                mapModal.current.removeEventListener("hide.bs.modal", hide);
-            }
-        }
-    }, []);
+    // useEffect(() => {
+    //     const show = () => {
+    //         if (overlayRef.current) {
+    //             overlayRef.current.style.zIndex = 1;
+    //         }
+    //     }
+    //     const hide = () => {
+    //         if (overlayRef.current) {
+    //             overlayRef.current.style.zIndex = -1;
+    //         }
+    //     }
+    //
+    //     // instead of using react states i used eventlisteneers cause the usestate was getting complicated
+    //     if (mapModal) {
+    //         mapModal.current.addEventListener("show.bs.modal", show);
+    //         mapModal.current.addEventListener("hide.bs.modal", hide);
+    //     }
+    //     return () => {
+    //         if (mapModal) {
+    //             // when done, unlink the event listeners
+    //             mapModal.current.removeEventListener("show.bs.modal", show);
+    //             mapModal.current.removeEventListener("hide.bs.modal", hide);
+    //         }
+    //     }
+    // }, []);
     let val =
         <div ref={mapModal} id={"overlayContent"} className={"modal fade"} tabIndex={-1} data-bs-backdrop={"false"}>
             <div className={"modal-dialog modal-xl"}>

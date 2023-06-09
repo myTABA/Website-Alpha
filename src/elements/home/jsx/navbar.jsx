@@ -1,5 +1,5 @@
 import "jquery/dist/jquery.min.js";
-import React, {Component, useState} from "react";
+import React, {Component} from "react";
 import {NavLink} from "react-router-dom";
 
 function Logo() {

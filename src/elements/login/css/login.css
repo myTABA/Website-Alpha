@@ -20,3 +20,7 @@ div.loginModal div.alt-login a.btn{
     width: 75%;
     justify-content: space-between;
 }
+#loginModal button[type=submit]{
+    border-radius: 50px;
+    width: 75%;
+}

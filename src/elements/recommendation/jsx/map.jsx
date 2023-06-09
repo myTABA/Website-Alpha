@@ -1,5 +1,5 @@
 import ModalContent from "./modal";
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useRef} from "react";
 
 // this is simple, just plots the map
 function Map() {
@@ -26,6 +26,8 @@ function Map() {
     // });
 
     return val;
+
+    // todo on click, display the blacked out div and display the modal which would be a normal div
 }
 
 export default Map;

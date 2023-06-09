@@ -10,6 +10,7 @@ export default function Recommendation() {
         {},
         {}
     ];
+    let modalobjects=[{},{},{},{}];
 
     let val =
         <>

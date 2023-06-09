@@ -7,7 +7,7 @@ function Login() {
         <div className={"modal fade"} tabIndex={-1} id={"loginModal"}>
             <div className={"modal-dialog modal-dialog-centered"}>
                 <div className={"modal-content"}>
-                    <div className={"modal-header"}>
+                    <div className={"modal-header text-center d-flex justify-content-center"}>
                         <h3 className={"modal-title"}>
                             myTABA logo
                         </h3>
@@ -36,8 +36,8 @@ function LoginBody() {
                         Forgot password
                     </NavLink>
                 </div>
-                <div className={"container"}>
-                    <button type={"submit"} className={"btn btn-secondary"}>Log In</button>
+                <div className={"container d-flex justify-content-center"}>
+                    <button type={"submit"} className={"btn btn-primary"}>Log In</button>
                 </div>
             </form>
             <div className={"alt-login container"}>
@@ -45,7 +45,7 @@ function LoginBody() {
                     Or
                 </div>
                 <div className={"container text-center"}>
-                    <NavLink to={"#"} type={"button"} className={"btn btn-primary"}>
+                    <NavLink to={"#"} type={"button"} className={"btn btn-secondary"}>
                         {/*<SocialIcon className={"google"}/>*/}
                         G
                         Continue with google

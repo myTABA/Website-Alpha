@@ -17,22 +17,26 @@ body {
 }
 
 /*todo test this*/
-@media only screen and (max-width: 991px){
-    nav.navbar > div.container{
+@media only screen and (max-width: 991px) {
+    nav.navbar > div.container {
         width: 100%;
     }
 }
 
-#signup-login{
+#signup-login {
     display: block;
 }
 
-@media only screen and (min-width: 992px){
-    #collapseButton{
+nav.navbar a:hover, #signup-login > a:hover {
+    color: var(--primary);
+}
+
+@media only screen and (min-width: 992px) {
+    #collapseButton {
         position: relative;
     }
 
-    #signup-login{
+    #signup-login {
         display: inherit;
         position: absolute;
         right: 0;
