@@ -6,15 +6,15 @@ import "bootstrap/dist/js/bootstrap.min.js";
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {BrowserRouter, HashRouter} from "react-router-dom";
+import {HashRouter} from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     // browser router is for complete url match,
     // hashrouter just takes the latter part for URLs
-    <BrowserRouter basename={"/"}>
+    <HashRouter hashType={"noslash"}>
         <App/>
-    </BrowserRouter>
+    </HashRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function
