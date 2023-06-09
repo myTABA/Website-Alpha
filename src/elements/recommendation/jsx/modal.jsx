@@ -1,15 +1,35 @@
 import Star from "./Star";
+import {useEffect} from "react";
 
+// todo create unique id for all elements and link them to modal where it is rendered via props
 
 function ModalContent() {
+    // define the modal element that needs to be checked
+    const modal = document.getElementById("overlayContent");
 
+    useEffect(() => {
+        // define the element that needs to be manipulated
+        const overlay = document.querySelector("div.recommendation div.rec-map div.map-overlay");
+
+        // instead of using react states i used eventlisteneers cause the usestate was getting complicated
+        modal.addEventListener("show.bs.modal", () => overlay.style.zIndex = 1);
+        modal.addEventListener("hide.bs.modal", () => overlay.style.zIndex = -1);
+        return () => {
+            // when done, unlink the event listeners
+            modal.removeEventListener("show.bs.modal", () => overlay.style.zIndex = 1);
+            modal.removeEventListener("hide.bs.modal", () => overlay.style.zIndex = -1);
+        }
+    }, [modal]);
 
     let val =
-        <div id={"overlayContent"} className={"modal fade"} tabIndex={-1}>
-            <CloseButton/>
+        <div id={"overlayContent"} className={"modal fade"} tabIndex={-1} data-bs-backdrop={"false"}>
             <div className={"modal-dialog modal-xl"}>
                 <div className={"modal-content"}>
+                    {/*<div className={"modal-header"}>*/}
+                    {/*    <button className={"btn-close"} data-bs-dismiss={"modal"} type={"button"}/>*/}
+                    {/*</div>*/}
                     <div className={"modal-body"}>
+                        <CloseButton/>
                         {/*this is where the entire modal body is*/}
                         <div className={"container-fluid"}>
                             <div className={"row"}>
@@ -247,13 +267,13 @@ function Description({name, num, match, rating_star, rating_count, description})
 
 function CloseButton() {
     let val =
-        <a href={"#"}>
-            <span id={"closebtn"}>
-                <i className={"btn btn-close"}></i>
-                Close
-            </span>
-        </a>
-    ;
+
+        <span id={"closebtn"}>
+                <button type={"button"} className={"btn btn-secondary"} data-bs-dismiss={"modal"}>
+                    <i className={"btn-close btn-close-white"}/>Close
+                </button>
+        </span>;
+    return val;
 }
 
 export default ModalContent;
