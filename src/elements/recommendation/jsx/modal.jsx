@@ -1,28 +1,41 @@
 import Star from "./Star";
-import {useEffect} from "react";
+import {useEffect, useRef} from "react";
+import modal from "bootstrap/js/src/modal";
 
 // todo create unique id for all elements and link them to modal where it is rendered via props
 
-function ModalContent() {
-    // define the modal element that needs to be checked
-    const modal = document.getElementById("overlayContent");
+function ModalContent({overlayRef}) {
 
+    // define the modal element that needs to be checked
+    const mapModal = useRef(null);
+    // define the element that needs to be manipulated
     useEffect(() => {
-        // define the element that needs to be manipulated
-        const overlay = document.querySelector("div.recommendation div.rec-map div.map-overlay");
+        const show = () => {
+            if (overlayRef.current) {
+                overlayRef.current.style.zIndex = 1;
+            }
+        }
+        const hide = () => {
+            if (overlayRef.current) {
+                overlayRef.current.style.zIndex = -1;
+            }
+        }
 
         // instead of using react states i used eventlisteneers cause the usestate was getting complicated
-        modal.addEventListener("show.bs.modal", () => overlay.style.zIndex = 1);
-        modal.addEventListener("hide.bs.modal", () => overlay.style.zIndex = -1);
-        return () => {
-            // when done, unlink the event listeners
-            modal.removeEventListener("show.bs.modal", () => overlay.style.zIndex = 1);
-            modal.removeEventListener("hide.bs.modal", () => overlay.style.zIndex = -1);
+        if (mapModal) {
+            mapModal.current.addEventListener("show.bs.modal", show);
+            mapModal.current.addEventListener("hide.bs.modal", hide);
         }
-    }, [modal]);
-
+        return () => {
+            if (mapModal) {
+                // when done, unlink the event listeners
+                mapModal.current.removeEventListener("show.bs.modal", show);
+                mapModal.current.removeEventListener("hide.bs.modal", hide);
+            }
+        }
+    }, []);
     let val =
-        <div id={"overlayContent"} className={"modal fade"} tabIndex={-1} data-bs-backdrop={"false"}>
+        <div ref={mapModal} id={"overlayContent"} className={"modal fade"} tabIndex={-1} data-bs-backdrop={"false"}>
             <div className={"modal-dialog modal-xl"}>
                 <div className={"modal-content"}>
                     {/*<div className={"modal-header"}>*/}
@@ -74,6 +87,8 @@ function ModalContent() {
                 </div>
             </div>
         </div>;
+
+
     return val;
 }
 
@@ -193,10 +208,10 @@ function Timings() {
                     </p>
                 </div>
                 <div className={"row my-1"}>
-                    <p className={"hrs"}>
-                        <p>
+                    <div className={"hrs"}>
+                        <div>
                             <h5>Hours:</h5>
-                        </p>
+                        </div>
                         <p>
                             Sunday&emsp;8.30AM-4PM
                         </p>
@@ -218,7 +233,7 @@ function Timings() {
                         <p>
                             Sunday&emsp;8.30AM-4PM
                         </p>
-                    </p>
+                    </div>
                 </div>
                 <div className={"row my-1"}>
                     <p className={"dayChart"}>
