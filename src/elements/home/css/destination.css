@@ -65,3 +65,14 @@ div.bigobj p.card-text {
     position: absolute;
     bottom: 1em;
 }
+
+div.lilobj img, div.bigobj img{
+    transition: all .2s ease-in-out;
+}
+
+div.lilobj img:hover{
+    scale: 1.5;
+}
+div.bigobj img:hover{
+    scale: 1.2;
+}
