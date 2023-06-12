@@ -10,7 +10,7 @@ export default function Hero() {
                         <div className={"bg-img"}></div>
 
                         <div className={"container"}>
-                            <div className={"col-8 col-md-6"}>
+                            <div className={"col-12 col-md-6"}>
                                 <p className="text-justify">
                                     <b>You won't plan a trip without our recommendations again</b>
                                 </p>

@@ -62,8 +62,8 @@ div.bigobj div.card-body {
 }
 
 div.bigobj p.card-text {
-    position: absolute;
-    bottom: 1em;
+    position: relative;
+    top: 12px;
 }
 
 div.lilobj img, div.bigobj img{

@@ -63,3 +63,6 @@ img.card-img-top {
     /*border-radius: .75rem .75rem 0 0;*/
     border-radius: .75rem;
 }
+input::placeholder{
+    color: #b5b5b5 !important;
+}

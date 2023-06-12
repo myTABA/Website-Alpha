@@ -5,6 +5,8 @@ import {Route, Routes} from "react-router-dom";
 import Home from "./elements/home/home";
 import Recommendation from "./elements/recommendation/rec";
 import Login from "./elements/login/jsx/login";
+import Signup from "./elements/login/jsx/signup";
+import Travel from "./elements/travelguide/jsx/travel";
 
 export default function App() {
 
@@ -15,10 +17,12 @@ export default function App() {
 
                 <Route path={'/'} element={<Home/>}/>
                 <Route path={'/recommendations'} element={<Recommendation/>}/>
+                <Route path={"/travel-guides"} element={<Travel/>}/>
 
             </Routes>
             <Footer/>
             <Login/>
+            <Signup/>
         </>
     );
 }

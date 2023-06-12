@@ -1,46 +1,46 @@
-#loginModal div.modal-content {
+#signupModal div.modal-content {
     padding-bottom: 1.5em;
 }
 
-div.loginModal form.container input {
+div.signupModal form.container input {
     margin: 1em 0;
     border-radius: 3em;
     height: 3em;
     box-shadow: rgba(0,0,0,.2) 2px 2px;
 }
 
-div.loginModal form.container input:nth-child(2) {
+div.signupModal form.container input:nth-child(2) {
     margin-bottom: 0;
 }
 
-div.loginModal a.form-text {
+div.signupModal a.form-text {
     text-decoration: none;
 }
 
-div.loginModal div.form-fields {
+div.signupModal div.form-fields {
     margin-bottom: .75em;
 }
 
-div.loginModal div.alt-login a.btn {
+div.signupModal div.alt-signup a.btn {
     border-radius: 50px;
     width: 75%;
     justify-content: space-between;
 }
 
-#loginModal button[type=submit], #loginModal a[type=button] {
+#signupModal button[type=submit], #signupModal a[type=button] {
     border-radius: 50px;
     width: 100%;
 }
 
-#loginModal div.container {
+#signupModal div.container {
     width: 75%;
 }
 
-#loginModal div.modal-header {
+#signupModal div.modal-header {
     border: none;
 }
 
-#loginModal button[type=button].btn-close {
+#signupModal button[type=button].btn-close {
     position: absolute;
     right: 1.5em;
     top: 1.5em;
@@ -52,6 +52,6 @@ button#show-pass{
     right: .5em;
     top: .65em;
 }
-#loginModal div.signup{
+#signupModal div.login{
     margin-top: 1.5em;
 }

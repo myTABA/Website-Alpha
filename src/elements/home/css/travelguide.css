@@ -41,3 +41,6 @@
     height: inherit;
     object-fit: cover;
 }
+a.travel-link{
+    text-decoration: none;
+}

@@ -24,11 +24,11 @@ function NavButtons() {
                 <div className="navbar-nav me-auto">
                     <NavLink to={"https://google.com"} className={"nav-link"}>About Us</NavLink>
                     <NavLink to={"https://google.com"} className={"nav-link"}>Pricing</NavLink>
-                    <NavLink to={"https://google.com"} className={"nav-link"}>Explore Destinations</NavLink>
+                    <NavLink to={"/travel-guides"} className={"nav-link"}>Travel Guides</NavLink>
 
                     <span id={"signup-login"}>
                         <NavLink to={"#"} className={"nav-link"}
-                                 data-bs-target={"#loginModal"} data-bs-toggle={"modal"}>
+                                 data-bs-target={"#signupModal"} data-bs-toggle={"modal"}>
                             Sign Up
                         </NavLink>
                         <NavLink to={"#"} className={"nav-link"}
@@ -63,7 +63,8 @@ class Navbar extends Component {
         // then we set the navbar visible as true
         this.state = {
             prevScrollPos: window.scrollY,
-            navbarVisible: true
+            navbarVisible: true,
+            opacity: 1
         };
     }
 
@@ -90,19 +91,21 @@ class Navbar extends Component {
             // if prev scroll was greater than current scroll(top is 0),
             // that means that user scrolled up, which means that the navbar visible needs be set true
             // otherwise false
-            navbarVisible: prevScrollPos > currentScrollPos || currentScrollPos <= navbarHeight,
+            navbarVisible: prevScrollPos - currentScrollPos > 0 || currentScrollPos <= navbarHeight,
             // update the prev scroll pos to current val
-            prevScrollPos: currentScrollPos
+            prevScrollPos: currentScrollPos,
+            opacity: currentScrollPos <= navbarHeight ? 1 - (currentScrollPos / navbarHeight) : 1
         });
     };
 
     render() {
-        const {navbarVisible} = this.state;
+        const {navbarVisible, opacity} = this.state;
         // get the navbar bool
         return (
             <nav
                 // based off the bool val, set the class. class behaviour defined in css
-                className={`navbar navbar-expand-lg navbar-light bg-light fixed-top ${navbarVisible ? "navbar-show" : "navbar-hide"}`}>
+                className={`navbar navbar-expand-lg navbar-light bg-light fixed-top ${navbarVisible ? "navbar-show" : "navbar-hide"}`}
+                style={{opacity: opacity}}>
                 <div className={"container"}>
                     <Logo/>
                     <NavButtons/>

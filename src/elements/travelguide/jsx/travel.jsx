@@ -1,9 +1,7 @@
-import "../css/travelguide.css";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faBook} from "@fortawesome/free-solid-svg-icons";
-import {NavLink} from "react-router-dom";
+import {TravelCard} from "../../home/jsx/travelguide";
+import "../../home/css/travelguide.css";
 
-function TravelGuide() {
+export default function Travel() {
     let val =
         <div className={"container"}>
             <div className={"row my-2"}>
@@ -32,51 +30,9 @@ function TravelGuide() {
                     <TravelCard/>
                 </div>
                 <div className={"col-6 col-md-4 col-lg-3 p-2 m-0"}>
-                    <NavLink to={"/travel-guides"} className={"travel-link"}>
-                        <div className={"card travel"}>
-                            <div
-                                className={"card-body p-0 d-flex flex-column align-items-center justify-content-evenly"}>
-                                <div className={"more-guides"}>
-                                    <FontAwesomeIcon icon={faBook} size={"10x"} color={"var(--primary)"}/>
-                                </div>
-                                <div className={"text-center"}>
-                                    See more Guides
-                                </div>
-                            </div>
-                        </div>
-                    </NavLink>
+                    <TravelCard/>
                 </div>
             </div>
         </div>;
-
-    return (
-        <div className={"travelGuide my-5"}>
-            {val}
-        </div>
-    );
-
+    return <div className={"travelGuide"}>{val}</div>;
 }
-
-function TravelCard({location, img}) {
-    if (!img) {
-        img = "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg";
-    }
-    if (!location) {
-        location = "Location";
-    }
-
-    return (
-        <div className={"card travel"}>
-            <div className={"card-body p-0"}>
-                <div className={"travel-img card-img-top"}>
-                    <img src={img} className={"card-img-top"}></img>
-                </div>
-                <div className={"travel-text"}>
-                    {location}
-                </div>
-            </div>
-        </div>
-    );
-}
-
-export {TravelCard,TravelGuide};

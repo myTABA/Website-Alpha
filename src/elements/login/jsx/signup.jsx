@@ -1,13 +1,13 @@
 import {NavLink} from "react-router-dom";
 import {SocialIcon} from "react-social-icons";
-import "../css/login.css";
+import "../css/signup.css";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEye, faEyeSlash} from "@fortawesome/free-solid-svg-icons";
 import {useEffect, useState} from "react";
 
-function Login() {
+function Signup() {
     let val =
-        <div className={"modal fade"} tabIndex={-1} id={"loginModal"}>
+        <div className={"modal fade"} tabIndex={-1} id={"signupModal"}>
             <div className={"modal-dialog modal-dialog-centered"}>
                 <div className={"modal-content"}>
                     <div className={"modal-header d-flex justify-content-center position-relative"}>
@@ -23,18 +23,18 @@ function Login() {
                         <p className={"text-center"}>
                             Travel planning, personalized for you
                         </p>
-                        <LoginBody/>
+                        <SignupBody/>
                     </div>
                 </div>
             </div>
         </div>
     ;
-    return <div className={"loginModal"}>
+    return <div className={"signupModal"}>
         {val}
     </div>;
 }
 
-function LoginBody() {
+function SignupBody() {
 
     let [passvisible, setpassvisible] = useState(false);
     useEffect(() => {
@@ -51,6 +51,7 @@ function LoginBody() {
     }, [passvisible]);
 
     const [passVal, setPassVal] = useState('');
+    const [confPassVal, setConfPassVal] = useState('');
     const [emailVal, setEmailVal] = useState('');
     const handleUpdatePass = event => {
         setPassVal(event.target.value);
@@ -58,16 +59,17 @@ function LoginBody() {
     const handleUpdateEmail = event => {
         setEmailVal(event.target.value);
     }
+    const handleUpdateConfPass = e => {
+        setConfPassVal(e.target.value);
+    }
 
-    // dummy login tester
+    // dummy signup tester
     const handleSubmit = (e) => {
-        const email = "deepanshu@mytaba.com";
-        const password = "uwu";
-        if (!(email === emailVal && password === passVal)) {
+        if (!(confPassVal === passVal)) {
             e.preventDefault();
-            alert("Unsuccessful Login");
+            alert("Passwords do not match");
         } else {
-            alert("login success");
+            alert("Signup successful");
         }
     };
 
@@ -85,15 +87,17 @@ function LoginBody() {
                             <FontAwesomeIcon icon={passvisible ? faEye : faEyeSlash}/>
                         </button>
                     </div>
-                    <NavLink to={"#"} className={"container form-text"}>
-                        Forgot password
-                    </NavLink>
+                    <div className={"position-relative"}>
+                        <input type={"password"} placeholder={"Retype Password"}
+                               className={"form-control"} name={"conf_password"}
+                               value={confPassVal} onChange={handleUpdateConfPass}/>
+                    </div>
                 </div>
                 <div className={"container d-flex justify-content-center"}>
-                    <button type={"submit"} className={"btn btn-primary"}>Log In</button>
+                    <button type={"submit"} className={"btn btn-primary"}>Sign Up</button>
                 </div>
             </form>
-            <div className={"alt-login container"}>
+            <div className={"alt-signup container"}>
                 <div className={"container text-center"}>
                     Or
                 </div>
@@ -105,13 +109,13 @@ function LoginBody() {
                     </NavLink>
                 </div>
             </div>
-            <div className={"container signup form-text"}>
-                Don't have an account?
-                <NavLink to={""} className={"container form-text"}><b>Sign Up</b></NavLink>
+            <div className={"container login form-text"}>
+                Alr have an account?
+                <NavLink to={""} className={"container form-text"}><b>Log In</b></NavLink>
             </div>
         </div>
     ;
     return val;
 }
 
-export default Login;
+export default Signup;
