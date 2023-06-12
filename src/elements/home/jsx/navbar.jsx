@@ -82,13 +82,15 @@ class Navbar extends Component {
     handleScroll = () => {
         // set position of current scroll position
         const currentScrollPos = window.scrollY;
+        const navbarHeight = 76;
+
         //get prevscroll val
         const {prevScrollPos} = this.state;
         this.setState({
             // if prev scroll was greater than current scroll(top is 0),
             // that means that user scrolled up, which means that the navbar visible needs be set true
             // otherwise false
-            navbarVisible: prevScrollPos > currentScrollPos,
+            navbarVisible: prevScrollPos > currentScrollPos || currentScrollPos <= navbarHeight,
             // update the prev scroll pos to current val
             prevScrollPos: currentScrollPos
         });
