@@ -111,7 +111,8 @@ function SignupBody() {
             </div>
             <div className={"container login form-text"}>
                 Alr have an account?
-                <NavLink to={""} className={"container form-text"}><b>Log In</b></NavLink>
+                <button className={"container form-text"}><b>Log In</b>
+                </button>
             </div>
         </div>
     ;

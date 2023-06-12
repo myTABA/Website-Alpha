@@ -91,10 +91,10 @@ class Navbar extends Component {
             // if prev scroll was greater than current scroll(top is 0),
             // that means that user scrolled up, which means that the navbar visible needs be set true
             // otherwise false
-            navbarVisible: prevScrollPos - currentScrollPos > 0 || currentScrollPos <= navbarHeight,
+            navbarVisible: prevScrollPos - currentScrollPos > 0 || currentScrollPos < navbarHeight,
             // update the prev scroll pos to current val
             prevScrollPos: currentScrollPos,
-            opacity: currentScrollPos <= navbarHeight ? 1 - (currentScrollPos / navbarHeight) : 1
+            opacity: currentScrollPos === navbarHeight ? 0 : (currentScrollPos <= navbarHeight ? 1 - (currentScrollPos / navbarHeight) : 1)
         });
     };
 

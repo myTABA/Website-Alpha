@@ -48,10 +48,14 @@ nav.navbar {
 }
 
 nav.navbar-hide {
+    /*hack to prevent it from jumping in and out on 76px breakpoint*/
+    opacity: 0;
+    visibility: hidden;
     transform: translateY(-100%);
 }
 
 nav.navbar-show {
+    opacity: 1;
     transform: translateY(0);
 }
 
