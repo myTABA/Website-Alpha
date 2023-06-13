@@ -3,7 +3,8 @@ import {SocialIcon} from "react-social-icons";
 import "../css/login.css";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEye, faEyeSlash} from "@fortawesome/free-solid-svg-icons";
-import {useEffect, useState} from "react";
+import {createRef, useEffect, useRef, useState} from "react";
+import signup from "./signup";
 
 function Login() {
     let val =
@@ -38,29 +39,31 @@ function LoginBody() {
 
     let [passvisible, setpassvisible] = useState(false);
     useEffect(() => {
-        const butt = document.getElementById("show-pass");
+        const butt = document.getElementsByClassName("show-pass");
 
         function toggleVisible() {
             setpassvisible(!passvisible);
         }
 
-        butt.addEventListener("click", toggleVisible);
+        butt[0].addEventListener("click", toggleVisible);
+        // butt[1].addEventListener("click", toggleVisible);
         return () => {
-            butt.removeEventListener("click", toggleVisible);
+            butt[0].removeEventListener("click", toggleVisible);
+            // butt[1].addEventListener("click", toggleVisible);
         };
     }, [passvisible]);
 
     const [passVal, setPassVal] = useState('');
     const [emailVal, setEmailVal] = useState('');
-    const handleUpdatePass = event => {
+    const handleUpdateLoginPass = event => {
         setPassVal(event.target.value);
     }
-    const handleUpdateEmail = event => {
+    const handleUpdateLoginEmail = event => {
         setEmailVal(event.target.value);
     }
 
     // dummy login tester
-    const handleSubmit = (e) => {
+    const handleSubmitLogin = (e) => {
         const email = "deepanshu@mytaba.com";
         const password = "uwu";
         if (!(email === emailVal && password === passVal)) {
@@ -71,18 +74,61 @@ function LoginBody() {
         }
     };
 
+
+    // signup
+    // const [passVal, setPassVal] = useState('');
+    const [confPassVal, setConfPassVal] = useState('');
+    // const [emailVal, setEmailVal] = useState('');
+    const handleUpdatePass = event => {
+        setPassVal(event.target.value);
+    }
+    const handleUpdateEmail = event => {
+        setEmailVal(event.target.value);
+    }
+    const handleUpdateConfPass = e => {
+        setConfPassVal(e.target.value);
+    }
+
+    // dummy signup tester
+    const handleSubmit = (e) => {
+        if (!(confPassVal === passVal)) {
+            e.preventDefault();
+            alert("Passwords do not match");
+        } else {
+            alert("Signup successful");
+        }
+    }
+
+    const signupform = createRef();
+    const loginform = createRef();
+
+    const clear_fields = () => {
+
+    }
+
+    const switch_signup = () => {
+        clear_fields();
+        loginform.current.style.zIndex = -1;
+        signupform.current.style.zIndex = 1;
+    }
+    const switch_login = () => {
+        clear_fields();
+        loginform.current.style.zIndex = 1;
+        signupform.current.style.zIndex = -1;
+    }
+
     let val =
-        <>
-            <div className={"container"}>
-                <form className={"container"} onSubmit={handleSubmit}>
+        <div className={"loginbody"}>
+            <div ref={loginform} className={"container"}>
+                <form className={"container"} onSubmit={handleSubmitLogin} method={"post"}>
                     <div className={"form-fields"}>
-                        <input type={"email"} placeholder={"Email"} className={"form-control"} name={"email"}
-                               value={emailVal} onChange={handleUpdateEmail}/>
+                        <input type={"email"} placeholder={"Email"} className={"form-control"} name={"emailLogin"}
+                               value={emailVal} onChange={handleUpdateLoginEmail}/>
                         <div className={"position-relative"}>
                             <input type={passvisible ? "text" : "password"} placeholder={"Password"}
-                                   className={"form-control"} name={"password"}
-                                   value={passVal} onChange={handleUpdatePass}/>
-                            <button type={"button"} id={"show-pass"}>
+                                   className={"form-control"} name={"passwordLogin"}
+                                   value={passVal} onChange={handleUpdateLoginPass}/>
+                            <button type={"button"} className={"show-pass"}>
                                 <FontAwesomeIcon icon={passvisible ? faEye : faEyeSlash}/>
                             </button>
                         </div>
@@ -94,7 +140,7 @@ function LoginBody() {
                         <button type={"submit"} className={"btn btn-primary"}>Log In</button>
                     </div>
                 </form>
-                <div className={"alt-login container"}>
+                <div className={"alt-login"}>
                     <div className={"container text-center"}>
                         Or
                     </div>
@@ -106,55 +152,58 @@ function LoginBody() {
                         </NavLink>
                     </div>
                 </div>
-                <div className={"container signup form-text"}>
+                <div className={"container signup form-text text-center"}>
                     Don't have an account?
-                    <button className={"container form-text"}><b>Sign
-                        Up</b></button>
+                    <button className={"container form-text"}
+                            onClick={switch_signup}>
+                        <b>Sign Up</b></button>
                 </div>
             </div>
-            {/*<div className={"container"}>*/}
-            {/*    <form className={"container"} onSubmit={handleSubmit}>*/}
-            {/*        <div className={"form-fields"}>*/}
-            {/*            <input type={"email"} placeholder={"Email"} className={"form-control"} name={"email"}*/}
-            {/*                   value={emailVal} onChange={handleUpdateEmail}/>*/}
-            {/*            <div className={"position-relative"}>*/}
-            {/*                <input type={passvisible ? "text" : "password"} placeholder={"Password"}*/}
-            {/*                       className={"form-control"} name={"password"}*/}
-            {/*                       value={passVal} onChange={handleUpdatePass}/>*/}
-            {/*                <button type={"button"} id={"show-pass"}>*/}
-            {/*                    <FontAwesomeIcon icon={passvisible ? faEye : faEyeSlash}/>*/}
-            {/*                </button>*/}
-            {/*            </div>*/}
-            {/*            <div className={"position-relative"}>*/}
-            {/*                <input type={"password"} placeholder={"Retype Password"}*/}
-            {/*                       className={"form-control"} name={"conf_password"}*/}
-            {/*                       value={confPassVal} onChange={handleUpdateConfPass}/>*/}
-            {/*            </div>*/}
-            {/*        </div>*/}
-            {/*        <div className={"container d-flex justify-content-center"}>*/}
-            {/*            <button type={"submit"} className={"btn btn-primary"}>Sign Up</button>*/}
-            {/*        </div>*/}
-            {/*    </form>*/}
-            {/*    <div className={"alt-signup container"}>*/}
-            {/*        <div className={"container text-center"}>*/}
-            {/*            Or*/}
-            {/*        </div>*/}
-            {/*        <div className={"container text-center"}>*/}
-            {/*            <NavLink to={"#"} type={"button"} className={"btn btn-secondary"}>*/}
-            {/*                /!*<SocialIcon className={"google"}/>*!/*/}
-            {/*                G*/}
-            {/*                Continue with google*/}
-            {/*            </NavLink>*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*    <div className={"container login form-text"}>*/}
-            {/*        Alr have an account?*/}
-            {/*        <button className={"container form-text"}><b>Log In</b>*/}
-            {/*        </button>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
-        </>
+            <div ref={signupform} className={"container"}>
+                <form className={"container"} onSubmit={handleSubmit}>
+                    <div className={"form-fields"}>
+                        <input type={"email"} placeholder={"Email"} className={"form-control"} name={"email"}
+                               value={emailVal} onChange={handleUpdateEmail}/>
+                        <div className={"position-relative"}>
+                            <input type={passvisible ? "text" : "password"} placeholder={"Password"}
+                                   className={"form-control"} name={"password"}
+                                   value={passVal} onChange={handleUpdatePass}/>
+                            <button type={"button"} className={"show-pass"}>
+                                <FontAwesomeIcon icon={passvisible ? faEye : faEyeSlash}/>
+                            </button>
+                        </div>
+                        <div className={"position-relative"}>
+                            <input type={"password"} placeholder={"Retype Password"}
+                                   className={"form-control"} name={"conf_password"}
+                                   value={confPassVal} onChange={handleUpdateConfPass}/>
+                        </div>
+                    </div>
+                    <div className={"container d-flex justify-content-center"}>
+                        <button type={"submit"} className={"btn btn-primary"}>Sign Up</button>
+                    </div>
+                </form>
+                <div className={"alt-signup"}>
+                    <div className={"container text-center"}>
+                        Or
+                    </div>
+                    <div className={"container text-center"}>
+                        <NavLink to={"#"} type={"button"} className={"btn btn-secondary"}>
+                            {/*<SocialIcon className={"google"}/>*/}
+                            G
+                            Continue with google
+                        </NavLink>
+                    </div>
+                </div>
+                <div className={"container login form-text text-center"}>
+                    Alr have an account?
+                    <button className={"container form-text"}
+                            onClick={switch_login}><b>Log In</b>
+                    </button>
+                </div>
+            </div>
+        </div>
     ;
+
     return val;
 }
 

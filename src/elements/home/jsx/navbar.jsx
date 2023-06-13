@@ -1,5 +1,5 @@
 import "jquery/dist/jquery.min.js";
-import React, {Component} from "react";
+import React, {Component, useState} from "react";
 import {NavLink} from "react-router-dom";
 
 function Logo() {
@@ -27,16 +27,15 @@ function NavButtons() {
                     <NavLink to={"/travel-guides"} className={"nav-link"}>Travel Guides</NavLink>
 
                     <span id={"signup-login"}>
-                        <NavLink to={"#"} className={"nav-link"}
-                                 data-bs-target={"#signupModal"} data-bs-toggle={"modal"}>
-                            Sign Up
-                        </NavLink>
+                        {/*<NavLink to={"#"} className={"nav-link"}*/}
+                        {/*         data-bs-target={"#Modal"} data-bs-toggle={"modal"}>*/}
+                        {/*    Sign Up*/}
+                        {/*</NavLink>*/}
                         <NavLink to={"#"} className={"nav-link"}
                                  data-bs-target={"#loginModal"} data-bs-toggle={"modal"}>
                             Login
                         </NavLink>
                     </span>
-
                 </div>
             </div>
 
@@ -56,6 +55,7 @@ function NavButtons() {
 
 class Navbar extends Component {
 
+    // navabr scroll script js
     constructor(props) {
         super(props);
         // set state of component:
@@ -64,7 +64,7 @@ class Navbar extends Component {
         this.state = {
             prevScrollPos: window.scrollY,
             navbarVisible: true,
-            opacity: 1
+            opacity: 1,
         };
     }
 

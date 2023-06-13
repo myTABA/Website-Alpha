@@ -71,8 +71,8 @@ div.lilobj img, div.bigobj img{
 }
 
 div.lilobj img:hover{
-    scale: 1.5;
+    scale: 1.1;
 }
 div.bigobj img:hover{
-    scale: 1.2;
+    scale: 1.05;
 }
