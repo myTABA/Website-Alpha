@@ -15,7 +15,7 @@ export default function Hero() {
                                     <b>You won't plan a trip without our recommendations again</b>
                                 </p>
                                 <p className="text-justify">
-                                    Discover unique points of interest and personalised activities in just 2 minutes.
+                                    Discover unique points of interest and personalized activities in just 2 minutes.
                                     All for free
                                 </p>
                                 <p className="d-flex justify-content-start pt-4">
