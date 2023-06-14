@@ -2,6 +2,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBars} from "@fortawesome/free-solid-svg-icons";
 import "../css/destination.css";
 import {useEffect, useState} from "react";
+import {NavLink} from "react-router-dom";
 
 function LittleObjects({img, name, isVisible}) {
 
@@ -24,24 +25,26 @@ function LittleObjects({img, name, isVisible}) {
     );
 }
 
-function BigObjects({img, name, location}) {
+function BigObjects({url, img, name, location}) {
     img = img ? img : 'https://cdn.britannica.com/46/154246-050-7C72E12F/view-Rome.jpg';
     name = name ? name : 'POI Name';
     location = location ? location : 'POI Location';
     return (
         <div className="col-12 col-md-4 col-lg-3 bigobj p-2 m-0">
-            <div className="card">
-                <img className="card-img-top"
-                     src={img} height={"100em"}/>
-                <div className="card-body">
-                    <h4 className="card-title">
-                        {name}
-                    </h4>
-                    <p className="card-text">
-                        {location}
-                    </p>
+            <NavLink to={url} target={"_blank"}>
+                <div className="card">
+                    <img className="card-img-top"
+                         src={img} height={"100em"}/>
+                    <div className="card-body">
+                        <h4 className="card-title">
+                            {name}
+                        </h4>
+                        <p className="card-text">
+                            {location}
+                        </p>
+                    </div>
                 </div>
-            </div>
+            </NavLink>
         </div>
     );
 }
@@ -129,7 +132,8 @@ export default function DestinationPOIInspiration() {
                     <BigObjects
                         name={"Tokyo"}
                         location={"Japan"}
-                        img={'https://images.unsplash.com/photo-1492571350019-22de08371fd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8amFwYW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=900&q=60'}/>
+                        img={'https://images.unsplash.com/photo-1492571350019-22de08371fd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8amFwYW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=900&q=60'}
+                        url={"https://visitjapan.com"}/>
                     <BigObjects
                         name={"Great wall of China"}
                         location={"China"}

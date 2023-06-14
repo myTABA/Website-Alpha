@@ -31,6 +31,10 @@ nav.navbar a:hover, #signup-login > a:hover {
     color: var(--primary);
 }
 
+#collapseButton{
+    transition: all 0.3s ease-in-out;
+}
+
 @media only screen and (min-width: 992px) {
     #collapseButton {
         position: relative;

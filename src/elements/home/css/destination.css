@@ -1,19 +1,23 @@
-div.destinationInspiration div.bigobj > .card {
+div.destinationInspiration div.bigobj .card {
     height: 20em;
     border: none;
 }
 
-div.destinationInspiration div.bigobj > .card > img.card-img-top {
+div.destinationInspiration div.bigobj > a{
+    text-decoration: none;
+}
+
+div.destinationInspiration div.bigobj .card > img.card-img-top {
     height: 12em;
     object-fit: cover;
 }
 
 @media only screen and (min-width: 992px) {
-    div.destinationInspiration div.bigobj > .card {
+    div.destinationInspiration div.bigobj .card {
         height: 28em;
     }
 
-    div.destinationInspiration div.bigobj > .card > img.card-img-top {
+    div.destinationInspiration div.bigobj .card > img.card-img-top {
         height: 20em;
     }
 }
@@ -22,7 +26,7 @@ div.bigobj {
     margin: .25em 0;
 }
 
-div.lilobj > .card {
+div.lilobj .card {
     height: 3.5em;
     width: 2em;
     border: none;
@@ -66,13 +70,14 @@ div.bigobj p.card-text {
     top: 12px;
 }
 
-div.lilobj img, div.bigobj img{
+div.lilobj img, div.bigobj img {
     transition: all .2s ease-in-out;
 }
 
-div.lilobj img:hover{
+div.lilobj img:hover {
     scale: 1.1;
 }
-div.bigobj img:hover{
+
+div.bigobj img:hover {
     scale: 1.05;
 }

@@ -12,9 +12,10 @@ function Login() {
             <div className={"modal-dialog modal-dialog-centered"}>
                 <div className={"modal-content"}>
                     <div className={"modal-header d-flex justify-content-center position-relative"}>
-                        <h3 className={"modal-title"}>
-                            myTABA logo
-                        </h3>
+                        <div className={"modal-title"}>
+                            <img src={"https://mytaba.com/assets/images/image01.svg?v=c07231be"}
+                            height={"50rem"}/>
+                        </div>
                         <button type={"button"} className={"btn-close"} data-bs-dismiss={"modal"}></button>
                     </div>
                     <div className={"modal-body"}>
