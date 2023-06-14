@@ -76,27 +76,29 @@ div.loginbody {
     transition: fade 0.3s;
 }
 
-div.loginbody  > div.container {
+div.loginbody > div.container {
     position: absolute;
     display: block;
     width: 100%;
     height: fit-content;
     left: 0;
-    right:0;
+    right: 0;
     margin-left: auto;
     margin-right: auto;
     transition: fade 0.3s ease-in-out;
 }
+
 @keyframes fade {
-    0%{
+    0% {
         opacity: 0;
         transform: translateX(0%);
     }
-    100%{
+    100% {
         transform: translateX(100%);
         opacity: 1;
     }
 }
-div.loginbody  > div.container:nth-child(2) {
+
+div.loginbody > div.container:nth-child(2), div.loginbody > div.container:nth-child(3) {
     z-index: -1;
 }

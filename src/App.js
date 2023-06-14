@@ -7,6 +7,7 @@ import Recommendation from "./elements/recommendation/rec";
 import Login from "./elements/login/jsx/login";
 import Signup from "./elements/login/jsx/signup";
 import Travel from "./elements/travelguide/jsx/travel";
+import ScrollToTop from "./elements/scrollToTop";
 
 export default function App() {
 

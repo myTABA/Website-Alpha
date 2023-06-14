@@ -99,27 +99,44 @@ function LoginBody() {
         }
     }
 
-    const signupform = createRef();
-    const loginform = createRef();
+    const handleFgtPassSubmit = () => {
+
+    }
+
+    const signupForm = createRef();
+    const loginForm = createRef();
+    const forgotPass = createRef();
 
     const clear_fields = () => {
-
+        setEmailVal('');
+        setPassVal('');
+        setConfPassVal('');
+        setpassvisible(false);
     }
 
     const switch_signup = () => {
         clear_fields();
-        loginform.current.style.zIndex = -1;
-        signupform.current.style.zIndex = 1;
+        loginForm.current.style.zIndex = -1;
+        signupForm.current.style.zIndex = 1;
+        forgotPass.current.style.zIndex = -1;
     }
     const switch_login = () => {
         clear_fields();
-        loginform.current.style.zIndex = 1;
-        signupform.current.style.zIndex = -1;
+        loginForm.current.style.zIndex = 1;
+        signupForm.current.style.zIndex = -1;
+        forgotPass.current.style.zIndex = -1;
+    }
+
+    const switch_fgtpass = () => {
+        clear_fields();
+        loginForm.current.style.zIndex = -1;
+        forgotPass.current.style.zIndex = 1;
+        signupForm.current.style.zIndex = -1;
     }
 
     let val =
         <div className={"loginbody"}>
-            <div ref={loginform} className={"container"}>
+            <div ref={loginForm} className={"container"}>
                 <form className={"container"} onSubmit={handleSubmitLogin} method={"post"}>
                     <div className={"form-fields"}>
                         <input type={"email"} placeholder={"Email"} className={"form-control"} name={"emailLogin"}
@@ -132,7 +149,7 @@ function LoginBody() {
                                 <FontAwesomeIcon icon={passvisible ? faEye : faEyeSlash}/>
                             </button>
                         </div>
-                        <NavLink to={"#"} className={"container form-text"}>
+                        <NavLink to={"#"} className={"container form-text"} onClick={switch_fgtpass}>
                             Forgot password
                         </NavLink>
                     </div>
@@ -159,7 +176,7 @@ function LoginBody() {
                         <b>Sign Up</b></button>
                 </div>
             </div>
-            <div ref={signupform} className={"container"}>
+            <div ref={signupForm} className={"container"}>
                 <form className={"container"} onSubmit={handleSubmit}>
                     <div className={"form-fields"}>
                         <input type={"email"} placeholder={"Email"} className={"form-control"} name={"email"}
@@ -194,6 +211,48 @@ function LoginBody() {
                         </NavLink>
                     </div>
                 </div>
+                <div className={"container login form-text text-center"}>
+                    Alr have an account?
+                    <button className={"container form-text"}
+                            onClick={switch_login}><b>Log In</b>
+                    </button>
+                </div>
+            </div>
+            <div ref={forgotPass} className={"container"}>
+                <form className={"container"} onSubmit={handleFgtPassSubmit}>
+                    <div className={"form-fields"}>
+                        <input type={"email"} placeholder={"Email"} className={"form-control"} name={"email"}
+                               value={emailVal} onChange={handleUpdateEmail}/>
+                        {/*<div className={"position-relative"}>*/}
+                        {/*    <input type={passvisible ? "text" : "password"} placeholder={"Password"}*/}
+                        {/*           className={"form-control"} name={"password"}*/}
+                        {/*           value={passVal} onChange={handleUpdatePass}/>*/}
+                        {/*    <button type={"button"} className={"show-pass"}>*/}
+                        {/*        <FontAwesomeIcon icon={passvisible ? faEye : faEyeSlash}/>*/}
+                        {/*    </button>*/}
+                        {/*</div>*/}
+                        {/*<div className={"position-relative"}>*/}
+                        {/*    <input type={"password"} placeholder={"Retype Password"}*/}
+                        {/*           className={"form-control"} name={"conf_password"}*/}
+                        {/*           value={confPassVal} onChange={handleUpdateConfPass}/>*/}
+                        {/*</div>*/}
+                    </div>
+                    <div className={"container d-flex justify-content-center"}>
+                        <button type={"submit"} className={"btn btn-primary"}>Continue</button>
+                    </div>
+                </form>
+                {/*<div className={"alt-signup"}>*/}
+                {/*    <div className={"container text-center"}>*/}
+                {/*        Or*/}
+                {/*    </div>*/}
+                {/*    <div className={"container text-center"}>*/}
+                {/*        <NavLink to={"#"} type={"button"} className={"btn btn-secondary"}>*/}
+                {/*            /!*<SocialIcon className={"google"}/>*!/*/}
+                {/*            G*/}
+                {/*            Continue with google*/}
+                {/*        </NavLink>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
                 <div className={"container login form-text text-center"}>
                     Alr have an account?
                     <button className={"container form-text"}
