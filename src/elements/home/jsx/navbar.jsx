@@ -8,7 +8,8 @@ function Logo() {
             <NavLink to={"/"} className={"navbar-brand"}><img
                 src={"https://mytaba.com/assets/images/image01.svg?v=c07231be"}
                 height={"50rem"}/></NavLink>
-            <button className="navbar-toggler" type={"button"} data-bs-toggle={"collapse"}
+            <button className={`navbar-toggler`} type={"button"}
+                    data-bs-toggle={"collapse"}
                     data-bs-target={"#collapseButton"}>
                 <i className="navbar-toggler-icon"></i>
             </button>
@@ -16,11 +17,11 @@ function Logo() {
     );
 }
 
-function NavButtons() {
+function NavButtons({navbarVisible}) {
 
     return (
         <>
-            <div className={`collapse navbar-collapse`} id="collapseButton">
+            <div className={`collapse navbar-collapse ${navbarVisible ? "collapse" : ""}`} id="collapseButton">
                 <div className="navbar-nav me-auto">
                     <NavLink to={"https://google.com"} className={"nav-link"}>About Us</NavLink>
                     <NavLink to={"https://google.com"} className={"nav-link"}>Pricing</NavLink>
@@ -65,6 +66,8 @@ class Navbar extends Component {
             prevScrollPos: window.scrollY,
             navbarVisible: true,
             opacity: 1,
+            // this is for collapsing the navbar
+            scrollUp: false
         };
     }
 
@@ -94,7 +97,8 @@ class Navbar extends Component {
             navbarVisible: prevScrollPos - currentScrollPos > 0 || currentScrollPos < navbarHeight,
             // update the prev scroll pos to current val
             prevScrollPos: currentScrollPos,
-            opacity: currentScrollPos === navbarHeight ? 0 : (currentScrollPos <= navbarHeight ? 1 - (currentScrollPos / navbarHeight) : 1)
+            opacity: currentScrollPos === navbarHeight ? 0 : (currentScrollPos <= navbarHeight ? 1 - (currentScrollPos / navbarHeight) : 1),
+            scrollUp: prevScrollPos > currentScrollPos,
         });
     };
 
@@ -108,7 +112,10 @@ class Navbar extends Component {
                 style={{opacity: opacity}}>
                 <div className={"container"}>
                     <Logo/>
-                    <NavButtons/>
+                    <NavButtons
+                        // pass a boolean to check if navbar was scrolled and hidden, if so, collapse the navbar
+                        // just QoL
+                        navbarVisible={this.state.scrollUp}/>
                 </div>
             </nav>
         );

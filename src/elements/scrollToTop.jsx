@@ -3,15 +3,17 @@
 import {useLocation} from "react-router-dom";
 import {useEffect} from "react";
 
-function ScrollToTop({history}){
+function ScrollToTop({history}) {
     const {pathname} = useLocation();
-    useEffect(()=>{
+    useEffect(() => {
+        let r = Math.floor(Math.random() * 2);
+        console.log(r);
         document.documentElement.scrollTo({
-            top:0,
-            left:0,
-            // behavior:"instant"
+            top: 0,
+            left: 0,
+            behavior: r === 0 ? "instant" : "smooth"
         });
-    },[pathname]);
+    }, [pathname]);
     return null;
 }
 
