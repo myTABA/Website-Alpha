@@ -23,6 +23,7 @@ function NavButtons({navbarVisible}) {
         <>
             <div className={`collapse navbar-collapse ${navbarVisible ? "collapse" : ""}`} id="collapseButton">
                 <div className="navbar-nav me-auto">
+                    <NavLink to={"/"} className={"nav-link"}>Home</NavLink>
                     <NavLink to={"https://google.com"} className={"nav-link"}>About Us</NavLink>
                     <NavLink to={"https://google.com"} className={"nav-link"}>Pricing</NavLink>
                     <NavLink to={"/travel-guides"} className={"nav-link"}>Travel Guides</NavLink>
@@ -32,7 +33,7 @@ function NavButtons({navbarVisible}) {
                         {/*         data-bs-target={"#Modal"} data-bs-toggle={"modal"}>*/}
                         {/*    Sign Up*/}
                         {/*</NavLink>*/}
-                        <NavLink to={"#"} className={"nav-link"}
+                        <NavLink to={"#"} className={"nav-link"} style={{color: "var(--bs-nav-link-color)"}}
                                  data-bs-target={"#loginModal"} data-bs-toggle={"modal"}>
                             Login
                         </NavLink>
