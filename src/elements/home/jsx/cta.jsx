@@ -14,16 +14,20 @@ export default function CTA({title, text, button}) {
     val =
         <div className={"card cta-card"}>
             <div className={"card-header"}>
-                <p className={"card-title"}>{title}</p>
+                <h2 className={"card-title"}>
+                    {title}
+                </h2>
             </div>
-            <div className={"card-body text-center"}>
-                <p className={"card-text"}>
+            <div className={"card-body"}>
+                <p className={"card-text b1"}>
                     {text}
                 </p>
 
-                <a href={"#"} className={"cta-button card-link btn btn-primary"}>
-                    {button}
-                </a>
+                <div className={"text-center"}>
+                    <a href={"#"} className={"cta-button card-link btn btn-primary"}>
+                        <h3>{button}</h3>
+                    </a>
+                </div>
 
             </div>
         </div>;

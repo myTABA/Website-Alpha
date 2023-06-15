@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import $ from "jquery";
 import "bootstrap/dist/js/bootstrap.min.js";
 import './index.css';
+// import "@fontsource/mulish";
+// import "@fontsource/open-sans";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {HashRouter} from "react-router-dom";

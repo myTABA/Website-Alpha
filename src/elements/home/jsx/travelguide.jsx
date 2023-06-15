@@ -8,7 +8,7 @@ function TravelGuide() {
         <div className={"container"}>
             <div className={"row my-2"}>
                 <div className={"col"}>
-                    <h3>Travel Guides</h3>
+                    <h2>Travel Guides</h2>
                 </div>
             </div>
             <div className={"row"}>
@@ -72,7 +72,7 @@ function TravelCard({location, img}) {
                     <img src={img} className={"card-img-top"}></img>
                 </div>
                 <div className={"travel-text"}>
-                    {location}
+                    <h3>{location}</h3>
                 </div>
             </div>
         </div>

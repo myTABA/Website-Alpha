@@ -1,6 +1,7 @@
 import "jquery/dist/jquery.min.js";
 import React, {Component, useState} from "react";
 import {NavLink} from "react-router-dom";
+import {SignedIn, SignedOut, SignInButton, UserButton} from "@clerk/clerk-react";
 
 function Logo() {
     return (
@@ -33,10 +34,21 @@ function NavButtons({navbarVisible}) {
                         {/*         data-bs-target={"#Modal"} data-bs-toggle={"modal"}>*/}
                         {/*    Sign Up*/}
                         {/*</NavLink>*/}
-                        <NavLink to={"#"} className={"nav-link"} style={{color: "var(--bs-nav-link-color)"}}
-                                 data-bs-target={"#loginModal"} data-bs-toggle={"modal"}>
-                            Login
-                        </NavLink>
+                        <SignedOut>
+                            {/*<NavLink to={"#"} className={"nav-link"} style={{color: "var(--bs-nav-link-color)"}}*/}
+                            {/*         data-bs-target={"#loginModal"} data-bs-toggle={"modal"}>*/}
+                            {/*    Login*/}
+                            {/*</NavLink>*/}
+                            <SignInButton
+                                mode={"modal"}
+                            />
+                        </SignedOut>
+                        <SignedIn>
+                            <UserButton
+                                showName={true}
+                                userProfileMode={"modal"}
+                            />
+                        </SignedIn>
                     </span>
                 </div>
             </div>

@@ -36,12 +36,12 @@ function BigObjects({url, img, name, location}) {
                     <img className="card-img-top"
                          src={img} height={"100em"}/>
                     <div className="card-body">
-                        <h4 className="card-title">
+                        <h3 className="card-title">
                             {name}
-                        </h4>
-                        <p className="card-text">
+                        </h3>
+                        <h3 className="card-text sh">
                             {location}
-                        </p>
+                        </h3>
                     </div>
                 </div>
             </NavLink>
@@ -89,7 +89,7 @@ export default function DestinationPOIInspiration() {
         <div className={"destinationInspiration my-5"}>
             <div className="container">
                 <div className="row my-2">
-                    <h3>Not sure where to go?<br/>Get Inspired</h3>
+                    <h2>Not sure where to go?<br/>Get Inspired</h2>
                 </div>
                 <div className="row my-2">
                     <LittleObjects

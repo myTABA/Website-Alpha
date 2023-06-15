@@ -1,39 +1,41 @@
 .travelGuide .card-body {
-    padding: 0.3em;
+    padding: 0.3rem;
     position: relative;
 }
 
 .travelGuide .card-img-top {
-    border-radius: 1em 1em 0.5em 0.5em;
+    border-radius: 1rem 1rem 0.5rem 0.5rem;
 }
 
 .travelGuide .card {
-    border-radius: 1em;
-    min-height: 10em;
+    border-radius: 1rem;
+    min-height: 10rem;
 }
 
 .travelGuide .travel-text {
     position: absolute;
-    bottom: 0.3em;
-    left: 0.4em;
+    bottom: 0.3rem;
+    left: 0.4rem;
+    left: 0.4rem;
 }
 
 .travelGuide .card.travel {
-    height: 25em;
+    height: 43rem;
     border: none;
+    margin: 1rem 0.2rem;
 }
 
 .travelGuide .card.travel div.travel-img {
-    height: 23em;
+    height: 37rem;
 }
 
 @media only screen and (min-width: 992px) {
     .travelGuide .card.travel {
-        height: 35em;
+        height: 50rem;
     }
 
     .travelGuide .card.travel div.travel-img {
-        height: 33em;
+        height: 44rem;
     }
 }
 

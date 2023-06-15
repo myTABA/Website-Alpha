@@ -6,13 +6,14 @@ import {useEffect} from "react";
 function ScrollToTop({history}) {
     const {pathname} = useLocation();
     useEffect(() => {
-        let r = Math.floor(Math.random() * 2);
-        console.log(r);
+        // let r = Math.floor(Math.random() * 2);
+        // console.log(r);
         document.documentElement.scrollTo({
             top: 0,
             left: 0,
             // using randomiser to swap between scrolling styles
-            behavior: r === 0 ? "instant" : "smooth"
+            // behavior: r === 0 ? "instant" : "smooth"
+            behavior: "smooth",
         });
     }, [pathname]);
     return null;

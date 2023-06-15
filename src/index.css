@@ -1,13 +1,76 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/*font sizing*/
+
+html {
+    font-size: 62.5%;
+}
+@media only screen and (max-width: 767px){
+    html{
+        font-size: 45%;
+    }
+}
+
+* {
+    font-size: 1.6rem;
+}
+
+h1, h2, h3, h4 {
+    font-family: Mulish, sans-serif;
+}
+
+h1 {
+    font-size: 4.2rem;
+    font-weight: 900;
+}
+/*sub header*/
+.sh{
+    font-weight: 200;
+    font-family: "Open Sans", sans-serif;
+}
+h1.sh{
+    font-size: 3.2rem;
+}
+h2.sh{
+    font-size: 2.8rem;
+}
+h3.sh{
+    font-size: 2.4rem;
+}
+
+h2 {
+    font-size: 3.6rem;
+}
+
+h3 {
+    font-size: 3.2rem;
+}
+
+h2, h3 {
+    font-weight: bold;
+}
+
+/*body 1 body 2 and body3*/
+.b1{
+    font-family: "Open Sans", sans-serif;
+    font-size: 2.4rem;
+    font-weight: 400;
+}
+.b2{
+    font-size: 1.8rem;
+}
+.b3{
+    font-size: 1.6rem;
 }
