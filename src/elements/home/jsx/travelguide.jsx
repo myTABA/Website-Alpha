@@ -50,7 +50,7 @@ function TravelGuide() {
         </div>;
 
     return (
-        <div className={"travelGuide my-5"}>
+        <div className={"travelGuide my-4"}>
             {val}
         </div>
     );

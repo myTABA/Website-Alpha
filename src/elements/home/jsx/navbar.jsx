@@ -1,5 +1,5 @@
 import "jquery/dist/jquery.min.js";
-import React, {Component, useState} from "react";
+import React, {Component, useEffect, useState} from "react";
 import {NavLink} from "react-router-dom";
 import {SignedIn, SignedOut, SignInButton, UserButton} from "@clerk/clerk-react";
 
@@ -20,14 +20,45 @@ function Logo() {
 
 function NavButtons({navbarVisible}) {
 
+    function getWindowWidth() {
+        return window.innerWidth;
+    }
+
+    const [screenWidth, setScreenWidth] = useState(getWindowWidth);
+
+    useEffect(() => {
+        function handleResize() {
+            setScreenWidth(getWindowWidth());
+        }
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    const changetoBTS = screenWidth >= 992;
+
     return (
         <>
             <div className={`collapse navbar-collapse ${navbarVisible ? "collapse" : ""}`} id="collapseButton">
-                <div className="navbar-nav me-auto">
-                    <NavLink to={"/"} className={"nav-link"}>Home</NavLink>
-                    <NavLink to={"https://google.com"} className={"nav-link"}>About Us</NavLink>
-                    <NavLink to={"https://google.com"} className={"nav-link"}>Pricing</NavLink>
-                    <NavLink to={"/travel-guides"} className={"nav-link"}>Travel Guides</NavLink>
+                <div className="navbar-nav me-auto mx-3">
+                    <NavLink to={"/"}
+                             className={`nav-link`}>Home</NavLink>
+                    <NavLink to={"https://google.com"}
+                             className={`nav-link`}>About Us</NavLink>
+                    <NavLink to={"https://google.com"}
+                             className={`nav-link`}>Pricing</NavLink>
+                    <NavLink to={"/travel-guides"}
+                             className={`nav-link`}>Travel
+                        Guides</NavLink>
+                    {/*<NavLink to={"/"}*/}
+                    {/*         className={`${changetoBTS ? "btn btn-outline-primary" : ""} nav-link`}>Home</NavLink>*/}
+                    {/*<NavLink to={"https://google.com"}*/}
+                    {/*         className={`${changetoBTS ? "btn btn-outline-primary" : ""} nav-link`}>About Us</NavLink>*/}
+                    {/*<NavLink to={"https://google.com"}*/}
+                    {/*         className={`${changetoBTS ? "btn btn-outline-primary" : ""} nav-link`}>Pricing</NavLink>*/}
+                    {/*<NavLink to={"/travel-guides"}*/}
+                    {/*         className={`${changetoBTS ? "btn btn-outline-primary" : ""} nav-link`}>Travel*/}
+                    {/*    Guides</NavLink>*/}
 
                     <span id={"signup-login"}>
                         {/*<NavLink to={"#"} className={"nav-link"}*/}

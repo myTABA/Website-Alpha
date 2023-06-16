@@ -17,14 +17,17 @@ code {
 html {
     font-size: 62.5%;
 }
-@media only screen and (max-width: 767px){
-    html{
-        font-size: 45%;
+
+@media only screen and (max-width: 767px) {
+    html {
+        font-size: 40%;
     }
 }
 
-* {
-    font-size: 1.6rem;
+@media only screen and (max-width: 991px) {
+    html {
+        font-size: 55%;
+    }
 }
 
 h1, h2, h3, h4 {
@@ -35,19 +38,23 @@ h1 {
     font-size: 4.2rem;
     font-weight: 900;
 }
+
 /*sub header*/
-.sh{
+.sh {
     font-weight: 200;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
 }
-h1.sh{
+
+h1.sh {
     font-size: 3.2rem;
 }
-h2.sh{
+
+h2.sh {
     font-size: 2.8rem;
 }
-h3.sh{
-    font-size: 2.4rem;
+
+h3.sh {
+    font-size: 1.8rem;
 }
 
 h2 {
@@ -55,7 +62,7 @@ h2 {
 }
 
 h3 {
-    font-size: 3.2rem;
+    font-size: 2.4rem;
 }
 
 h2, h3 {
@@ -63,14 +70,60 @@ h2, h3 {
 }
 
 /*body 1 body 2 and body3*/
-.b1{
-    font-family: "Open Sans", sans-serif;
+.b1 {
+    font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
     font-size: 2.4rem;
     font-weight: 400;
 }
-.b2{
+
+.b2 {
     font-size: 1.8rem;
 }
-.b3{
+
+.b3 {
     font-size: 1.6rem;
+}
+
+* {
+    font-size: 1.6rem;
+    font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
+}
+
+
+/*colour overrides*/
+.btn.btn-outline-primary {
+    background-color: var(--secondary);
+    color: black;
+    /*border-color: var(--primary);*/
+    border: none;
+    border-radius: 50px;
+    padding: .5rem 2rem;
+}
+
+.btn.btn-outline-primary:hover {
+    background-color: var(--primary);
+    transition: 0.2s;
+    color: whitesmoke;
+    /*border-color: var(--secondary);*/
+}
+
+@media only screen and (min-width: 1400px) {
+    .container {
+        max-width: 1125px;
+    }
+}
+
+/*make clerk text bigger*/
+.cl-rootBox h1,
+.cl-rootBox p,
+.cl-rootBox a,
+.cl-rootBox h2,
+.cl-rootBox label,
+.cl-rootBox button,
+.cl-rootBox span,
+.cl-rootBox svg,
+.cl-userButtonPopoverCard span,
+.cl-userButtonPopoverCard p,
+.cl-userButtonPopoverCard svg{
+    font-size: 1.25rem;
 }

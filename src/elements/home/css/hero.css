@@ -1,9 +1,9 @@
-.bg-img{
+.bg-img {
     /*set hero image here*/
     background-image: url("https://cdn.britannica.com/46/154246-050-7C72E12F/view-Rome.jpg");
     opacity: 0.3;
     z-index: -1;
-    top:0;
+    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
@@ -11,43 +11,56 @@
     width: 100%;
     height: 100%;
 }
-.hero-parent{
+
+.hero-parent {
     position: relative;
     min-height: 40vh;
     font-weight: 450;
 
 }
 
-#GetStarted{
+#GetStarted {
     background-color: var(--secondary);
     color: black;
     /*border-color: var(--primary);*/
     border: none;
+    border-radius: 50px;
+    padding: .5rem 2rem;
 }
-#GetStarted:hover{
+
+#GetStarted:hover {
     background-color: var(--primary);
     transition: 0.2s;
     color: whitesmoke;
     /*border-color: var(--secondary);*/
 }
 
-@media only screen and (min-width: 768px){
-    .hero-parent{
-        min-height: 40vh;
-        font-size: x-large;
+@media only screen and (min-width: 768px) {
+    .hero-parent {
+        min-height: 60vh;
+        /*font-size: x-large;*/
     }
-    #GetStarted{
-        font-size: x-large;
-        font-weight: 480;
+
+    #GetStarted {
+        /*font-size: x-large;*/
+        /*font-weight: 480;*/
     }
 }
-@media only screen and (min-width: 992px){
-    .hero-parent{
-        min-height: 40vh;
-        font-size: x-large;
+
+@media only screen and (min-width: 992px) {
+    .hero-parent {
+        min-height: 60vh;
+        /*font-size: x-large;*/
     }
-    #GetStarted{
-        font-size: x-large;
-        font-weight: 480;
+
+    #GetStarted {
+        /*font-size: x-large;*/
+        /*font-weight: 480;*/
     }
+}
+
+div.hero-content{
+    background-color: whitesmoke;
+    padding: 2rem;
+    border-radius: 5rem;
 }

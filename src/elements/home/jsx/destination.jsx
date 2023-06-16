@@ -30,7 +30,7 @@ function BigObjects({url, img, name, location}) {
     name = name ? name : 'POI Name';
     location = location ? location : 'POI Location';
     return (
-        <div className="col-12 col-md-4 col-lg-3 bigobj p-2 m-0">
+        <div className="col-12 col-md-4 col-lg-3 bigobj m-0">
             <NavLink to={url} target={"_blank"}>
                 <div className="card">
                     <img className="card-img-top"
@@ -86,9 +86,9 @@ export default function DestinationPOIInspiration() {
     const display = screenWidth >= 768;
 
     return (
-        <div className={"destinationInspiration my-5"}>
+        <div className={"destinationInspiration my-4"}>
             <div className="container">
-                <div className="row my-2">
+                <div className="row my-4">
                     <h2>Not sure where to go?<br/>Get Inspired</h2>
                 </div>
                 <div className="row my-2">
@@ -128,7 +128,7 @@ export default function DestinationPOIInspiration() {
                         </div>
                     </div>
                 </div>
-                <div className="row">
+                <div className="row my-2">
                     <BigObjects
                         name={"Tokyo"}
                         location={"Japan"}

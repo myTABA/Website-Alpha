@@ -2,7 +2,7 @@ import "../css/cta.css";
 import {useEffect} from "react";
 
 export default function CTA({title, text, button}) {
-    let val;
+    let   val;
     // set default vals for when data is not provided
     // ❗❗ Only for testing ❗❗
     if (!button) {
@@ -19,9 +19,9 @@ export default function CTA({title, text, button}) {
                 </h2>
             </div>
             <div className={"card-body"}>
-                <p className={"card-text b1"}>
+                <div className={"card-text b1"} style={{marginBottom: "4rem"}}>
                     {text}
-                </p>
+                </div>
 
                 <div className={"text-center"}>
                     <a href={"#"} className={"cta-button card-link btn btn-primary"}>
@@ -44,12 +44,16 @@ export default function CTA({title, text, button}) {
     }, []); //no dependencies to ensure one exec; callback
 
     return (
-        <div className={"cta my-5"}>
+        <div className={"cta my-4"}>
             <div className={"container"}>
                 <div className={"row"}>
+
                     <div className={"col d-flex justify-content-center"}>
-                        {val}
+                        <div className={""}>
+                            {val}
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>

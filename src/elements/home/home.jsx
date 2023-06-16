@@ -3,19 +3,38 @@ import DestinationPOIInspiration from "./jsx/destination";
 import {TravelGuide} from "./jsx/travelguide";
 import CTA from "./jsx/cta";
 
+
+// needdd to do this because cant render custom text otherwise
+const TextFunction = ({text, pTag}) => {
+    if (pTag) {
+        return <p>{text}</p>;
+    } else {
+        return <>{text}<br/></>
+    }
+}
+
+
 // home page structure for components is defined here. this is rendered in App.js,
 //     where react router takes care of dynamic rendering and setting URLs
 export default function Home() {
+    let content = "We specialize in creating personalized recommendations tailored to your interests, making it easy to find travel experiences that truly matter to you." +
+        "\nmyTABA makes it easy to spend less time searching and more time discovering your next great adventure." +
+        "\nFind out why myTABA is the best way to plan your next trip, and get ready to make unforgettable memories." +
+        "\n"
     let text = [];
-    text.push("We specialize in creating personalized recommendations tailored to your interests, making it easy to find travel experiences that truly matter to you.");
-    text.push(<br/>);
-    text.push("myTABA makes it easy to spend less time searching and more time discovering your next great adventure.");
-    text.push(<br/>);
-    text.push("Find out why myTABA is the best way to plan your next trip, and get ready to make unforgettable memories.");
+    content = content.split("\n");
+    for (const [i, elem] of content.entries()) {
+        text.push(<TextFunction text={elem}
+                                pTag={true}
+                                key={i + 1}/>);
+    }
     let title = [];
-    title.push("Skip the endless hours planning your next trip.");
-    title.push(<br/>);
-    title.push("We've already done it for you");
+    content = "Skip the endless hours planning your next trip." +
+        "\nWe've already done it for you";
+    for (const [i, elem] of content.split("\n").entries()) {
+        title.push(<TextFunction text={elem}
+                                 key={i + 1}/>);
+    }
     return (
         <>
             <Hero/>

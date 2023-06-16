@@ -23,7 +23,7 @@ div.destinationInspiration div.bigobj .card > img.card-img-top {
 }
 
 div.bigobj {
-    margin: .25em 0;
+    padding: 1rem;
 }
 
 div.lilobj .card {

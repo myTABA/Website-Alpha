@@ -10,16 +10,16 @@ export default function Hero() {
                         <div className={"bg-img"}></div>
 
                         <div className={"container"}>
-                            <div className={"col-12 col-md-6"}>
+                            <div className={"col-12 col-md-7 col-lg-5 hero-content"}>
                                 <h1 className="text-justify">
-                                    Plan the trip of your dreams - in minutes
+                                    Plan the trip of your<br/> dreams - in minutes.
                                 </h1>
                                 <h1 className="text-justify sh">
-                                    Instant trip recommendations personalized just for you
+                                    Instant trip recommendations<br/> personalized just for you
                                 </h1>
-                                <p className="d-flex justify-content-start pt-4">
+                                <div className="pt-4">
                                     <GetStarted/>
-                                </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -32,8 +32,8 @@ export default function Hero() {
 
 function GetStarted() {
     return (
-        <NavLink to={"/recommendations"} id={"GetStarted"} className={"btn btn-outline-success"}>
-            <h3>Personalize your Trip Today</h3></NavLink>
+        <NavLink to={"/recommendations"} id={"GetStarted"} className={"btn btn-outline-success w-100 py-3"}>
+            <h3>Find your next adventure!</h3></NavLink>
         //equivalent to the below but for react router need to use Link
         // <a href="#" id="GetStarted" className="btn btn-outline-success">Personalize your Travel</a>
     );

@@ -30,9 +30,25 @@ body {
         width: 100%;
     }
 }
+/*for footer and navbar*/
+a.nav-link, li.nav-item, #signup-login > button{
+    font-size: 1.4rem;
+}
+
+nav.navbar a.nav-link, nav.navbar button{
+    font-family: Mulish, sans-serif;
+}
+
+nav.navbar a.nav-link{
+    margin: 0 .5rem;
+}
 
 #signup-login {
     display: block;
+}
+
+nav.navbar a:hover, #signup-login > button:hover {
+    color: var(--primary);
 }
 
 #signup-login > button {
@@ -40,10 +56,20 @@ body {
     background-color: transparent;
     border: none;
     padding: 0;
+    margin: 0 5px;
 }
 
-nav.navbar a:hover, #signup-login > a:hover {
-    color: var(--primary);
+@media only screen and (min-width: 992px){
+    #signup-login > button{
+        background-color: var(--secondary);
+        color: black;
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+    }
+    #signup-login > button:hover{
+        background-color: var(--primary);
+        color: whitesmoke;
+    }
 }
 
 #collapseButton {
