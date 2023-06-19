@@ -77,7 +77,9 @@ function NavButtons({navbarVisible}) {
                         <SignedIn>
                             <UserButton
                                 showName={true}
-                                userProfileMode={"modal"}
+                                userProfileMode={"navigation"}
+                                afterSignOutUrl={"/"}
+                                afterMultiSessionSingleSignOutUrl={"/"}
                             />
                         </SignedIn>
                     </span>

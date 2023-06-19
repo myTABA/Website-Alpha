@@ -56,7 +56,7 @@ export default function App() {
                     {/*        </SignedOut>*/}
                     {/*    </>*/}
                     {/*}/>*/}
-                    <Route path={'/recommendations*'} element={
+                    <Route path={'recommendations'} element={
                         <>
                             <SignedIn>
                                 <Recommendation/>
@@ -68,7 +68,7 @@ export default function App() {
                     }/>
                     {/*<Route path={"/recommendations"} element={<Recommendation/>}/>*/}
                     {/*<Route path={"/sign-out/*"} element={<SignOut routing={"path"} path={"/sign-out"}/>}/>*/}
-                    <Route path={"/travel-guides"} element={<Travel/>}/>
+                    <Route path={"travel-guides"} element={<Travel/>}/>
 
                 </Routes>
                 <Footer/>

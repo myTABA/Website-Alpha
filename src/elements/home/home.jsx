@@ -2,6 +2,7 @@ import Hero from "./jsx/hero";
 import DestinationPOIInspiration from "./jsx/destination";
 import {TravelGuide} from "./jsx/travelguide";
 import CTA from "./jsx/cta";
+import {useEffect} from "react";
 
 
 // needdd to do this because cant render custom text otherwise
@@ -36,7 +37,7 @@ export default function Home() {
                                  key={i + 1}/>);
     }
     return (
-        <>
+        <div id={"home"} key={""}>
             <Hero/>
             <DestinationPOIInspiration/>
             <CTA
@@ -45,6 +46,6 @@ export default function Home() {
                 button={"Discover your next adventure"}/>
             <TravelGuide/>
             <CTA/>
-        </>
+        </div>
     );
 }
