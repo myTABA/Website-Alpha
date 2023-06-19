@@ -63,26 +63,34 @@ nav.navbar a:hover, .signup-login > button:hover {
 }
 
 .signup-login > button {
-    color: var(--bs-nav-link-color);
-    background-color: transparent;
-    border: none;
-    padding: 0;
+    background-color: var(--secondary);
+    color: black;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
     margin: 0 5px;
+    width: 6.5rem;
+    border: none;
+}
+.signup-login > button:hover {
+    background-color: var(--primary);
+    color: whitesmoke;
 }
 
-@media only screen and (min-width: 992px) {
-    .signup-login > button {
-        background-color: var(--secondary);
-        color: black;
-        padding: 0.5rem 1rem;
-        border-radius: 50px;
-    }
+/*not needed because it is a button on both screens*/
+/*@media only screen and (min-width: 992px) {*/
+/*    .signup-login > button {*/
+/*        background-color: var(--secondary);*/
+/*        color: black;*/
+/*        padding: 0.5rem 1rem;*/
+/*        border-radius: 50px;*/
+/*        width: 6.5rem;*/
+/*    }*/
 
-    .signup-login > button:hover {
-        background-color: var(--primary);
-        color: whitesmoke;
-    }
-}
+/*    .signup-login > button:hover {*/
+/*        background-color: var(--primary);*/
+/*        color: whitesmoke;*/
+/*    }*/
+/*}*/
 
 #collapseButton {
     transition: all 0.3s ease-in-out;
