@@ -43,6 +43,7 @@ nav.navbar a.nav-link, nav.navbar button {
 
 nav.navbar a.nav-link, .signup-login {
     margin: 0 .5rem;
+    text-align: right;
 }
 
 .signup-login {
@@ -144,7 +145,7 @@ input::placeholder {
 }
 @media only screen and (max-width: 767px){
     .signup-login[data-key="sms"]{
-        top: 2.75rem;
+        top: 1.5rem;
     }
 }
 

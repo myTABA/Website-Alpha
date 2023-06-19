@@ -1,3 +1,11 @@
+import {
+    ClerkProvider,
+    RedirectToSignIn,
+    SignedIn,
+    SignedOut,
+    SignIn,
+    SignUp,
+} from "@clerk/clerk-react";
 import "./App.css";
 import Navbar from "./elements/home/jsx/navbar";
 import Footer from "./elements/home/jsx/footer";
@@ -7,14 +15,6 @@ import Recommendation from "./elements/recommendation/rec";
 import Login from "./elements/login/jsx/login";
 import Signup from "./elements/login/jsx/signup";
 import Travel from "./elements/travelguide/jsx/travel";
-import {
-    ClerkProvider,
-    RedirectToSignIn,
-    SignedIn,
-    SignedOut,
-    SignIn,
-    SignUp,
-} from "@clerk/clerk-react";
 
 if (!process.env.REACT_APP_CLERK_PUBLISHABLE_KEY) {
     throw new Error("Missing pubkey");
@@ -28,14 +28,14 @@ export default function App() {
             <ClerkProvider
                 publishableKey={clerkPubKey}
                 navigate={(to) => navigate(to)}
-            appearance={{
-                layout: {
-                    logoImageUrl: "https://mytaba.com/assets/images/image01.svg?v=c07231be",
-                    logoPlacement: "inside",
-                    socialButtonsPlacement:"bottom",
-                    socialButtonsVariant: "blockButton"
-                }
-            }}>
+                appearance={{
+                    layout: {
+                        logoImageUrl: "https://mytaba.com/assets/images/image01.svg?v=c07231be",
+                        logoPlacement: "inside",
+                        socialButtonsPlacement: "bottom",
+                        socialButtonsVariant: "blockButton"
+                    }
+                }}>
                 <Navbar/>
                 <Routes>
 
