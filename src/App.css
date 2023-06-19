@@ -13,6 +13,8 @@
     --extra1: #CBF2FE;
     /*cobalt*/
     --extra2: #67AAF9;
+    --black: #5b5b5b;
+    --white: whitesmoke;
 }
 
 /*get rid of the clerk icon on login modal*/
@@ -65,7 +67,7 @@ nav.navbar a:hover, .signup-login > button:hover {
 
 .signup-login > button {
     background-color: var(--secondary);
-    color: black;
+    color: var(--black);
     padding: 0.5rem 1rem;
     border-radius: 50px;
     margin: 0 5px;
@@ -74,7 +76,7 @@ nav.navbar a:hover, .signup-login > button:hover {
 }
 .signup-login > button:hover {
     background-color: var(--primary);
-    color: whitesmoke;
+    color: var(--white);
 }
 
 /*not needed because it is a button on both screens*/

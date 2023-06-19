@@ -20,7 +20,7 @@
     border-radius: 20px;
 }
 .cta-card > .card-header{
-    background-color: white;
+    background-color: var(--white);
     border-bottom: none;
 }
 
@@ -36,7 +36,7 @@
 .cta-card .cta-button:hover{
     background-color: var(--extra1);
     border-color: var(--extra1);
-    color: black;
+    color: var(--black);
 }
 
 div.cta div.col.d-flex.justify-content-center{

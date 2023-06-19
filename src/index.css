@@ -120,7 +120,7 @@ html {
 /*colour overrides*/
 .btn.btn-outline-primary {
     background-color: var(--secondary);
-    color: black;
+    color: var(--black);
     /*border-color: var(--primary);*/
     border: none;
     border-radius: 50px;
@@ -130,7 +130,7 @@ html {
 .btn.btn-outline-primary:hover {
     background-color: var(--primary);
     transition: 0.2s;
-    color: whitesmoke;
+    color: var(--white);
     /*border-color: var(--secondary);*/
 }
 
@@ -147,4 +147,5 @@ div.cl-modalBackdrop{
 div.cl-card{
     width: 40rem;
     height: 50rem;
+    box-shadow: rgba(0,0,0,.25) 1rem 1rem;
 }

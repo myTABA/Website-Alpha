@@ -52,7 +52,7 @@
 
 a.rec-item-navlink {
     text-decoration: none;
-    color: black;
+    color: var(--black);
 }
 
 .rec-item, .rec-map {
