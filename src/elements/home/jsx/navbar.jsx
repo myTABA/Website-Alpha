@@ -1,7 +1,7 @@
 import "jquery/dist/jquery.min.js";
 import React, {Component, useEffect, useState} from "react";
 import {NavLink} from "react-router-dom";
-import {SignedIn, SignedOut, SignInButton, UserButton} from "@clerk/clerk-react";
+import {SignedIn, SignedOut, SignInButton, SignUpButton, UserButton} from "@clerk/clerk-react";
 
 function Logo() {
     return (
@@ -82,17 +82,22 @@ function LoginBtn({dkey}) {
                 {/*</NavLink>*/}
                 <SignInButton
                     mode={"modal"}
+                    redirectUrl={window.location.href}
                 />
-                        </SignedOut>
-                        <SignedIn>
-                            <UserButton
-                                showName={true}
-                                userProfileMode={"navigation"}
-                                afterSignOutUrl={"/"}
-                                afterMultiSessionSingleSignOutUrl={"/"}
-                            />
-                        </SignedIn>
-                    </span>
+                <SignUpButton
+                    mode={"modal"}
+                    redirectUrl={window.location.href}
+                />
+            </SignedOut>
+            <SignedIn>
+                <UserButton
+                    showName={false}
+                    userProfileMode={"navigation"}
+                    afterSignOutUrl={"/"}
+                    afterMultiSessionSingleSignOutUrl={"/"}
+                />
+            </SignedIn>
+        </span>
     );
 }
 

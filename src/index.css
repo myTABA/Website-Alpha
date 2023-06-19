@@ -145,7 +145,14 @@ div.cl-modalBackdrop{
     align-items: center;
 }
 div.cl-card{
-    width: 40rem;
-    height: 50rem;
-    box-shadow: rgba(0,0,0,.25) 1rem 1rem;
+    min-width: 100%;
+    box-shadow: rgba(0,0,0,.5) 0 0 2rem 1rem;
+}
+div.cl-card:not(.cl-userButtonPopoverCard){
+    min-height: 50rem;
+}
+@media only screen and (min-width: 425px){
+    div.cl-card{
+        min-width: 40rem;
+    }
 }

@@ -63,4 +63,5 @@ div.hero-content{
     background-color: var(--white);
     padding: 2rem;
     border-radius: 5rem;
+    width: fit-content;
 }

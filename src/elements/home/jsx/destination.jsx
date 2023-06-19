@@ -15,7 +15,7 @@ function LittleObjects({img, name, isVisible}) {
     isVisible = isVisible ? "" : "d-none";
 
     return (
-        <div className={"col lilobj " + isVisible}>
+        <div className={"col lilobj d-flex justify-content-center " + isVisible}>
             <div className="card">
                 <img className={"card-img-top"}
                      src={img}/>
@@ -103,7 +103,7 @@ export default function DestinationPOIInspiration() {
                         isVisible={true}/>
                     <LittleObjects
                         img={"https://images.unsplash.com/photo-1420582282039-a6d11404cb66?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8b3V0ZG9vcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=900&q=60"}
-                        isVisible={true}/>
+                        isVisible={display}/>
                     <LittleObjects
                         img={"https://images.unsplash.com/photo-1445108771252-d1cc31a02a3c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8b3V0ZG9vcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=900&q=60"}
                         isVisible={display}/>
@@ -120,8 +120,8 @@ export default function DestinationPOIInspiration() {
                     <LittleObjects
                         isVisible={display}/>
                     <LittleObjects
-                        isVisible={false}/>
-                    <div className="col lilobj">
+                        isVisible={screenWidth < 1400}/>
+                    <div className="col lilobj d-flex justify-content-center">
                         <div className="card">
                             <FontAwesomeIcon icon={faBars} size={"xl"}/>
                             <p className="card-text text-center" style={{fontSize: .5 + "em"}}>{"Filter"}</p>
