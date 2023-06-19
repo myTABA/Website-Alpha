@@ -14,6 +14,7 @@
     /*cobalt*/
     --extra2: #67AAF9;
 }
+
 /*get rid of the clerk icon on login modal*/
 /*div.cl-internal-b3fm6y{*/
 /*    display: none;*/
@@ -30,28 +31,38 @@ body {
         width: 100%;
     }
 }
+
 /*for footer and navbar*/
-a.nav-link, li.nav-item, #signup-login > button{
+a.nav-link, li.nav-item, .signup-login > button {
     font-size: 1.4rem;
 }
 
-nav.navbar a.nav-link, nav.navbar button{
+nav.navbar a.nav-link, nav.navbar button {
     font-family: Mulish, sans-serif;
 }
 
-nav.navbar a.nav-link{
+nav.navbar a.nav-link, .signup-login {
     margin: 0 .5rem;
 }
 
-#signup-login {
+.signup-login {
     display: block;
 }
 
-nav.navbar a:hover, #signup-login > button:hover {
+.signup-login p {
+    font-size: 1.4rem;
+}
+
+.signup-login button, .signup-login button > div, .signup-login img {
+    width: 3rem;
+    height: 3rem;
+}
+
+nav.navbar a:hover, .signup-login > button:hover {
     color: var(--primary);
 }
 
-#signup-login > button {
+.signup-login > button {
     color: var(--bs-nav-link-color);
     background-color: transparent;
     border: none;
@@ -59,14 +70,15 @@ nav.navbar a:hover, #signup-login > button:hover {
     margin: 0 5px;
 }
 
-@media only screen and (min-width: 992px){
-    #signup-login > button{
+@media only screen and (min-width: 992px) {
+    .signup-login > button {
         background-color: var(--secondary);
         color: black;
         padding: 0.5rem 1rem;
         border-radius: 50px;
     }
-    #signup-login > button:hover{
+
+    .signup-login > button:hover {
         background-color: var(--primary);
         color: whitesmoke;
     }
@@ -81,7 +93,7 @@ nav.navbar a:hover, #signup-login > button:hover {
         position: relative;
     }
 
-    #signup-login {
+    .signup-login {
         display: inherit;
         position: absolute;
         right: 0;
@@ -115,4 +127,28 @@ img.card-img-top {
 
 input::placeholder {
     color: #b5b5b5 !important;
+}
+
+.signup-login[data-key="sms"] {
+    position: absolute;
+    right: 6rem;
+    top: 1.75rem;
+}
+@media only screen and (max-width: 767px){
+    .signup-login[data-key="sms"]{
+        top: 2.75rem;
+    }
+}
+
+/*change and remove the different login buttons*/
+@media only screen and (max-width: 991px) {
+    .signup-login[data-key="lgs"] {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .signup-login[data-key="sms"] {
+        display: none;
+    }
 }

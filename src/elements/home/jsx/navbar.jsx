@@ -14,6 +14,7 @@ function Logo() {
                     data-bs-target={"#collapseButton"}>
                 <i className="navbar-toggler-icon"></i>
             </button>
+            <LoginBtn dkey={"sms"}/>
         </>
     );
 }
@@ -60,19 +61,28 @@ function NavButtons({navbarVisible}) {
                     {/*         className={`${changetoBTS ? "btn btn-outline-primary" : ""} nav-link`}>Travel*/}
                     {/*    Guides</NavLink>*/}
 
-                    <span id={"signup-login"}>
+                    <LoginBtn dkey={"lgs"}/>
+                </div>
+            </div>
+        </>
+    );
+}
+
+function LoginBtn({dkey}) {
+    return (
+        <span data-key={dkey} className={"nav-link signup-login"}>
                         {/*<NavLink to={"#"} className={"nav-link"}*/}
-                        {/*         data-bs-target={"#Modal"} data-bs-toggle={"modal"}>*/}
-                        {/*    Sign Up*/}
-                        {/*</NavLink>*/}
-                        <SignedOut>
+            {/*         data-bs-target={"#Modal"} data-bs-toggle={"modal"}>*/}
+            {/*    Sign Up*/}
+            {/*</NavLink>*/}
+            <SignedOut>
                             {/*<NavLink to={"#"} className={"nav-link"} style={{color: "var(--bs-nav-link-color)"}}*/}
-                            {/*         data-bs-target={"#loginModal"} data-bs-toggle={"modal"}>*/}
-                            {/*    Login*/}
-                            {/*</NavLink>*/}
-                            <SignInButton
-                                mode={"modal"}
-                            />
+                {/*         data-bs-target={"#loginModal"} data-bs-toggle={"modal"}>*/}
+                {/*    Login*/}
+                {/*</NavLink>*/}
+                <SignInButton
+                    mode={"modal"}
+                />
                         </SignedOut>
                         <SignedIn>
                             <UserButton
@@ -83,10 +93,6 @@ function NavButtons({navbarVisible}) {
                             />
                         </SignedIn>
                     </span>
-                </div>
-            </div>
-
-        </>
     );
 }
 
@@ -156,7 +162,7 @@ class Navbar extends Component {
                 // based off the bool val, set the class. class behaviour defined in css
                 className={`navbar navbar-expand-lg navbar-light bg-light fixed-top ${navbarVisible ? "navbar-show" : "navbar-hide"}`}
                 style={{opacity: opacity}}>
-                <div className={"container"}>
+                <div className={"container position-relative"}>
                     <Logo/>
                     <NavButtons
                         // pass a boolean to check if navbar was scrolled and hidden, if so, collapse the navbar
