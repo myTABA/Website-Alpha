@@ -15,6 +15,7 @@ import Recommendation from "./elements/recommendation/rec";
 import Login from "./elements/login/jsx/login";
 import Signup from "./elements/login/jsx/signup";
 import Travel from "./elements/travelguide/jsx/travel";
+import Profile from "./elements/profile/profile";
 
 if (!process.env.REACT_APP_CLERK_PUBLISHABLE_KEY) {
     throw new Error("Missing pubkey");
@@ -66,6 +67,14 @@ export default function App() {
                             </SignedOut>
                         </>
                     }/>
+
+                    <Route path={'/profile'} element={
+                        <>
+                            <SignedIn><Profile/></SignedIn>
+                            <SignedOut><RedirectToSignIn/></SignedOut>
+                        </>
+                    }/>
+
                     {/*<Route path={"/recommendations"} element={<Recommendation/>}/>*/}
                     {/*<Route path={"/sign-out/*"} element={<SignOut routing={"path"} path={"/sign-out"}/>}/>*/}
                     <Route path={"/travel-guides"} element={<Travel/>}/>
