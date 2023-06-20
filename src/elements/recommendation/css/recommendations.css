@@ -50,9 +50,12 @@
     width: 0;
 }
 
-a.rec-item-navlink {
+div.rec-item-navlink {
     text-decoration: none;
     color: var(--black);
+}
+div.rec-item-navlink:hover {
+    cursor: pointer;
 }
 
 .rec-item, .rec-map {

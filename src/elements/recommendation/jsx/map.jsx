@@ -9,7 +9,7 @@ function Map() {
         <div ref={mapAreaParent} className={"d-none d-md-flex row rec-map"}>
             <div className={"col map-popup"}>
                 <div ref={overlayRef} className={"map-overlay"}></div>
-                <ModalContent overlayRef={overlayRef}/>
+                {/*<ModalContent overlayRef={overlayRef}/>*/}
                 <div className={"map"}>
                     <img src={"https://www.burningcompass.com/world/maps/world-map-hd.jpg"}/>
                 </div>

@@ -25,8 +25,10 @@ function RecItem({img, name, num, match, rating_star, rating_count, description,
 
     let val =
         // surround entire card in a clickable link
-        <NavLink data-bs-toggle={"modal"} data-bs-target={"#overlayContent"}
-                 className={"rec-item-navlink"}>
+        // can do a onclick function and deal with the modal or make it a button and fix styles
+        <div
+            // data-bs-toggle={"modal"} data-bs-target={"#overlayContent"}
+            className={"rec-item-navlink"}>
             {/*todo call a fx here which polls backend for data which renders the data on the modal div*/}
             {/*will most likely require js to handle this, cant call the react component here*/}
             <div className={"row rec-item"}>
@@ -57,7 +59,7 @@ function RecItem({img, name, num, match, rating_star, rating_count, description,
                     </div>
                 </div>
             </div>
-        </NavLink>;
+        </div>;
     return val;
 }
 

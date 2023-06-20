@@ -69,6 +69,12 @@ function NavButtons({navbarVisible}) {
 }
 
 function LoginBtn({dkey}) {
+
+    const urlHandler = (href) =>{
+        href = href.split("/");
+        return href[href.length-1];
+    }
+
     return (
         <span data-key={dkey} className={"nav-link signup-login"}>
                         {/*<NavLink to={"#"} className={"nav-link"}*/}
@@ -82,11 +88,11 @@ function LoginBtn({dkey}) {
                 {/*</NavLink>*/}
                 <SignInButton
                     mode={"modal"}
-                    redirectUrl={window.location.href}
+                    redirectUrl={urlHandler(window.location.href)}
                 />
                 <SignUpButton
                     mode={"modal"}
-                    redirectUrl={window.location.href}
+                    redirectUrl={urlHandler(window.location.href)}
                 />
             </SignedOut>
             <SignedIn>
