@@ -129,42 +129,78 @@ export default function DestinationPOIInspiration() {
                     </div>
                 </div>
                 <div className="row my-2">
-                    <BigObjects
-                        name={"Tokyo"}
-                        location={"Japan"}
-                        img={'https://images.unsplash.com/photo-1492571350019-22de08371fd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8amFwYW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=900&q=60'}
-                        url={"https://visitjapan.com"}/>
-                    <BigObjects
-                        name={"Great wall of China"}
-                        location={"China"}
-                        img={"https://plus.unsplash.com/premium_photo-1673002094064-0d4dddd980d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2hpbmF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=900&q=60"}/>
-                    <BigObjects
-                        name={"Taj Mahal"}
-                        location={"India"}
-                        img={"https://images.unsplash.com/photo-1524492412937-b28074a5d7da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW5kaWF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=900&q=60"}/>
-                    <BigObjects
-                        name={"Houses"}
-                        location={"Italy"}
-                        img={"https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aXRhbHl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=900&q=60"}/>
-                    <BigObjects
-                        name={"Singaporean Lion"}
-                        location={"SIngapore"}
-                        img={"https://images.unsplash.com/photo-1565967511849-76a60a516170?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2luZ2Fwb3JlfGVufDB8fDB8fHww&auto=format&fit=crop&w=900&q=60"}/>
-                    <BigObjects
-                        name={"Mount Rushmore"}
-                        location={"United States"}
-                        img={"https://images.unsplash.com/photo-1592610687683-41d676fcda72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bW91bnQlMjBydXNobW9yZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=900&q=60"}/>
-                    <BigObjects
-                        name={"Safari"}
-                        location={"Africa"}
-                        img={"https://images.unsplash.com/photo-1523805009345-7448845a9e53?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YWZyaWNhfGVufDB8fDB8fHww&auto=format&fit=crop&w=900&q=60"}/>
-                    <BigObjects
-                        name={"Eiffel Tower"}
-                        location={"Paris"}
-                        img={"https://images.unsplash.com/photo-1503917988258-f87a78e3c995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8RnJhbmNlfGVufDB8fDB8fHww&auto=format&fit=crop&w=900&q=60"}/>
+                    <BigObjGenerator/>
                 </div>
             </div>
         </div>
     );
 }
+
+const BigObjGenerator = () => {
+    // data from bff
+    const data = [
+        {
+            name: "Tokyo",
+            location: "Japan",
+            img: "https://images.unsplash.com/photo-1492571350019-22de08371fd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8amFwYW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=900&q=60",
+            url: "https://visitjapan.com",
+        },
+        {
+            name: "Great Wall of China",
+            location: "China",
+            img: "https://plus.unsplash.com/premium_photo-1673002094064-0d4dddd980d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2hpbmF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=900&q=60",
+            url: "",
+        },
+        {
+            name: "Taj Mahal",
+            location: "India",
+            img: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW5kaWF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=900&q=60",
+            url: "",
+        },
+        {
+            name: "Houses",
+            location: "Italy",
+            img: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aXRhbHl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=900&q=60",
+            url: "",
+        },
+        {
+            name: "Lion of Singapore",
+            location: "Singapore",
+            img: "https://images.unsplash.com/photo-1565967511849-76a60a516170?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2luZ2Fwb3JlfGVufDB8fDB8fHww&auto=format&fit=crop&w=900&q=60",
+            url: "",
+        },
+        {
+            name: "Mount Rushmore",
+            location: "United States of Ameirca",
+            img: "https://images.unsplash.com/photo-1592610687683-41d676fcda72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bW91bnQlMjBydXNobW9yZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=900&q=60",
+            url: "",
+        },
+        {
+            name: "Safari",
+            location: "",
+            img: "https://images.unsplash.com/photo-1523805009345-7448845a9e53?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YWZyaWNhfGVufDB8fDB8fHww&auto=format&fit=crop&w=900&q=60",
+            url: "",
+        },
+        {
+            name: "Eiffel Tower",
+            location: "Paris",
+            img: "https://images.unsplash.com/photo-1503917988258-f87a78e3c995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8RnJhbmNlfGVufDB8fDB8fHww&auto=format&fit=crop&w=900&q=60",
+            url: "",
+        },
+    ];
+
+    let val = [];
+    for (const [i, datum] of data.entries()) {
+        val.push(
+            <BigObjects
+                name={datum.name}
+                url={datum.url}
+                img={datum.img}
+                location={datum.location}
+                key={i + 1}
+            />
+        );
+    }
+    return val;
+};
 
