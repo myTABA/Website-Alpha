@@ -70,9 +70,9 @@ function NavButtons({navbarVisible}) {
 
 function LoginBtn({dkey}) {
 
-    const urlHandler = (href) =>{
+    const urlHandler = (href) => {
         href = href.split("/");
-        return href[href.length-1];
+        return href[href.length - 1];
     }
 
     return (
@@ -101,6 +101,11 @@ function LoginBtn({dkey}) {
                     userProfileMode={"navigation"}
                     afterSignOutUrl={"/"}
                     afterMultiSessionSingleSignOutUrl={"/"}
+                    userProfileUrl={
+                        typeof window !== "undefined"
+                            ? `${window.location.origin}/profile`
+                            : undefined
+                    }
                 />
             </SignedIn>
         </span>
