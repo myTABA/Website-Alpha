@@ -16,22 +16,19 @@ import Login from "./elements/login/jsx/login";
 import Signup from "./elements/login/jsx/signup";
 import Travel from "./elements/travelguide/jsx/travel";
 import Profile from "./elements/profile/profile";
-import ReactGA from "react-ga";
-import {useEffect} from "react";
+import ReactGA from "react-ga4";
 
 if (!process.env.REACT_APP_CLERK_PUBLISHABLE_KEY) {
     throw new Error("Missing pubkey");
 }
 const clerkPubKey = String(process.env.REACT_APP_CLERK_PUBLISHABLE_KEY);
-const GoogleTrackingID = "";
+const GoogleTrackingID = "G-YHPBPQ0B73";
 ReactGA.initialize(GoogleTrackingID);
 
 export default function App() {
     const navigate = useNavigate();
 
-    useEffect(()=>{
-        ReactGA.pageview(window.location.pathname+window.location.search);
-    },[]);
+    // ReactGA.send({hitType: "pageview",page: window.location.pathname})
 
     return (
         <>
