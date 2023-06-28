@@ -2,11 +2,19 @@ import {UserProfile, useUser} from "@clerk/clerk-react";
 import {NavLink} from "react-router-dom";
 import {useState} from "react";
 import "./profile.css";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const Profile = () => {
     const {user} = useUser();
 
-    const [state, setState] = useState({props: {user: user, title: "Account", title_info: "Manage your account information", type: "account"}});
+    const [state, setState] = useState({
+        props: {
+            user: user,
+            title: "Account",
+            title_info: "Manage your account information",
+            type: "account"
+        }
+    });
     const changeState = (e) => {
         console.log(e.target.textContent);
         selectionHighlight(e.target.parentElement);
@@ -180,10 +188,19 @@ function MainContent({user, type}) {
                                 });
                         }
                     }}/>
-                    <img src={user.imageUrl} className={"pfp"} onClick={(e) => {
-                        document.getElementById("pfp").click();
-                        // console.log(document.getElementById("pfp").files);
-                    }}/>
+                    <div className={"position-relative d-inline"} style={{width: "fit-content"}}>
+                        <img src={user.imageUrl} className={"pfp"} onClick={(e) => {
+                            document.getElementById("pfp").click();
+                            // console.log(document.getElementById("pfp").files);
+                        }}/>
+                        <i className={"btn-close"} onClick={(e) => {
+                            user.setProfileImage({file: null})
+                                .then(r => {
+                                })
+                                .catch((err) => {
+                                });
+                        }}></i>
+                    </div>
                     <h3 className={"sh"} style={{display: "inline"}}>
                         <span contentEditable={true} id={"fname"}>
                             {user.firstName ? user.firstName : "unset"}</span>&nbsp;

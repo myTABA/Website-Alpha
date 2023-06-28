@@ -45,23 +45,42 @@ div.welcome-text {
     height: calc(5rem);
     margin-right: 1rem;
 }
-.profile h3.sh{
+
+.profile h3.sh {
     padding: .6rem 0;
 }
 
-.profile input{
+.profile input {
     border: none;
     border-radius: 2rem;
     padding: .5rem 1rem;
-    box-shadow: rgba(0,0,0,.3) 0 0 .5rem .2rem;
+    box-shadow: rgba(0, 0, 0, .3) 0 0 .5rem .2rem;
 }
-.profile button.btn.btn-success{
+
+.profile button.btn.btn-success {
     font-size: 1.6rem;
     border-radius: 1.3rem;
 }
-#fname, #lname, #usrname{
-    cursor: text;
+
+#fname, #lname, #usrname, .profile img.pfp:hover {
+    cursor: pointer;
 }
-#fname{
+#usrname{
+    padding: .5rem;
+}
+#fname, #lname{
+    padding: .5rem 1rem;
+}
+
+#fname {
     margin: 0 1rem;
+}
+.profile i.btn-close{
+    position: absolute;
+    left: 0;
+    top: -1rem;
+    background-color: red;
+}
+.profile i.btn-close:hover{
+    cursor: pointer;
 }
