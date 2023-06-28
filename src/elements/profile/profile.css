@@ -1,0 +1,67 @@
+div.welcome-text {
+    background-color: var(--white);
+    border-radius: 5rem;
+    margin: 3rem 0;
+    padding: 2rem;
+    width: fit-content;
+}
+
+.profile ul {
+    list-style: none;
+    padding: .5rem 0 0 1.5rem;
+    width: calc(90%);
+}
+
+.profile ul > li:not(:first-child) {
+    margin-left: .75rem;
+}
+
+.profile ul > li button {
+    border: none;
+    background-color: transparent;
+    text-align: left;
+    width: 100%;
+}
+
+.profile h3.sh.active {
+    background-color: lightgray;
+    border-radius: .5rem;
+}
+
+.profile div.menu, .profile div.content {
+    border-width: .2rem;
+    border-style: solid;
+    border-color: transparent;
+    border-radius: 2.5rem;
+    box-shadow: rgba(0, 0, 0, .3) 0 0 .8rem .1rem;
+    padding: 1rem 0;
+}
+
+.profile .menu {
+    height: fit-content;
+}
+
+.profile img.pfp {
+    height: calc(5rem);
+    margin-right: 1rem;
+}
+.profile h3.sh{
+    padding: .6rem 0;
+}
+
+.profile input{
+    border: none;
+    border-radius: 2rem;
+    padding: .5rem 1rem;
+    box-shadow: rgba(0,0,0,.3) 0 0 .5rem .2rem;
+}
+.profile button.btn.btn-success{
+    font-size: 1.6rem;
+    border-radius: 1.3rem;
+}
+#fname, #lname, #usrname{
+    cursor: text;
+}
+#fname{
+    margin: 0 1rem;
+}
