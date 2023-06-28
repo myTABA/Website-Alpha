@@ -8,7 +8,7 @@ import {useEffect} from "react";
 // needdd to do this because cant render custom text otherwise
 const TextFunction = ({text, pTag}) => {
     if (pTag) {
-        return <p>{text}</p>;
+        return <p className={"b2"}>{text}</p>;
     } else {
         return <>{text}<br/></>
     }

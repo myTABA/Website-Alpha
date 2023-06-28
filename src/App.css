@@ -61,8 +61,12 @@ nav.navbar a.nav-link, .signup-login {
     height: 3rem;
 }
 
-nav.navbar a:hover, .signup-login > button:hover {
+.signup-login > button:hover {
     color: var(--primary);
+}
+nav.navbar a:hover{
+    font-weight: bolder;
+    text-decoration: underline;
 }
 
 .signup-login > button {
