@@ -7,6 +7,11 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+    font-size: 1.6rem;
+    font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
+}
+
 /*make clerk text bigger*/
 
 .cl-rootBox p,
@@ -19,8 +24,13 @@ body {
 .cl-rootBox input,
 .cl-userButtonPopoverCard span,
 .cl-userButtonPopoverCard p,
-.cl-userButtonPopoverCard svg{
+.cl-userButtonPopoverCard svg {
     font-size: 1.8rem;
+}
+
+.cl-rootBox svg, .cl-userButtonPopoverCard svg {
+    height: 2rem;
+    width: 2rem;
 }
 
 h1, h2, h3, h4 {
@@ -30,6 +40,18 @@ h1, h2, h3, h4 {
 h1, .cl-rootBox h1 {
     font-size: 4.2rem;
     font-weight: 900;
+}
+
+h2 {
+    font-size: 3.6rem;
+}
+
+h3 {
+    font-size: 2.4rem;
+}
+
+h2, h3 {
+    font-weight: bold;
 }
 
 /*sub header*/
@@ -50,18 +72,6 @@ h3.sh {
     font-size: 1.8rem;
 }
 
-h2 {
-    font-size: 3.6rem;
-}
-
-h3 {
-    font-size: 2.4rem;
-}
-
-h2, h3 {
-    font-weight: bold;
-}
-
 /*body 1 body 2 and body3*/
 .b1 {
     font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
@@ -75,11 +85,6 @@ h2, h3 {
 
 .b3 {
     font-size: 1.6rem;
-}
-
-* {
-    font-size: 1.6rem;
-    font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
 }
 
 code {
@@ -97,16 +102,20 @@ html {
     html {
         font-size: 62.5%;
     }
-    h1{
+
+    h1 {
         font-size: 3rem;
     }
-    h1.sh{
+
+    h1.sh {
         font-size: 2.3rem;
     }
-    h3{
+
+    h3 {
         font-size: 2rem;
     }
-    h2{
+
+    h2 {
         font-size: 2.75rem;
     }
 }
@@ -141,18 +150,21 @@ html {
 }
 
 /*clerk modal*/
-div.cl-modalBackdrop{
+div.cl-modalBackdrop {
     align-items: center;
 }
-div.cl-card{
+
+div.cl-card {
     min-width: 100%;
-    box-shadow: rgba(0,0,0,.5) 0 0 2rem 1rem;
+    box-shadow: rgba(0, 0, 0, .5) 0 0 2rem 1rem;
 }
-div.cl-card:not(.cl-userButtonPopoverCard){
+
+div.cl-card:not(.cl-userButtonPopoverCard) {
     min-height: 50rem;
 }
-@media only screen and (min-width: 425px){
-    div.cl-card{
+
+@media only screen and (min-width: 425px) {
+    div.cl-card {
         min-width: 40rem;
     }
 }

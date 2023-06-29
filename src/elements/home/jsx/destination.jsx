@@ -1,5 +1,5 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faBars} from "@fortawesome/free-solid-svg-icons";
+import {faFilter} from "@fortawesome/free-solid-svg-icons";
 import "../css/destination.css";
 import {useEffect, useState} from "react";
 import {NavLink} from "react-router-dom";
@@ -123,7 +123,7 @@ export default function DestinationPOIInspiration() {
                         isVisible={screenWidth < 1400}/>
                     <div className="col lilobj d-flex justify-content-center">
                         <div className="card">
-                            <FontAwesomeIcon icon={faBars} size={"xl"}/>
+                            <FontAwesomeIcon icon={faFilter} size={"xl"}/>
                             <p className="card-text text-center" style={{fontSize: .5 + "em"}}>{"Filter"}</p>
                         </div>
                     </div>

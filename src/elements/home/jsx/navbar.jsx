@@ -41,16 +41,16 @@ function NavButtons({navbarVisible}) {
     return (
         <>
             <div className={`collapse navbar-collapse ${navbarVisible ? "collapse" : ""}`} id="collapseButton">
-                <div className="navbar-nav me-auto mx-3">
+                <div className="navbar-nav mx-auto">
                     <NavLink to={"/"}
-                             className={`nav-link`}>Home</NavLink>
-                    <NavLink to={"https://google.com"}
-                             className={`nav-link`}>About Us</NavLink>
-                    <NavLink to={"https://google.com"}
-                             className={`nav-link`}>Pricing</NavLink>
+                             className={`nav-link`}>Plan a Trip</NavLink>
                     <NavLink to={"/travel-guides"}
                              className={`nav-link`}>Travel
                         Guides</NavLink>
+                    <NavLink to={"https://google.com"}
+                             className={"nav-link"}>Blog</NavLink>
+                    <NavLink to={"https://google.com"}
+                             className={"nav-link"}>About Us</NavLink>
                     {/*<NavLink to={"/"}*/}
                     {/*         className={`${changetoBTS ? "btn btn-outline-primary" : ""} nav-link`}>Home</NavLink>*/}
                     {/*<NavLink to={"https://google.com"}*/}

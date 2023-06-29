@@ -36,11 +36,11 @@ body {
 
 /*for footer and navbar*/
 a.nav-link, li.nav-item, .signup-login > button {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
 }
 
 nav.navbar a.nav-link, nav.navbar button {
-    font-family: Mulish, sans-serif;
+    font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
 }
 
 nav.navbar a.nav-link, .signup-login {
@@ -63,6 +63,13 @@ nav.navbar a.nav-link, .signup-login {
 
 .signup-login > button:hover {
     color: var(--primary);
+}
+/*makes this a little smoother*/
+nav.navbar a{
+    transition: all .3s;
+}
+nav.navbar a.nav-link.active{
+    text-decoration: underline;
 }
 nav.navbar a:hover{
     font-weight: bolder;

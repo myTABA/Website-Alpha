@@ -1,5 +1,5 @@
 div.destinationInspiration div.bigobj .card {
-    height: 20em;
+    height: 18em;
     border: none;
 }
 
@@ -12,13 +12,23 @@ div.destinationInspiration div.bigobj .card > img.card-img-top {
     object-fit: cover;
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (max-width: 767px){
     div.destinationInspiration div.bigobj .card {
-        height: 28em;
+        height: 26em;
     }
 
     div.destinationInspiration div.bigobj .card > img.card-img-top {
         height: 20em;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    div.destinationInspiration div.bigobj .card {
+        height: 22em;
+    }
+
+    div.destinationInspiration div.bigobj .card > img.card-img-top {
+        height: 16em;
     }
 }
 
