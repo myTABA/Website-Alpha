@@ -148,9 +148,9 @@ export default function DestinationPOIInspiration() {
     const [hasMoreItems, setHasMoreItems] = useState(max_items > initialRenderItems);
 
     return (
-        <div className={"destinationInspiration my-4"}>
+        <div className={"destinationInspiration my-5"}>
             <div className="container">
-                <div className="row my-4">
+                <div className="row my-5">
                     <h2>Not sure where to go?<br/>Get Inspired</h2>
                 </div>
                 <div className="row my-2">

@@ -44,7 +44,7 @@ export default function CTA({title, text, button}) {
     }, []); //no dependencies to ensure one exec; callback
 
     return (
-        <div className={"cta my-4"}>
+        <div className={"cta my-5"}>
             <div className={"container"}>
                 <div className={"row"}>
 

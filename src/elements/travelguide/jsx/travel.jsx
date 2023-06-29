@@ -28,7 +28,7 @@ export default function Travel() {
                 <TravelGenerator cards={cards}/>
             </div>
         </div>;
-    return <div className={"travelGuide"}>{val}</div>;
+    return <div className={"travelGuide my-5"}>{val}</div>;
 }
 
 const TravelGenerator = ({cards}) => {

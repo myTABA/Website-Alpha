@@ -56,7 +56,8 @@ nav.navbar a.nav-link, .signup-login {
     font-size: 1.4rem;
 }
 
-.signup-login button, .signup-login button > div, .signup-login img {
+/*.signup-login button, */
+.signup-login button > div, .signup-login img {
     width: 3rem;
     height: 3rem;
 }
