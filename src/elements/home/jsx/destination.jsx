@@ -1,8 +1,9 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faFilter} from "@fortawesome/free-solid-svg-icons";
+import {faArrowRight, faFilter} from "@fortawesome/free-solid-svg-icons";
 import "../css/destination.css";
 import {useEffect, useState} from "react";
 import {NavLink} from "react-router-dom";
+import {render} from "@testing-library/react";
 
 function LittleObjects({img, name, isVisible}) {
 
@@ -85,59 +86,7 @@ export default function DestinationPOIInspiration() {
 
     const display = screenWidth >= 768;
 
-    return (
-        <div className={"destinationInspiration my-4"}>
-            <div className="container">
-                <div className="row my-4">
-                    <h2>Not sure where to go?<br/>Get Inspired</h2>
-                </div>
-                <div className="row my-2">
-                    <LittleObjects
-                        img={"https://images.unsplash.com/photo-1503917988258-f87a78e3c995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8RnJhbmNlfGVufDB8fDB8fHww&auto=format&fit=crop&w=900&q=60"}
-                        isVisible={true}/>
-                    <LittleObjects
-                        img={"https://images.unsplash.com/photo-1543039625-14cbd3802e7d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8b3V0ZG9vcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=900&q=60"}
-                        isVisible={true}/>
-                    <LittleObjects
-                        img={"https://images.unsplash.com/photo-1444492417251-9c84a5fa18e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8b3V0ZG9vcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=900&q=60"}
-                        isVisible={true}/>
-                    <LittleObjects
-                        img={"https://images.unsplash.com/photo-1420582282039-a6d11404cb66?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8b3V0ZG9vcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=900&q=60"}
-                        isVisible={display}/>
-                    <LittleObjects
-                        img={"https://images.unsplash.com/photo-1445108771252-d1cc31a02a3c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8b3V0ZG9vcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=900&q=60"}
-                        isVisible={display}/>
-                    <LittleObjects
-                        img={"https://images.unsplash.com/photo-1501555088652-021faa106b9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG91dGRvb3J8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=900&q=60"}
-                        isVisible={display}/>
-                    <LittleObjects
-                        img={"https://images.unsplash.com/photo-1470246973918-29a93221c455?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fG91dGRvb3J8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=900&q=60"}
-                        isVisible={display}/>
-                    <LittleObjects
-                        isVisible={display}/>
-                    <LittleObjects
-                        isVisible={display}/>
-                    <LittleObjects
-                        isVisible={display}/>
-                    <LittleObjects
-                        isVisible={screenWidth < 1400}/>
-                    <div className="col lilobj d-flex justify-content-center">
-                        <div className="card">
-                            <FontAwesomeIcon icon={faFilter} size={"xl"}/>
-                            <p className="card-text text-center" style={{fontSize: .5 + "em"}}>{"Filter"}</p>
-                        </div>
-                    </div>
-                </div>
-                <div className="row my-2">
-                    <BigObjGenerator/>
-                </div>
-            </div>
-        </div>
-    );
-}
-
-const BigObjGenerator = () => {
-    // data from bff
+    // get data from bff
     const data = [
         {
             name: "Tokyo",
@@ -188,6 +137,109 @@ const BigObjGenerator = () => {
             url: "",
         },
     ];
+    const max_items = data.length;
+    console.log(max_items);
+    // append only 3 of the total data objects to the generator
+    const initialRenderItems = max_items > 3 ? 3 : max_items;
+    const [tdata, setTdata] = useState(data.slice(0, initialRenderItems));
+    // create a state to keep track of number of elements that have been rendered + 1 (for index of next)
+    const [items, setItems] = useState(initialRenderItems);
+    // to render the see more button
+    const [hasMoreItems, setHasMoreItems] = useState(max_items > initialRenderItems);
+
+    return (
+        <div className={"destinationInspiration my-4"}>
+            <div className="container">
+                <div className="row my-4">
+                    <h2>Not sure where to go?<br/>Get Inspired</h2>
+                </div>
+                <div className="row my-2">
+                    <LittleObjects
+                        img={"https://images.unsplash.com/photo-1503917988258-f87a78e3c995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8RnJhbmNlfGVufDB8fDB8fHww&auto=format&fit=crop&w=900&q=60"}
+                        isVisible={true}/>
+                    <LittleObjects
+                        img={"https://images.unsplash.com/photo-1543039625-14cbd3802e7d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8b3V0ZG9vcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=900&q=60"}
+                        isVisible={true}/>
+                    <LittleObjects
+                        img={"https://images.unsplash.com/photo-1444492417251-9c84a5fa18e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8b3V0ZG9vcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=900&q=60"}
+                        isVisible={true}/>
+                    <LittleObjects
+                        img={"https://images.unsplash.com/photo-1420582282039-a6d11404cb66?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8b3V0ZG9vcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=900&q=60"}
+                        isVisible={display}/>
+                    <LittleObjects
+                        img={"https://images.unsplash.com/photo-1445108771252-d1cc31a02a3c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8b3V0ZG9vcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=900&q=60"}
+                        isVisible={display}/>
+                    <LittleObjects
+                        img={"https://images.unsplash.com/photo-1501555088652-021faa106b9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG91dGRvb3J8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=900&q=60"}
+                        isVisible={display}/>
+                    <LittleObjects
+                        img={"https://images.unsplash.com/photo-1470246973918-29a93221c455?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fG91dGRvb3J8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=900&q=60"}
+                        isVisible={display}/>
+                    <LittleObjects
+                        isVisible={display}/>
+                    <LittleObjects
+                        isVisible={display}/>
+                    <LittleObjects
+                        isVisible={display}/>
+                    <LittleObjects
+                        isVisible={screenWidth < 1400}/>
+                    <div className="col lilobj d-flex justify-content-center">
+                        <div className="card">
+                            <FontAwesomeIcon icon={faFilter} size={"xl"}/>
+                            <p className="card-text text-center" style={{fontSize: .5 + "em"}}>{"Filter"}</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="row my-2">
+                    <BigObjGenerator
+                        data={tdata}/>
+                    <div
+                        className={`col-12 col-md-4 col-lg-3 bigobj m-0 mb-5 d-flex align-items-center
+                        justify-content-center ${hasMoreItems ? "" : "d-none"}`}>
+                        <div className="card" style={{height: "fit-content", cursor: "pointer"}}
+                             onClick={(e) => {
+                                 const screenWidth = window.innerWidth;
+                                 const [tablet, desktop] = [768, 992];
+                                 let render_items;
+                                 // is phone width, so only one item per row
+                                 if (screenWidth < tablet) {
+                                     render_items = 1;
+                                 }
+                                 // is tablet width so 3 items per row
+                                 else if (screenWidth < desktop) {
+                                     render_items = 3;
+                                 }
+                                 // is desktop width so 4 items per row
+                                 else if (screenWidth >= desktop) {
+                                     render_items = 4;
+                                 }
+                                 // checking for exceeding the total data we have
+                                 if (render_items + items >= max_items) {
+                                     setHasMoreItems(false);
+                                     setTdata(data);
+                                 } else {
+                                     setTdata(data.slice(0, items + render_items));
+                                 }
+                                 // update the items rendered
+                                 setItems(items + render_items);
+                             }}>
+                            <FontAwesomeIcon icon={faArrowRight} className={"card-img-top"} size={"6x"}/>
+                            <div className="card-body">
+                                <h3 className="card-title text-center">
+                                    See More
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+        ;
+}
+
+const BigObjGenerator = ({data}) => {
+    // data from bff;
 
     let val = [];
     for (const [i, datum] of data.entries()) {
