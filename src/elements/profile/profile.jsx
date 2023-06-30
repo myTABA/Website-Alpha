@@ -1,4 +1,4 @@
-import {UserProfile, useUser} from "@clerk/clerk-react";
+import {UserButton, UserProfile, useUser} from "@clerk/clerk-react";
 import {NavLink} from "react-router-dom";
 import {useState} from "react";
 import "./profile.css";

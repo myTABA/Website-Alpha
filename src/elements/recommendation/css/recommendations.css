@@ -59,24 +59,27 @@ div.rec-item-navlink:hover {
 }
 
 .rec-item, .rec-map {
-    padding: 3em 0;
+    padding: 3rem 0;
 }
 
 .rec-match {
-    margin-top: 1em;
+    margin-top: 1rem;
 }
 
 .rec-rating {
-    font-size: .75em;
-    margin-bottom: 1em;
+    /*font-size: .75em;*/
+    margin-bottom: 1rem;
 }
 
-.rec-description {
-    font-size: .9em;
+.rec-like{
+    margin: 2rem 0;
+}
+
+.rec-like > svg:nth-child(2){
+    margin: 0 1rem;
 }
 
 .rec-add > a {
-    font-size: .85em;
     margin-top: .6em;
 }
 
@@ -102,15 +105,14 @@ div.recommendation div.rec-map div.map{
     position: absolute;
 }
 #closebtn{
-    top: 1em;
-    left: 1.8em;
+    top: 1rem;
+    left: 1.8rem;
 }
 #closebtn > button{
     border-radius: 50px;
 }
 #closebtn > button > i{
     margin-right: 5px;
-    font-size: 15px;
 }
 
 /*modal*/
