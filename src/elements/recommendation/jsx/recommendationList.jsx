@@ -104,7 +104,8 @@ const makeAJAXcall = (gig) => {
     return new Promise((resolve, reject) => {
         const xhr = new XMLHttpRequest();
         // using proxy server to circumvent the CORS issue atm
-        const url = 'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyB88D2oB0Uno1PspimD24QqIiLFCdnBGNs&place_id=';
+        const gKey = process.env.GOOGLE_PLACES_KEY;
+        const url = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?key=${gKey}&place_id=`;
         xhr.open("GET", url + gig);
         xhr.responseType = "json";
         xhr.onload = () => {
