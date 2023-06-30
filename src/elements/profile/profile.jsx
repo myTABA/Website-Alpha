@@ -3,6 +3,8 @@ import {NavLink} from "react-router-dom";
 import {useState} from "react";
 import "./profile.css";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faArrowRight} from "@fortawesome/free-solid-svg-icons";
+import {faEdit} from "@fortawesome/free-regular-svg-icons";
 
 const Profile = () => {
     const {user} = useUser();
@@ -165,10 +167,14 @@ function MainContent({user, type}) {
         }
         const updateDetes = (e) => {
             e.preventDefault();
+            let fname = document.getElementById("fname").value ? document.getElementById("fname").value : document.getElementById("fname").placeholder;
+            let lname = document.getElementById("lname").value ? document.getElementById("lname").value : document.getElementById("lname").placeholder;
+            let usrname = document.getElementById("usrname").value ? document.getElementById("usrname").value : document.getElementById("usrname").placeholder;
+
             user.update({
-                firstName: document.getElementById("fname").textContent,
-                lastName: document.getElementById("lname").textContent,
-                username: document.getElementById("usrname").textContent,
+                firstName: fname,
+                lastName: lname,
+                username: usrname,
             });
         };
         val =
@@ -177,8 +183,32 @@ function MainContent({user, type}) {
                     <h3>Profile</h3>
                 </div>
                 <div>
+                    <h3 className={"sh"} id={"usrname"}>
+                        {user.username ? user.username : "No username"}
+                    </h3>
+                </div>
+                <div className={"position-relative name-usrname-pfp"} onClick={(e) => {
+                    const elem = document.querySelector(".name-usrname-pfp-edit");
+                    const classList = elem.classList;
+                    if (classList.contains("d-none")) {
+                        elem.classList.remove("d-none");
+                    } else {
+                        elem.classList.add("d-none");
+                    }
+                }}>
+                    <div className={"position-relative d-inline"} style={{width: "fit-content"}}>
+                        <img src={user.imageUrl} className={"pfp"}/>
+                    </div>
+                    <h3 className={"sh"} style={{display: "inline"}}>
+                        <span>
+                            {user.firstName ? user.firstName : "No First Name"}</span>&nbsp;
+                        <span>
+                            {user.lastName ? user.lastName : "No Last Name"}</span>
+                    </h3>
+                    <FontAwesomeIcon icon={faArrowRight} size={"xl"} className={"position-absolute"}/>
+                </div>
+                <div className={"name-usrname-pfp-edit d-none"}>
                     <input type={"file"} hidden style={{display: "none"}} id={"pfp"} onChange={(e) => {
-                        console.log(e.target.files);
                         e.preventDefault();
                         if (e.target.files.length > 0) {
                             user.setProfileImage({file: e.target.files[0]})
@@ -188,34 +218,43 @@ function MainContent({user, type}) {
                                 });
                         }
                     }}/>
-                    <div className={"position-relative d-inline"} style={{width: "fit-content"}}>
-                        <img src={user.imageUrl} className={"pfp"} onClick={(e) => {
-                            document.getElementById("pfp").click();
-                            // console.log(document.getElementById("pfp").files);
-                        }}/>
-                        <i className={"btn-close"} onClick={(e) => {
+                    <div className={"edit-pfp"}>
+                        <div className={"mb-3 d-inline-block position-relative"} onClick={
+                            (e) => {
+                                document.getElementById("pfp").click();
+                                // console.log(document.getElementById("pfp").files);
+                            }}>
+                            <img src={user.imageUrl} className={"pfp"}/>
+                            <div className={"edit-pfp-mask"}></div>
+                            <FontAwesomeIcon icon={faEdit} className={"position-absolute"}/>
+                        </div>
+                        <button className={"btn btn-outline-danger"} onClick={(e) => {
                             user.setProfileImage({file: null})
                                 .then(r => {
                                 })
                                 .catch((err) => {
                                 });
-                        }}></i>
+                        }} style={{marginLeft: "1rem"}}>Remove Profile picture
+                        </button>
+
+                        <div className={"mb-3"}>
+                            <label className={"form-label"}>First Name</label>
+                            <input className={"form-control"} placeholder={user.firstName} id={"fname"}/>
+                        </div>
+                        <div className={"mb-3"}>
+                            <label className={"form-label"}>Last Name</label>
+                            <input className={"form-control"} placeholder={user.lastName} id={"lname"}/>
+                        </div>
+                        <div className={"mb-3"}>
+                            <label className={"form-label"}>Username</label>
+                            <input className={"form-control"} placeholder={user.username} id={"usrname"}/>
+                        </div>
+                        <div className={"mb-3"}>
+                            <button type={"button"} className={"btn btn-success"} onClick={updateDetes}>Update Profile
+                                Details
+                            </button>
+                        </div>
                     </div>
-                    <h3 className={"sh"} style={{display: "inline"}}>
-                        <span contentEditable={true} id={"fname"}>
-                            {user.firstName ? user.firstName : "unset"}</span>&nbsp;
-                        <span contentEditable={true} id={"lname"}>
-                            {user.lastName ? user.lastName : "unset"}</span>
-                    </h3>
-                </div>
-                <div>
-                    <h3 className={"sh"} contentEditable={true} id={"usrname"}>
-                        {user.username ? user.username : "no username set, change it now"}
-                    </h3>
-                </div>
-                <div>
-                    <button type={"button"} className={"btn btn-success"} onClick={updateDetes}>Update Profile Details
-                    </button>
                 </div>
                 <div className={"mt-5"}>
                     <h3>Primary Email Address</h3>
@@ -225,9 +264,9 @@ function MainContent({user, type}) {
                 </div>
                 <div className={"mt-5"}>
                     <h3>All Emails</h3>
-                    <h3 className={"sh"}>{emails}</h3>
+                    <div className={"sh"}>{emails}</div>
                 </div>
-                <div className={"my-5"}>
+                <div className={"my-5 pwds"}>
                     <h3>Change Password</h3>
                     <h3 className={"sh"} style={{display: "inline-block", margin: "0 2rem 0 0"}}><input
                         type={"password"}

@@ -42,8 +42,10 @@ div.welcome-text {
 }
 
 .profile img.pfp {
-    height: calc(5rem);
+    height: calc(6rem);
+    width: 6rem;
     margin-right: 1rem;
+    border-radius: 3rem;
 }
 
 .profile h3.sh {
@@ -57,7 +59,7 @@ div.welcome-text {
     box-shadow: rgba(0, 0, 0, .3) 0 0 .5rem .2rem;
 }
 
-.profile button.btn.btn-success {
+.profile button {
     font-size: 1.6rem;
     border-radius: 1.3rem;
 }
@@ -65,22 +67,82 @@ div.welcome-text {
 #fname, #lname, #usrname, .profile img.pfp:hover {
     cursor: pointer;
 }
-#usrname{
+
+#usrname {
     padding: .5rem;
 }
-#fname, #lname{
+
+.profile .name-usrname-pfp > h3.sh > span {
     padding: .5rem 1rem;
 }
 
-#fname {
-    margin: 0 1rem;
-}
-.profile i.btn-close{
+.profile i.btn-close {
     position: absolute;
     left: 0;
     top: -1rem;
     background-color: red;
 }
-.profile i.btn-close:hover{
+
+.profile i.btn-close:hover {
     cursor: pointer;
+}
+
+.profile div.name-usrname-pfp > svg {
+    right: 6rem;
+    /*this is maths. div=100px, icon=24px, hence, 76px/2. calc at any convenient screen size*/
+    top: 3.8rem;
+    visibility: hidden;
+}
+
+.profile div.name-usrname-pfp {
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+.profile div.name-usrname-pfp:hover {
+    background-color: lightgray;
+}
+
+.profile div.name-usrname-pfp:hover svg {
+    visibility: visible;
+}
+.profile .edit-pfp div:first-child:hover{
+    cursor: pointer;
+}
+
+.profile .edit-pfp {
+    width: fit-content;
+    margin: 1.5rem;
+}
+
+.profile .edit-pfp svg {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    color: black;
+    visibility: hidden;
+}
+
+.profile .edit-pfp .edit-pfp-mask {
+    background-color: rgba(100, 100, 100, .4);
+    position: absolute;
+    width: 6rem;
+    height: 6rem;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 3rem;
+    margin: 0 1rem 0 0;
+    visibility: hidden;
+}
+
+.profile .edit-pfp:hover svg, .profile .edit-pfp:hover .edit-pfp-mask {
+    visibility: visible;
+}
+
+.form-control {
+    font-size: 1.6rem;
 }
