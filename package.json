@@ -1,7 +1,7 @@
 {
   "name": "website",
   "homepage": "https://mytaba.github.io/Website-Alpha/",
-  "proxy": "https://localhost:3000",
+  "proxy": "https://maps.googleapis.com/maps/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

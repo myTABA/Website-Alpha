@@ -75,6 +75,20 @@ function LoginBtn({dkey}) {
         return href[href.length - 1];
     }
 
+    const logoutHandler = (lochref) => {
+        const protectedURL = ['recommendations', 'profile'];
+        let curr_url = lochref.split('/');
+        curr_url = curr_url[curr_url.length - 1];
+        if (protectedURL.includes(curr_url)) {
+            console.log(true)
+            return "/";
+        } else {
+            console.log(lochref);
+            console.warn(window.location.href);
+            return lochref;
+        }
+    }
+
     return (
         <span data-key={dkey} className={"nav-link signup-login"}>
                         {/*<NavLink to={"#"} className={"nav-link"}*/}
@@ -99,8 +113,8 @@ function LoginBtn({dkey}) {
                 <UserButton
                     showName={false}
                     userProfileMode={"navigation"}
-                    afterSignOutUrl={"/"}
-                    afterMultiSessionSingleSignOutUrl={"/"}
+                    afterSignOutUrl={logoutHandler(window.location.href)}
+                    afterMultiSessionSingleSignOutUrl={logoutHandler(window.location.href)}
                     userProfileUrl={
                         typeof window !== "undefined"
                             ? `${window.location.origin}/profile`

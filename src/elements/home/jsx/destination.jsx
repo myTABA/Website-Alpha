@@ -203,15 +203,15 @@ export default function DestinationPOIInspiration() {
                                  let render_items;
                                  // is phone width, so only one item per row
                                  if (screenWidth < tablet) {
-                                     render_items = 1;
+                                     render_items = 1 * 2;
                                  }
                                  // is tablet width so 3 items per row
                                  else if (screenWidth < desktop) {
-                                     render_items = 3;
+                                     render_items = 3 * 2;
                                  }
                                  // is desktop width so 4 items per row
                                  else if (screenWidth >= desktop) {
-                                     render_items = 4;
+                                     render_items = 4 * 2;
                                  }
                                  // checking for exceeding the total data we have
                                  if (render_items + items >= max_items) {
