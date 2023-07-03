@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## .env.local variables
+
+Clerk Key as REACT_APP_CLERK_PUBLISHABLE_KEY
+Google Places Key as GOOGLE_PLACES_KEY
+
 ## Available Scripts
 
 In the project directory, you can run:
