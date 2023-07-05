@@ -80,7 +80,7 @@ function LoginBtn({dkey}) {
         let curr_url = lochref.split('/');
         curr_url = curr_url[curr_url.length - 1];
         if (protectedURL.includes(curr_url)) {
-            console.log(true)
+            // console.log(true);
             return "/";
         } else {
             console.log(lochref);

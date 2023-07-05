@@ -15,6 +15,8 @@
     --extra2: #67AAF9;
     --black: black;
     --white: whitesmoke;
+    --green: var(--bs-success);
+    --red: var(--bs-danger);
 }
 
 /*get rid of the clerk icon on login modal*/
@@ -65,14 +67,17 @@ nav.navbar a.nav-link, .signup-login {
 .signup-login > button:hover {
     color: var(--primary);
 }
+
 /*makes this a little smoother*/
-nav.navbar a{
+nav.navbar a {
     transition: all .3s;
 }
-nav.navbar a.nav-link.active{
+
+nav.navbar a.nav-link.active {
     text-decoration: underline;
 }
-nav.navbar a:hover{
+
+nav.navbar a:hover {
     font-weight: bolder;
     text-decoration: underline;
 }
@@ -86,6 +91,7 @@ nav.navbar a:hover{
     width: fit-content;
     border: none;
 }
+
 .signup-login > button:hover {
     background-color: var(--primary);
     color: var(--white);
@@ -157,8 +163,9 @@ input::placeholder {
     right: 6rem;
     top: 1.75rem;
 }
-@media only screen and (max-width: 767px){
-    .signup-login[data-key="sms"]{
+
+@media only screen and (max-width: 767px) {
+    .signup-login[data-key="sms"] {
         top: 1.5rem;
     }
 }

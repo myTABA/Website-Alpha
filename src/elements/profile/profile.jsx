@@ -158,7 +158,38 @@ function MainContent({user, type}) {
     let val;
     if (type === "account") {
         function EmailCreator(elem) {
-            return <h3 className={"sh"}>{elem.elem.emailAddress}</h3>
+            // const opacity = .5;
+            // if the status is undefined, it is verified(atleast for the example user object i am using)
+            // coerce to bool then flip
+            // true - verified
+            // const status = !!elem.elem.verification.status;
+            // let colour;
+            // if (status) {
+            //     colour = getComputedStyle(document.documentElement).getPropertyValue('--green').replace('rgb', 'rgba').replace(')', `, ${opacity})`);
+            // } else {
+            //     colour = getComputedStyle(document.documentElement).getPropertyValue('--red').replace('rgb', 'rgba').replace(')', `, ${opacity})`);
+            // }
+
+            const primary = [user.primaryEmailAddress.emailAddress];
+            let deletable;
+            if (primary.includes(elem.elem.emailAddress)) {
+                deletable = false;
+            } else {
+                deletable = true;
+            }
+
+            return (<>
+                <h3 className={"sh"}>
+                    {elem.elem.emailAddress}
+                    {deletable ?
+                        <span className={"badge bg-danger"} onClick={(e) => {
+                            elem.elem.destroy();
+                        }} style={{
+                            marginLeft: "1rem",
+                        }}>Delete Email</span> : ""}
+                </h3>
+            </>);
+
         }
 
         let emails = [];
@@ -190,10 +221,10 @@ function MainContent({user, type}) {
                 <div className={"position-relative name-usrname-pfp"} onClick={(e) => {
                     const elem = document.querySelector(".name-usrname-pfp-edit");
                     const classList = elem.classList;
-                    if (classList.contains("d-none")) {
-                        elem.classList.remove("d-none");
+                    if (classList.contains("visually-hidden")) {
+                        elem.classList.remove("visually-hidden");
                     } else {
-                        elem.classList.add("d-none");
+                        elem.classList.add("visually-hidden");
                     }
                 }}>
                     <div className={"position-relative d-inline"} style={{width: "fit-content"}}>
@@ -207,7 +238,7 @@ function MainContent({user, type}) {
                     </h3>
                     <FontAwesomeIcon icon={faArrowRight} size={"xl"} className={"position-absolute"}/>
                 </div>
-                <div className={"name-usrname-pfp-edit d-none"}>
+                <div className={"name-usrname-pfp-edit visually-hidden"}>
                     <input type={"file"} hidden style={{display: "none"}} id={"pfp"} onChange={(e) => {
                         e.preventDefault();
                         if (e.target.files.length > 0) {
@@ -265,6 +296,40 @@ function MainContent({user, type}) {
                 <div className={"mt-5"}>
                     <h3>All Emails</h3>
                     <div className={"sh"}>{emails}</div>
+                    <div className={"new-email"}>
+                        <button className={"btn"} onClick={(e) => {
+                            const elem = document.getElementById("new-email-form");
+                            const classList = elem.classList;
+                            if (classList.contains("visually-hidden")) {
+                                elem.classList.remove("visually-hidden");
+                                console.log(e.currentTarget.textContent = 'X Close form');
+                            } else {
+                                elem.classList.add("visually-hidden");
+                                e.currentTarget.textContent = '+ Add new Email';
+                            }
+                        }}>
+                            + Add new Email
+                        </button>
+                        <div id={"new-email-form"} className={"container visually-hidden"}>
+                            <input className={"form-control"} type={"email"} placeholder={"New Email"}
+                                   id={"new-email"}/>
+                            <button type={"button"} className={"btn btn-outline-primary"} onClick={(e) => {
+                                const em = document.getElementById("new-email").value;
+                                if (em) {
+                                    user.createEmailAddress({email: em})
+                                        .then(() => {
+                                            console.log(em);
+                                            console.log('success');
+                                        })
+                                        .catch((e) => {
+                                            console.warn(e);
+                                            console.log('invalid email/email issue');
+                                        });
+                                }
+                            }}>Submit
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div className={"my-5 pwds"}>
                     <h3>Change Password</h3>
@@ -275,7 +340,7 @@ function MainContent({user, type}) {
                     <h3 className={"sh"} style={{display: "inline-block"}}><input type={"password"}
                                                                                   placeholder={"New Password"}
                                                                                   id={"newpass"}/></h3>
-                    <button className={"btn btn-success"} type={"button"} style={{display: "block"}}
+                    <button className={"btn btn-outline-primary"} type={"button"} style={{display: "block"}}
                             onClick={(e) => {
                                 e.preventDefault();
                                 user.updatePassword({
