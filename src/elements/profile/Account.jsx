@@ -85,7 +85,7 @@ export default function Account({user}) {
                 <h3>Profile</h3>
             </div>
             <div>
-                <h3 className={"sh"} id={"usrname"}>
+                <h3 className={"sh"}>
                     {user.username ? user.username : "No username"}
                 </h3>
             </div>

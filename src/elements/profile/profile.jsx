@@ -1,10 +1,6 @@
-import {UserButton, UserProfile, useUser} from "@clerk/clerk-react";
-import {NavLink} from "react-router-dom";
+import {useUser} from "@clerk/clerk-react";
 import {useState} from "react";
 import "./profile.css";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faArrowRight} from "@fortawesome/free-solid-svg-icons";
-import {faEdit} from "@fortawesome/free-regular-svg-icons";
 import Account from "./Account";
 
 const Profile = () => {
