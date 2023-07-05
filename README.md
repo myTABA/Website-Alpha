@@ -5,7 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## .env.local variables
 
 Clerk Key as REACT_APP_CLERK_PUBLISHABLE_KEY
-Google Places Key as GOOGLE_PLACES_KEY
+Google Key as GOOGLE_KEY
 
 ## Available Scripts
 

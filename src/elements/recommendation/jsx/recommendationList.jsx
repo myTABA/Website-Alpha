@@ -104,7 +104,7 @@ const makeAJAXcall = (gig) => {
     return new Promise((resolve, reject) => {
         const xhr = new XMLHttpRequest();
         // using proxy server to circumvent the CORS issue atm
-        const gKey = process.env.REACT_APP_GOOGLE_PLACES_KEY;
+        const gKey = process.env.REACT_APP_GOOGLE_KEY;
 
         const url = `/api/place/details/json?key=${gKey}&fields=rating&place_id=`;
         xhr.open("GET", url + gig);

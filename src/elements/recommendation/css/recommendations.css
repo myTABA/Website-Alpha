@@ -21,6 +21,7 @@
 
 .recommendation .rec-map .map {
     height: calc(100vh - 76px - 48px * 2);
+    width: 100%;
     display: flex;
     justify-content: center;
 }
