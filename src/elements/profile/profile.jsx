@@ -179,15 +179,17 @@ function MainContent({user, type}) {
             }
 
             return (<>
-                <h3 className={"sh"}>
-                    {elem.elem.emailAddress}
-                    {deletable ?
-                        <span className={"badge bg-danger"} onClick={(e) => {
-                            elem.elem.destroy();
-                        }} style={{
-                            marginLeft: "1rem",
-                        }}>Delete Email</span> : ""}
-                </h3>
+                {elem.elem.emailAddress ?
+                    <h3 className={"sh"}>
+                        {elem.elem.emailAddress}
+                        {deletable ?
+                            <span className={"badge bg-danger"} onClick={(e) => {
+                                elem.elem.destroy();
+                            }} style={{
+                                marginLeft: "1rem",
+                            }}>Delete Email</span> : ""}
+                    </h3>
+                    : ""}
             </>);
 
         }
