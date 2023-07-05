@@ -1,8 +1,8 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowRight} from "@fortawesome/free-solid-svg-icons";
 import {faEdit} from "@fortawesome/free-regular-svg-icons";
-import {useState} from "react";
-import {useUser} from "@clerk/clerk-react";
+import {toast, ToastContainer} from "react-toastify";
+import {Tooltip} from "react-tooltip";
 
 export default function Account({user}) {
     function EmailCreator(elem) {
@@ -12,6 +12,7 @@ export default function Account({user}) {
         // true - verified
         // const status = !!elem.elem.verification.status;
         // let colour;
+        // let colour;
         // if (status) {
         //     colour = getComputedStyle(document.documentElement).getPropertyValue('--green').replace('rgb', 'rgba').replace(')', `, ${opacity})`);
         // } else {
@@ -19,23 +20,41 @@ export default function Account({user}) {
         // }
 
         const primary = [user.primaryEmailAddress.emailAddress];
-        let deletable;
-        if (primary.includes(elem.elem.emailAddress)) {
-            deletable = false;
-        } else {
-            deletable = true;
-        }
+        const deletable = !primary.includes(elem.elem.emailAddress);
+        const verified = elem.elem.verification.status === 'verified';
+        const root = document.documentElement;
+        const opacity = .85;
+        const green = getComputedStyle(root).getPropertyValue('--green') + Math.round(opacity * 255).toString(16);
+        const red = getComputedStyle(root).getPropertyValue('--red') + Math.round(opacity * 255).toString(16);
 
         return (<>
             {elem.elem.emailAddress ?
                 <h3 className={"sh"}>
                     {elem.elem.emailAddress}
+                    <span className={"badge"} style={verified ? {
+                        backgroundColor: green,
+                        cursor: "default"
+                    } : {
+                        backgroundColor: red,
+                        cursor: "pointer"
+                    }} data-tooltip-id={"tooltip"}
+                          data-tooltip-content={verified ? "You're verified!" : "Click to get verified"}
+                          data-tooltip-place={"top-start"}
+                          onClick={(e) => {
+                              elem.elem.prepareVerification({
+                                  strategy: "email_link",
+                                  redirectUrl: window.location.href
+                              });
+                              toast("Check your email for a link to verify this email");
+                          }}>
+                        {verified ? "Verified" : "Unverified"}</span>
                     {deletable ?
                         <span className={"badge bg-danger"} onClick={(e) => {
+                            console.log(elem.elem);
                             elem.elem.destroy();
-                        }} style={{
-                            marginLeft: "1rem",
+                            toast("Email removed from profile");
                         }}>Delete Email</span> : ""}
+                    <Tooltip id={"tooltip"}/>
                 </h3>
                 : ""}
         </>);
@@ -58,6 +77,7 @@ export default function Account({user}) {
             lastName: lname,
             username: usrname,
         });
+        toast.success("Profile Updated Successfully!");
     };
     let val =
         <>
@@ -95,8 +115,10 @@ export default function Account({user}) {
                     if (e.target.files.length > 0) {
                         user.setProfileImage({file: e.target.files[0]})
                             .then(r => {
+                                toast.success("Updated profile picture");
                             })
                             .catch((err) => {
+                                toast.error("Error in updating profile picture");
                             });
                     }
                 }}/>
@@ -113,8 +135,10 @@ export default function Account({user}) {
                     <button className={"btn btn-outline-danger"} onClick={(e) => {
                         user.setProfileImage({file: null})
                             .then(r => {
+                                toast.success("Profile Picture removed");
                             })
                             .catch((err) => {
+                                toast.error("Error in removing profile picture");
                             });
                     }} style={{marginLeft: "1rem"}}>Remove Profile picture
                     </button>
@@ -153,7 +177,6 @@ export default function Account({user}) {
                         const classList = elem.classList;
                         if (classList.contains("visually-hidden")) {
                             elem.classList.remove("visually-hidden");
-                            console.log(e.currentTarget.textContent = 'X Close form');
                         } else {
                             elem.classList.add("visually-hidden");
                             e.currentTarget.textContent = '+ Add new Email';
@@ -169,8 +192,8 @@ export default function Account({user}) {
                             if (em) {
                                 user.createEmailAddress({email: em})
                                     .then(() => {
-                                        console.log(em);
-                                        console.log('success');
+                                        toast.success("Email Added successfully!");
+                                        toast("Refresh the profile to view new emails");
                                         document.getElementById("new-email").value = "";
                                         document.querySelector(".new-email > button").click();
                                         // let usr;
@@ -187,7 +210,7 @@ export default function Account({user}) {
                                     })
                                     .catch((e) => {
                                         console.warn(e);
-                                        console.log('invalid email/email issue');
+                                        toast.error("Invalid email address");
                                     });
                             }
                         }}>Submit
@@ -212,7 +235,7 @@ export default function Account({user}) {
                                 newPassword: document.getElementById("newpass").value
                                 // unsure how clerk handles password verification for the promise to work
                             }).then(r => {
-                                document.getElementById("passInfo").textContent = "Password changed successfully";
+                                toast.success("Password changed successfully");
                                 document.getElementById("oldpass").value = "";
                                 document.getElementById("newpass").value = "";
                             }).catch((error) => {
@@ -220,12 +243,11 @@ export default function Account({user}) {
                                 // 1. current password is incorrect
                                 // 2. new password doesnt meet the security features
                                 // i am unsure how to diffrentiate between those two
-                                document.getElementById("passInfo").textContent = "Current password incorrect or new password does not meet password criteria"
+                                toast.error("Current password incorrect or new password does not meet password criteria");
                                 document.getElementById("oldpass").value = "";
                             });
                         }}>Update Password
                 </button>
-                <div className={""} id={"passInfo"}></div>
             </div>
         </>;
     return val;

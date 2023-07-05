@@ -174,3 +174,6 @@ div.welcome-text {
 #new-email-form > button{
     margin: 1rem 0;
 }
+span.badge{
+    margin-left: 1rem;
+}

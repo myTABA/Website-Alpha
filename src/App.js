@@ -17,6 +17,8 @@ import Signup from "./elements/login/jsx/signup";
 import Travel from "./elements/travelguide/jsx/travel";
 import Profile from "./elements/profile/profile";
 import ReactGA from "react-ga4";
+import {ToastContainer} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 if (!process.env.REACT_APP_CLERK_PUBLISHABLE_KEY) {
     throw new Error("Missing pubkey");
@@ -87,8 +89,20 @@ export default function App() {
 
                 </Routes>
                 <Footer/>
-                <Login/>
-                <Signup/>
+                <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="colored"
+                />
+                {/*<Login/>*/}
+                {/*<Signup/>*/}
             </ClerkProvider>
         </>
     );
