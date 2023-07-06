@@ -49,11 +49,19 @@ export default function Account({user}) {
                           }}>
                         {verified ? "Verified" : "Unverified"}</span>
                     {deletable ?
-                        <span className={"badge bg-danger"} onClick={(e) => {
-                            console.log(elem.elem);
+                        <span className={"badge bg-danger"} style={{cursor: "pointer"}} onClick={(e) => {
+                            // console.log(elem.elem);
                             elem.elem.destroy();
                             toast("Email removed from profile");
                         }}>Delete Email</span> : ""}
+                    {verified && deletable?
+                        <span className={"badge bg-info"} style={{cursor: "pointer"}} onClick={(e) => {
+                            // console.log(elem.elem);
+                            user.update({
+                                primaryEmailAddressId: elem.elem.id
+                            });
+                            toast.success("Primary email updated!");
+                        }}>Set Primary</span> : ""}
                     <Tooltip id={"tooltip"}/>
                 </h3>
                 : ""}
