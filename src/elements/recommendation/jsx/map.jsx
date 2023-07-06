@@ -15,7 +15,7 @@ function Map() {
             case Status.FAILURE:
                 return "fail";
             case Status.SUCCESS:
-                return <MapComponent center={{lat: 44, lng: -73}} zoom={5}/>;
+                return <MapComponent prop={calcCenter()}/>;
             default:
                 return null;
         }
@@ -45,17 +45,73 @@ function Map() {
     // todo on click, display the blacked out div and display the modal which would be a normal div
 }
 
-function MapComponent({center, zoom}) {
+const tlocs = [
+    {
+        lat: 51.497541,
+        lng: -.069502
+    },
+    {
+        lat: 51.491637,
+        lng: -.078772
+    },
+    {
+        lat: 51.503793,
+        lng: -.091303
+    },
+    {
+        lat: 51.504162,
+        lng: -.067374
+    },
+    {
+        lat: 51.506700,
+        lng: -.071655
+    },
+];
+
+const calcCenter = () => {
+    let [lat, lng] = [0, 0];
+
+    let bounds = new window.google.maps.LatLngBounds();
+    for (const [i, e] of tlocs.entries()) {
+        lat += e.lat;
+        lng += e.lng;
+        bounds.extend(new window.google.maps.LatLng(e.lat,e.lng));
+    }
+    console.log(bounds);
+
+    return {
+        centre: {lat: lat / tlocs.length, lng: lng / tlocs.length},
+        bound: bounds,
+        zoom: 7
+    };
+}
+
+function MapComponent({prop}) {
     const ref = useRef();
+    const infoWindow = new window.google.maps.InfoWindow();
+    const [center,zoom] = [prop.centre,prop.zoom];
     useEffect(() => {
         const map = new window.google.maps.Map(ref.current, {
             center,
             zoom,
         });
-        return () => {
 
+        for(const[i,e] of tlocs.entries()){
+            const marker = new window.google.maps.Marker({
+                position: e,
+                map,
+                title: "hey",
+                label: i+1,
+            });
+            marker.addListener("click", () => {
+                infoWindow.close();
+                infoWindow.setContent(marker.getTitle());
+                infoWindow.open(marker.getMap(), marker);
+            });
+            marker.setAnimation(window.google.maps.Animation.DROP);
         }
-    }, [center, zoom]);
+        map.fitBounds(prop.bound);
+    }, [center, infoWindow, zoom]);
     return (
         <div id={"map"} className={"map"} ref={ref}>
             {/*<img src={"https://www.burningcompass.com/world/maps/world-map-hd.jpg"}/>*/}
