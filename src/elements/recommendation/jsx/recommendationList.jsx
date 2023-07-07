@@ -6,6 +6,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faThumbsDown as faThumbsDownSolid, faThumbsUp as faThumbsUpSolid} from "@fortawesome/free-solid-svg-icons";
 import {faThumbsDown as faThumbsDownHollow, faThumbsUp as faThumbsUpHollow} from "@fortawesome/free-regular-svg-icons";
 import {useEffect, useState} from "react";
+import {setSelectionRange} from "@testing-library/user-event/dist/utils";
 
 
 function RecItem({img, name, num, match, rating_star, rating_count, description, itinerary_link}) {
@@ -77,7 +78,7 @@ function LikeDislike() {
 
     return (
         <>
-            <FontAwesomeIcon icon={faThumbsUp} size={"2x"} color={"green"} onClick={(e) => {
+            <FontAwesomeIcon icon={faThumbsUp} size={"2x"} color={"var(--extra2)"} onClick={(e) => {
                 if (faThumbsUp === faThumbsUpHollow) {
                     setFaThumbsUp(faThumbsUpSolid);
                     // set code here to add this to the user profile
@@ -123,37 +124,72 @@ const makeAJAXcall = (gig) => {
     });
 };
 
-function RecommendationPane({items}) {
+function RecommendationPane({items_rec, items_must}) {
     //items is an array of objects for populating the RecItems
     // we get the items object array from rec.jsx
+
+    const [items, setItems] = useState([]);
+    useEffect(() => {
+        setItems(items_rec);
+    }, [items_rec]);
+
+    let val = <>
+        <div className={"d-flex justify-content-center toggle"}>
+            <div onClick={e => {
+                const child = e.currentTarget.childNodes;
+                if(child[0].className === "selected") {
+                    child[1].className = "selected";
+                    child[0].className = "";
+                    setItems(items_must);
+                }
+                else {
+                    child[0].className = "selected";
+                    child[1].className = "";
+                    setItems(items_rec);
+                }
+            }}>
+                <span className={"selected"}>Recommended for you</span>
+                <span className={""}>Must See</span>
+            </div>
+        </div>
+        {items ? <RecommendationList items={items}/> : "Loading"}
+    </>
+    return val;
+
+}
+
+function RecommendationList({items}) {
     const [val, setVal] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
-            const updatedVal = [];
-            for (const [i, elem] of items.entries()) {    //similar to py's enumerate()
+            if (items) {
+                const updatedVal = [];
+                for (const [i, elem] of items.entries()) {    //similar to py's enumerate()
 
-                // need to make calls here for getting remaining data off gid
-                const ids = elem.ids;
-                try {
-                    const gData = await makeAJAXcall(ids.gig);
-                    updatedVal.push(
-                        <RecItem
-                            img={elem.imagelocs[0]}
-                            name={elem.name}
-                            num={i + 1}   //no need to specify number, this will automatically deal w it
-                            match={elem.match}
-                            rating_star={gData["result"] ? gData["result"]["rating"] : 2}
-                            rating_count={elem.rating_count}
-                            description={elem.descrh}
-                            itinerary_link={gData["result"] ? gData["result"]["website"] : ""}
-                            key={i + 1}/>
-                    );
-                } catch (e) {
-                    console.log(e);
+                    // need to make calls here for getting remaining data off gid
+                    const ids = elem.ids;
+                    try {
+                        // const gData = await makeAJAXcall(ids.gig);
+                        const gData = {};
+                        updatedVal.push(
+                            <RecItem
+                                img={elem.imagelocs[0]}
+                                name={elem.name}
+                                num={i + 1}   //no need to specify number, this will automatically deal w it
+                                match={elem.match}
+                                rating_star={gData["result"] ? gData["result"]["rating"] : 2}
+                                rating_count={elem.rating_count}
+                                description={elem.descrh}
+                                itinerary_link={gData["result"] ? gData["result"]["website"] : ""}
+                                key={i + 1}/>
+                        );
+                    } catch (e) {
+                        console.log(e);
+                    }
                 }
+                setVal(updatedVal);
             }
-            setVal(updatedVal);
         };
         fetchData();
     }, [items]);

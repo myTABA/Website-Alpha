@@ -78,12 +78,12 @@ export default function Account({user}) {
         e.preventDefault();
         let fname = document.getElementById("fname").value ? document.getElementById("fname").value : document.getElementById("fname").placeholder;
         let lname = document.getElementById("lname").value ? document.getElementById("lname").value : document.getElementById("lname").placeholder;
-        let usrname = document.getElementById("usrname").value ? document.getElementById("usrname").value : document.getElementById("usrname").placeholder;
+        // let usrname = document.getElementById("usrname").value ? document.getElementById("usrname").value : document.getElementById("usrname").placeholder;
 
         user.update({
             firstName: fname,
             lastName: lname,
-            username: usrname,
+            // username: usrname,
         });
         toast.success("Profile Updated Successfully!");
     };
@@ -92,11 +92,11 @@ export default function Account({user}) {
             <div className={"mt-5"}>
                 <h3>Profile</h3>
             </div>
-            <div>
-                <h3 className={"sh"}>
-                    {user.username ? user.username : "No username"}
-                </h3>
-            </div>
+            {/*<div>*/}
+            {/*    <h3 className={"sh"}>*/}
+            {/*        {user.username ? user.username : "No username"}*/}
+            {/*    </h3>*/}
+            {/*</div>*/}
             <div className={"position-relative name-usrname-pfp"} onClick={(e) => {
                 const elem = document.querySelector(".name-usrname-pfp-edit");
                 const classList = elem.classList;
@@ -105,7 +105,7 @@ export default function Account({user}) {
                 } else {
                     elem.classList.add("visually-hidden");
                 }
-            }}>
+            }} data-tooltip-id={"tooltip"} data-tooltip-content={"Edit Profile Details"} data-tooltip-place={"top-end"}>
                 <div className={"position-relative d-inline"} style={{width: "fit-content"}}>
                     <img src={user.imageUrl} className={"pfp"}/>
                 </div>
@@ -159,12 +159,12 @@ export default function Account({user}) {
                         <label className={"form-label"}>Last Name</label>
                         <input className={"form-control"} placeholder={user.lastName} id={"lname"}/>
                     </div>
+                    {/*<div className={"mb-3"}>*/}
+                    {/*    <label className={"form-label"}>Username</label>*/}
+                    {/*    <input className={"form-control"} placeholder={user.username} id={"usrname"}/>*/}
+                    {/*</div>*/}
                     <div className={"mb-3"}>
-                        <label className={"form-label"}>Username</label>
-                        <input className={"form-control"} placeholder={user.username} id={"usrname"}/>
-                    </div>
-                    <div className={"mb-3"}>
-                        <button type={"button"} className={"btn btn-success"} onClick={updateDetes}>Update Profile
+                        <button type={"button"} className={"btn btn-outline-primary"} onClick={updateDetes}>Update Profile
                             Details
                         </button>
                     </div>
@@ -251,6 +251,7 @@ export default function Account({user}) {
                                 // 1. current password is incorrect
                                 // 2. new password doesnt meet the security features
                                 // i am unsure how to diffrentiate between those two
+                                console.log(error);
                                 toast.error("Current password incorrect or new password does not meet password criteria");
                                 document.getElementById("oldpass").value = "";
                             });

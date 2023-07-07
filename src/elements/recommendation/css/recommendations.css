@@ -127,3 +127,30 @@ div.modal-review-pfp > img {
     border-radius: 50em;
     height: 100%;
 }
+.recommendation .toggle{
+    margin: 2rem 0;
+    cursor: pointer;
+}
+.recommendation .toggle > div{
+    background-color: var(--white);
+    max-width: fit-content;
+    padding: 1rem 0;
+    border-radius: 50rem;
+    border-color: var(--black);
+    border-style: solid;
+    border-width: 1px;
+}
+.recommendation .toggle span{
+    padding: 1rem 1rem;
+}
+.recommendation span.selected{
+    background-color: var(--extra2);
+    color: var(--white);
+    transition: background-color 400ms ease-in;
+}
+.recommendation span.selected:first-child{
+    border-radius: 50rem 0 0 50rem;
+}
+.recommendation span.selected:nth-child(2){
+    border-radius: 0 50rem 50rem 0;
+}
