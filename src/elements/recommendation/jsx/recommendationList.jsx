@@ -9,7 +9,7 @@ import {useEffect, useState} from "react";
 import {setSelectionRange} from "@testing-library/user-event/dist/utils";
 
 
-function RecItem({img, name, num, match, rating_star, rating_count, description, itinerary_link}) {
+function RecItem({img, name, num, match, rating_star, rating_count, description, itinerary_link, tags}) {
 
     //placeholders and setting defaults
     // ❗❗ Only for testing ❗❗
@@ -21,6 +21,7 @@ function RecItem({img, name, num, match, rating_star, rating_count, description,
     rating_count = rating_count ? rating_count : Math.floor(Math.random() * 100000);
     description = description ? description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque turpis risus, fringilla a sagittis interdum, efficitur vitae odio. Aliquam erat volutpat. Aliquam aliquam semper urna, ac elementum tellus fringilla eu. Vestibulum facilisis consectetur quam. Morbi ac blandit ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.";
     itinerary_link = itinerary_link ? itinerary_link : "#";
+    tags = tags ? tags : ["fun", "crazy"];
 
     let stars = [];
     for (let i = 1; i <= rating_star; i++) {
@@ -56,6 +57,9 @@ function RecItem({img, name, num, match, rating_star, rating_count, description,
                     <div className={"rec-description"}>
                         {description}
                     </div>
+                    <div className={"rec-tag"} style={{margin: "1rem 0"}}>
+                        <TagGen tags={tags}/>
+                    </div>
                     <div className={"rec-add"}>
                         {/*todo click override based on screen size - js check screen size and render appropriately*/}
                         {/*<button type={"button"} className={"btn btn-primary"} data-bs-toggle={"modal"}*/}
@@ -70,6 +74,19 @@ function RecItem({img, name, num, match, rating_star, rating_count, description,
             </div>
         </div>;
     return val;
+}
+
+function TagGen({tags}) {
+    const Tag = ({tag}) => {
+        return <>
+            <span className={"badge bg-primary tag"}>{tag}</span>
+        </>;
+    };
+    let val = [];
+    for (const [i, e] of tags.entries()) {
+        val.push(<Tag tag={e} key={i + 1}/>);
+    }
+    return <span>{val}</span>;
 }
 
 function LikeDislike() {
@@ -137,12 +154,11 @@ function RecommendationPane({items_rec, items_must}) {
         <div className={"d-flex justify-content-center toggle"}>
             <div onClick={e => {
                 const child = e.currentTarget.childNodes;
-                if(child[0].className === "selected") {
+                if (child[0].className === "selected") {
                     child[1].className = "selected";
                     child[0].className = "";
                     setItems(items_must);
-                }
-                else {
+                } else {
                     child[0].className = "selected";
                     child[1].className = "";
                     setItems(items_rec);

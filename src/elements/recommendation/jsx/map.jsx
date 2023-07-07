@@ -77,7 +77,6 @@ const calcCenter = () => {
         lng += e.lng;
         bounds.extend(new window.google.maps.LatLng(e.lat,e.lng));
     }
-    console.log(bounds);
 
     return {
         centre: {lat: lat / tlocs.length, lng: lng / tlocs.length},
@@ -101,7 +100,7 @@ function MapComponent({prop}) {
                 position: e,
                 map,
                 title: "hey",
-                label: i+1,
+                label: (i+1).toString(),
             });
             marker.addListener("click", () => {
                 infoWindow.close();

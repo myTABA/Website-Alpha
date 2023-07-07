@@ -154,3 +154,14 @@ div.modal-review-pfp > img {
 .recommendation span.selected:nth-child(2){
     border-radius: 0 50rem 50rem 0;
 }
+
+.recommendation span.badge.tag{
+    margin-left: 0;
+    margin-right:1rem;
+    padding:1rem;
+    font-size: 1.6rem;
+    border-radius: 2rem;
+    min-width: 6rem;
+    font-weight: 400;
+    background-color: var(--extra2) !important;
+}
