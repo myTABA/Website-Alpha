@@ -19,6 +19,7 @@ import Profile from "./elements/profile/profile";
 import ReactGA from "react-ga4";
 import {ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Quiz from "./elements/quiz/quiz";
 
 if (!process.env.REACT_APP_CLERK_PUBLISHABLE_KEY) {
     throw new Error("Missing pubkey");
@@ -86,6 +87,7 @@ export default function App() {
                     {/*<Route path={"/recommendations"} element={<Recommendation/>}/>*/}
                     {/*<Route path={"/sign-out/*"} element={<SignOut routing={"path"} path={"/sign-out"}/>}/>*/}
                     <Route path={"/travel-guides"} element={<Travel/>}/>
+                    <Route path={"/quiz"} element={<Quiz/>}/>
 
                 </Routes>
                 <Footer/>

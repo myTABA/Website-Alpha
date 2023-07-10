@@ -1,5 +1,6 @@
 import "../css/cta.css";
 import {useEffect} from "react";
+import {NavLink} from "react-router-dom";
 
 export default function CTA({title, text, button}) {
     let   val;
@@ -24,9 +25,9 @@ export default function CTA({title, text, button}) {
                 </div>
 
                 <div className={"text-center"}>
-                    <a href={"#"} className={"cta-button card-link btn btn-primary"}>
+                    <NavLink to={"/quiz"} className={"cta-button card-link btn btn-primary"}>
                         <h3>{button}</h3>
-                    </a>
+                    </NavLink>
                 </div>
 
             </div>

@@ -1,0 +1,173 @@
+.quiz ul {
+    list-style: none;
+    padding: .5rem 0 0 1.5rem;
+    width: calc(90%);
+}
+
+.quiz ul > li:not(:first-child) {
+    margin-left: .75rem;
+}
+
+.quiz ul > li button {
+    border: none;
+    background-color: transparent;
+    text-align: left;
+    width: 100%;
+}
+
+.quiz div.b3.active {
+    background-color: lightgray;
+}
+
+.quiz div.menu, .quiz div.content {
+    border-width: .2rem;
+    border-style: solid;
+    border-color: transparent;
+    border-radius: 2.5rem;
+    box-shadow: rgba(0, 0, 0, .3) 0 0 .8rem .1rem;
+    padding: 1rem 0;
+}
+
+.quiz .menu {
+    height: fit-content;
+}
+
+.quiz img.pfp {
+    height: calc(6rem);
+    width: 6rem;
+    margin-right: 1rem;
+    border-radius: 3rem;
+}
+
+.quiz div.b3 {
+    padding-top: .6rem;
+    padding-bottom: .6rem;
+    border: 1px solid var(--black);
+    margin: .6rem 0;
+    border-radius: 1.4rem;
+}
+
+.quiz input {
+    border: none;
+    border-radius: 2rem;
+    padding: .5rem 1rem;
+    box-shadow: rgba(0, 0, 0, .3) 0 0 .5rem .2rem;
+}
+
+.quiz button {
+    font-size: 1.6rem;
+    border-radius: 1.3rem;
+}
+
+.quiz img.pfp:hover {
+    cursor: pointer;
+}
+
+#usrname {
+    padding: .5rem;
+}
+
+.quiz .name-usrname-pfp > div.b3 > span {
+    padding: .5rem 1rem;
+}
+
+.quiz i.btn-close {
+    position: absolute;
+    left: 0;
+    top: -1rem;
+    background-color: red;
+}
+
+.quiz i.btn-close:hover {
+    cursor: pointer;
+}
+
+.quiz div.name-usrname-pfp > svg {
+    right: 6rem;
+    /*this is maths. div=100px, icon=24px, hence, 76px/2. calc at any convenient screen size*/
+    top: 3.8rem;
+    visibility: hidden;
+}
+
+.quiz div.name-usrname-pfp {
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+.quiz div.name-usrname-pfp:hover {
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.quiz div.name-usrname-pfp:hover svg {
+    visibility: visible;
+}
+
+.quiz div.name-usrname-pfp-edit {
+    transition: all .3s ease-in-out;
+}
+
+.quiz .edit-pfp div:first-child:hover {
+    cursor: pointer;
+}
+
+.quiz .edit-pfp {
+    width: fit-content;
+    margin: 1.5rem;
+}
+
+.quiz .edit-pfp svg {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    color: black;
+    visibility: hidden;
+}
+
+.quiz .edit-pfp .edit-pfp-mask {
+    background-color: rgba(100, 100, 100, .7);
+    position: absolute;
+    width: 6rem;
+    height: 6rem;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 3rem;
+    margin: 0 1rem 0 0;
+    visibility: hidden;
+}
+
+.quiz .edit-pfp svg {
+    color: var(--white);
+}
+
+.quiz .edit-pfp > div:first-child:hover svg, .quiz .edit-pfp > div:first-child:hover .edit-pfp-mask {
+    visibility: visible;
+}
+
+.form-control {
+    font-size: 1.6rem;
+}
+
+.quiz div.new-email > button {
+    margin: 0;
+}
+
+.quiz div.b3 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+#new-email-form{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+#new-email-form > button{
+    margin: 1rem 0;
+}
+span.badge{
+    margin-left: 1rem;
+}

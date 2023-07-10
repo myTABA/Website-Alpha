@@ -50,7 +50,11 @@ h3 {
     font-size: 2.4rem;
 }
 
-h2, h3 {
+h4 {
+    font-size: 2rem;
+}
+
+h2, h3, h4 {
     font-weight: bold;
 }
 
@@ -70,6 +74,10 @@ h2.sh {
 
 h3.sh {
     font-size: 1.8rem;
+}
+
+h4.sh {
+    font-size: 1.6rem;
 }
 
 /*body 1 body 2 and body3*/
