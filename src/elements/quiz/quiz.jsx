@@ -2,6 +2,7 @@ import {useUser} from "@clerk/clerk-react";
 import {useState} from "react";
 import "./css/quiz.css";
 import WhereGoing from "./jsx/wheregoing";
+import Triptype from "./jsx/triptype";
 
 
 const Quiz = () => {
@@ -14,25 +15,27 @@ const Quiz = () => {
         }
     });
     const changeState = (e) => {
-        console.log(e.target.textContent);
+        const id = e.currentTarget.id;
+        console.log(id);
         selectionHighlight(e.target.parentElement);
-        if (e.target.textContent === "Account") {
+        if (id === "menu1") {
             setState({
                 props: {
                     title: "Account",
                     title_info: "Manage your account information",
-                    type: "account",
+                    type: "wheregoing",
                 }
             });
-        } else if (e.target.textContent === "Security") {
+        } else if (id === "menu2") {
+            e.currentTarget.innerHTML = "In progress";
             setState({
                 props: {
-                    title: "Security",
-                    title_info: "Review Security options here",
-                    type: "security",
+                    title: "What type of trip are you looking for?",
+                    title_info: "Select upto 3 options blow",
+                    type: "triptype",
                 }
             });
-        } else if (e.target.textContent === "Saved Searches") {
+        } else if (id === "menupoi1") {
             setState({
                 props: {
                     title: "Saved Searches",
@@ -40,7 +43,7 @@ const Quiz = () => {
                     type: "savedsearch",
                 }
             });
-        } else if (e.target.textContent === "Liked Destinations") {
+        } else if (id === "menupoi2") {
             setState({
                 props: {
                     title: "Liked Destinations",
@@ -48,7 +51,33 @@ const Quiz = () => {
                     type: "liked",
                 }
             });
+        } else if (id === "menupoi3") {
+            setState({
+                props: {
+                    title: "Hei :)",
+                    title_info: "Very hi",
+                    type: "heh"
+                }
+            });
+        } else if (id === "menupoi4") {
+            setState({
+                props: {
+                    title: "Hei :)",
+                    title_info: "Very hi",
+                    type: "heh"
+                }
+            });
+        } else if (id === "menupoi5") {
+            setState({
+                props: {
+                    title: "Hei :)",
+                    title_info: "Very hi",
+                    type: "heh"
+                }
+            });
         }
+
+
     };
 
     const selectionHighlight = (elem) => {
@@ -74,7 +103,7 @@ const Quiz = () => {
                                 <li><h4>Where are you going?</h4></li>
                                 <li>
                                     <div className={"b3 active"}>
-                                        <button onClick={changeState}>In Progress</button>
+                                        <button onClick={changeState} id={"menu1"}>In Progress</button>
                                     </div>
                                 </li>
                             </ul>
@@ -84,7 +113,7 @@ const Quiz = () => {
                                 <li><h4>What type of trip are you looking for?</h4></li>
                                 <li>
                                     <div className={"b3"}>
-                                        <button onClick={changeState}>Not Completed</button>
+                                        <button onClick={changeState} id={"menu2"}>Not Completed</button>
                                     </div>
                                 </li>
                             </ul>
@@ -94,19 +123,19 @@ const Quiz = () => {
                                 <li><h4>Let us know how you feel about these recommendations</h4></li>
                                 <li>
                                     <div className={"b3"}>
-                                        <button onClick={changeState}>Point of Interest 1</button>
+                                        <button onClick={changeState} id={"menupoi1"}>Point of Interest 1</button>
                                     </div>
                                     <div className={"b3"}>
-                                        <button onClick={changeState}>Point of Interest 1</button>
+                                        <button onClick={changeState} id={"menupoi2"}>Point of Interest 1</button>
                                     </div>
                                     <div className={"b3"}>
-                                        <button onClick={changeState}>Point of Interest 1</button>
+                                        <button onClick={changeState} id={"menupoi3"}>Point of Interest 1</button>
                                     </div>
                                     <div className={"b3"}>
-                                        <button onClick={changeState}>Point of Interest 1</button>
+                                        <button onClick={changeState} id={"menupoi4"}>Point of Interest 1</button>
                                     </div>
                                     <div className={"b3"}>
-                                        <button onClick={changeState}>Point of Interest 1</button>
+                                        <button onClick={changeState} id={"menupoi5"}>Point of Interest 1</button>
                                     </div>
                                 </li>
                             </ul>
@@ -128,7 +157,7 @@ const Quiz = () => {
 
 function MainBar(props) {
     let val =
-        <>
+        <div id={props.props.type}>
             <div className={"head"}>
                 <div>
                     <h2>{props.props.title}</h2>
@@ -137,8 +166,8 @@ function MainBar(props) {
                     <h2 className={"sh"}>{props.props.title_info}</h2>
                 </div>
             </div>
-            <MainContent type={props.props.type} user={props.props.user}/>
-        </>
+            <MainContent type={props.props.type}/>
+        </div>
     return val;
 }
 
@@ -148,13 +177,8 @@ function MainContent({type}) {
     if (type === "wheregoing") {
         val = <WhereGoing/>
 
-    } else if (type === 'savedsearch') {
-        val =
-            <>
-                <div>
-                    images
-                </div>
-            </>
+    } else if (type === 'triptype') {
+        val = <Triptype/>
     }
     return val;
 }

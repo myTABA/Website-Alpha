@@ -1,0 +1,14 @@
+#triptype div.card.selected {
+    border: 1px var(--extra2) solid;
+}
+#triptype div.card{
+    padding: 2rem 0;
+}
+
+#triptype div.col-12.col-md-6.col-lg-4.my-3.position-relative > .card > span {
+    left: 2rem;
+    position: absolute;
+    top: 1.5rem;
+    z-index: 1;
+    color: var(--extra2);
+}

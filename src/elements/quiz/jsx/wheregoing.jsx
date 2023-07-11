@@ -3,18 +3,27 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCheck} from "@fortawesome/free-solid-svg-icons";
 import ReactDOMServer from "react-dom/server";
 import {faCheckCircle} from "@fortawesome/free-regular-svg-icons";
+import React from "react";
 
 const WhereGoing = () => {
-    let val;
-    return <BigGen/>
+    let val =
+        <div className={"d-flex justify-content-center"}>
+            <button className={"btn btn-outline-primary"} onClick={e => {
+                //todo add any other data here to be marshalled to bff
+                document.getElementById("menu2").click();
+            }}>
+                Submit
+            </button>
+        </div>
+    return <><BigGen/>{val}</>
 };
 
 function BigGen() {
     let val = [];
     for (const [i, e] of data.entries()) {
         let elem;
-        elem = <>
-            <div className={"container my-4"} key={i + 1}>
+        elem = <React.Fragment key={i + 1}>
+            <div className={"container my-4"}>
                 <div className={"row"}>
                     <h3>{e.country}</h3>
                 </div>
@@ -22,7 +31,7 @@ function BigGen() {
                     <SmallGen data={e.cities}/>
                 </div>
             </div>
-        </>;
+        </React.Fragment>;
         val.push(elem);
     }
     return val;
@@ -32,10 +41,15 @@ function SmallGen({data}) {
     let val = [];
     for (const [i, e] of data.entries()) {
         let elem;
-        elem = <>
-            <div className={"col"} key={i + 1} onClick={e => {
+        elem = <React.Fragment key={i + 1}>
+            <div className={"col"} onClick={e => {
                 let parent = e.currentTarget;
                 let m = parent.querySelector("div.check-selected-marker");
+                let t = document.getElementById("wheregoing").querySelectorAll("div.check-selected-marker");
+                t.forEach(e => {
+                    e.classList.add("d-none");
+                    e.classList.remove("check-selected");
+                });
                 m.classList.remove("d-none");
                 m.classList.add("check-selected");
                 m.querySelector("svg").classList.add("flicker-animation");
@@ -54,8 +68,6 @@ function SmallGen({data}) {
 
                 //todo also shift to next button, create helper function in diff file for all to access
                 // closest will help :)
-
-                //todo add any other data here to be marshalled to bff
             }}>
                 <div className={"card"}>
                     <div className={"card-body"}>
@@ -72,7 +84,7 @@ function SmallGen({data}) {
                     </div>
                 </div>
             </div>
-        </>;
+        </React.Fragment>;
         val.push(elem);
     }
     return val;

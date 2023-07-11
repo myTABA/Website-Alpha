@@ -1,7 +1,7 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowRight} from "@fortawesome/free-solid-svg-icons";
 import {faEdit} from "@fortawesome/free-regular-svg-icons";
-import {toast, ToastContainer} from "react-toastify";
+import {toast} from "react-toastify";
 import {Tooltip} from "react-tooltip";
 
 export default function Account({user}) {
