@@ -14,12 +14,8 @@ const recommendations = [
     { id: 5, name: 'Location5' }
 ];
 
-// Serve the static files from the React app
-// app.use(express.static(path.join(__dirname, 'client/build')));
-
 // Route for handling location_button action
 router.post('/location-action', (req, res) => {
-    // res.status(200).send(req.body.card);
     const selectedCard = req.body.card;
     location.push(selectedCard);
     res.send(location);
@@ -34,11 +30,5 @@ router.post('/type-action', (req, res) => {
     // send the location & types array to Rob's api
     res.send(recommendations);
 });
-
-// Serve the React app on the root URL
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-// });
-
 
 module.exports = router;
