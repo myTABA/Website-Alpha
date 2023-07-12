@@ -14,21 +14,32 @@ const recommendations = [
     { id: 5, name: 'Location5' }
 ];
 
-// Route for handling location_button action
+// Route for handling location_button
 router.post('/location-action', (req, res) => {
     const selectedCard = req.body.card;
+    if (!selectedCard) {
+        return res.status(400).json({ error: 'No place selected' })
+    }
     location.push(selectedCard);
-    res.send(location);
     console.log(location);
+    res.status(200).json({});
 });
  
-// Route for handling types_button action
+// Route for handling types_button
 router.post('/type-action', (req, res) => {
     const selectedCard = req.body.card;
+    if (!selectedCard) {
+        return res.status(400).json({ error: 'No type selected' })
+    }
     types.push(selectedCard);
     console.log(types);
+    res.status(200).json({});
+});
+
+// Route for handling interest_level_button
+router.get('/type-action', (req, res) => {
     // send the location & types array to Rob's api
-    res.send(recommendations);
+    res.status(200).send(types);
 });
 
 module.exports = router;
