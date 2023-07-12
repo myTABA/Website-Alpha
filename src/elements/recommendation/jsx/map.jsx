@@ -89,10 +89,23 @@ function MapComponent({prop}) {
     const ref = useRef();
     const infoWindow = new window.google.maps.InfoWindow();
     const [center,zoom] = [prop.centre,prop.zoom];
+    const mapStyle =[
+        {
+            featureType: "poi",
+            stylers:[{visibility:"off"}]
+        },
+        // {
+        //     featureType: "roads",
+        //     elementType:"labels",
+        //     stylers: [{visibility: "off"}]
+        // }
+
+    ];
     useEffect(() => {
         const map = new window.google.maps.Map(ref.current, {
             center,
             zoom,
+            styles: mapStyle,
         });
 
         for(const[i,e] of tlocs.entries()){
