@@ -17,24 +17,26 @@ let types = [];
 
 // Route for handling location_button
 router.post('/location-action', (req, res) => {
+    location = [];
     const selectedCard = req.body.location;
     if (!selectedCard) {
         return res.status(400).json({ error: 'No place selected' })
     }
     location.push(selectedCard);
     console.log(location);
-    res.status(200).json({});
+    res.status(200).json({selectedCard});
 });
  
 // Route for handling types_button
 router.post('/type-action', (req, res) => {
+    types = [];
     const selectedCard = req.body.type;
     if (!selectedCard) {
         return res.status(400).json({ error: 'No type selected' })
     }
     types.push(selectedCard);
     console.log(types);
-    res.status(200).json({});
+    res.status(200).json({selectedCard});
 });
 
 // Get first recommendation from API call
