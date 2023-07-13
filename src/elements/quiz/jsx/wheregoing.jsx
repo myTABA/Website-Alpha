@@ -10,6 +10,7 @@ const WhereGoing = () => {
         <div className={"d-flex justify-content-center"}>
             <button className={"btn btn-outline-primary"} onClick={e => {
                 //todo add any other data here to be marshalled to bff
+
                 document.getElementById("menu2").click();
             }}>
                 Submit
