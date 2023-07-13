@@ -17,7 +17,7 @@ let types = [];
 
 // Route for handling location_button
 router.post('/location-action', (req, res) => {
-    const selectedCard = req.body.card;
+    const selectedCard = req.body.location;
     if (!selectedCard) {
         return res.status(400).json({ error: 'No place selected' })
     }
@@ -28,7 +28,7 @@ router.post('/location-action', (req, res) => {
  
 // Route for handling types_button
 router.post('/type-action', (req, res) => {
-    const selectedCard = req.body.card;
+    const selectedCard = req.body.type;
     if (!selectedCard) {
         return res.status(400).json({ error: 'No type selected' })
     }
