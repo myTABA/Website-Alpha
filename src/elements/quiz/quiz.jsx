@@ -15,9 +15,12 @@ const Quiz = () => {
         }
     });
     const changeState = (e) => {
-        const id = e.currentTarget.id;
+        let id = e.currentTarget.id;
         console.log(id);
         selectionHighlight(e.target.parentElement);
+        if (id.includes("menupoi")) {
+            id = id.substring(0, id.length-1);
+        }
         if (id === "menu1") {
             setState({
                 props: {
@@ -35,12 +38,12 @@ const Quiz = () => {
                     type: "triptype",
                 }
             });
-        } else if (id === "menupoi1") {
+        } else if (id === "menupoi") {
             setState({
                 props: {
-                    title: "Saved Searches",
-                    title_info: "Get inspired, once more.",
-                    type: "savedsearch",
+                    title: "How interested are you in visiting:",
+                    title_info: "Help us learn more about your trip preferences by rating the following",
+                    type: "poi",
                 }
             });
         } else if (id === "menupoi2") {

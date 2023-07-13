@@ -8,11 +8,15 @@ import {
 import {faCheckCircle} from "@fortawesome/free-regular-svg-icons";
 import {toast} from "react-toastify";
 import ReactDOMServer from "react-dom/server";
+import axios from "axios";
 
 const TripType = () => {
     let val = <div className={"d-flex justify-content-center"}>
         <button className={"btn btn-outline-primary"} onClick={e => {
             //todo add any other data here to be marshalled to bff
+            axios.post('http://localhost:4000/quiz/type-action', {
+                "type": document.getElementById("menu2").innerText.trim().split(", ")
+            }).then().catch(e => console.error(e));
             document.getElementById("menupoi1").click();
         }}>
             Submit
@@ -22,14 +26,29 @@ const TripType = () => {
 };
 
 let select_elem = new Set();
+function selectItemsAgain(select_elem){
+    console.log(select_elem);
+    const elem = document.getElementById("menu2");
+    if (select_elem.size > 0) {
+        const m = Array.from(select_elem).map(e => e.innerText).join(', ');
+        elem.innerHTML = ReactDOMServer.renderToString(
+                <FontAwesomeIcon icon={faCheckCircle} color={"var(--extra2)"}/>) +
+            ' ' + m;
+    }
+    select_elem.forEach(e=>{
+        e.classList.add("selected");
+        // does not work because the elements are rerendered, the reference is lost
+    });
+}
 
 function Gen() {
     let val = [];
+    const elem = document.getElementById("menu2");
+    selectItemsAgain(select_elem);
+    console.log(select_elem.size);
     for (const [i, e] of data.entries()) {
-        let elem =
+        let ele =
             <div className={"col-12 col-md-6 col-lg-4 my-3 position-relative"} key={i + 1} onClick={e => {
-                console.log(select_elem.size);
-                toast(e.currentTarget.classList)
                 console.log(select_elem);
                 if (!e.currentTarget.querySelector("div.card.selected")) {
                     if (select_elem.size < 3) {
@@ -46,7 +65,6 @@ function Gen() {
                     e.currentTarget.querySelector("div.card.selected").classList.remove("selected");
                     // remove from select_elem
                 }
-                const elem = document.getElementById("menu2");
                 if (select_elem.size > 0) {
                     const m = Array.from(select_elem).map(e => e.innerText).join(', ');
                     elem.innerHTML = ReactDOMServer.renderToString(
@@ -75,7 +93,7 @@ function Gen() {
                     </div>
                 </div>
             </div>;
-        val.push(elem);
+        val.push(ele);
     }
     return <>
         <div className={"container my-4"}>
