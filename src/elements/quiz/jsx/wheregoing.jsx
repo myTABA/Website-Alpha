@@ -4,12 +4,16 @@ import {faCheck} from "@fortawesome/free-solid-svg-icons";
 import ReactDOMServer from "react-dom/server";
 import {faCheckCircle} from "@fortawesome/free-regular-svg-icons";
 import React from "react";
+import axios from "axios";
 
 const WhereGoing = () => {
     let val =
         <div className={"d-flex justify-content-center"}>
             <button className={"btn btn-outline-primary"} onClick={e => {
                 //todo add any other data here to be marshalled to bff
+                axios.post('http://localhost:4000/quiz/location-action',{
+                    "location": document.getElementById("menu1").innerText.trim()
+                });
 
                 document.getElementById("menu2").click();
             }}>
