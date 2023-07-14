@@ -3,6 +3,9 @@ import {useState} from "react";
 import "./css/quiz.css";
 import WhereGoing from "./jsx/wheregoing";
 import Triptype from "./jsx/triptype";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
+import RatePoi from "./jsx/ratepoi";
 
 
 const Quiz = () => {
@@ -15,35 +18,38 @@ const Quiz = () => {
         }
     });
     const changeState = (e) => {
-        let id = e.currentTarget.id;
+        let id = e;
         console.log(id);
-        selectionHighlight(e.target.parentElement);
-        if (id.includes("menupoi")) {
-            id = id.substring(0, id.length-1);
-        }
+        selectionHighlight(document.getElementById(id).parentElement);
+        // if (id.includes("menupoi")) {
+        //     id = id.substring(0, id.length - 1);
+        // }
         if (id === "menu1") {
             setState({
                 props: {
-                    title: "Account",
-                    title_info: "Manage your account information",
+                    title: "Where are you travelling?",
+                    title_info: "For multiple destinations make a new request after this one!",
                     type: "wheregoing",
+                    id: id,
                 }
             });
         } else if (id === "menu2") {
-            e.currentTarget.innerHTML = "In progress";
+            document.getElementById(id).innerHTML = "In progress";
             setState({
                 props: {
                     title: "What type of trip are you looking for?",
                     title_info: "Select upto 3 options blow",
                     type: "triptype",
+                    id: id,
                 }
             });
-        } else if (id === "menupoi") {
+        } else if (id.includes("menupoi")) {
             setState({
                 props: {
                     title: "How interested are you in visiting:",
                     title_info: "Help us learn more about your trip preferences by rating the following",
-                    type: "poi",
+                    type: "ratepoi",
+                    id: id,
                 }
             });
         } else if (id === "menupoi2") {
@@ -52,6 +58,7 @@ const Quiz = () => {
                     title: "Liked Destinations",
                     title_info: "Previously Liked Destinations",
                     type: "liked",
+                    id: id,
                 }
             });
         } else if (id === "menupoi3") {
@@ -59,7 +66,8 @@ const Quiz = () => {
                 props: {
                     title: "Hei :)",
                     title_info: "Very hi",
-                    type: "heh"
+                    type: "heh",
+                    id: id,
                 }
             });
         } else if (id === "menupoi4") {
@@ -67,7 +75,8 @@ const Quiz = () => {
                 props: {
                     title: "Hei :)",
                     title_info: "Very hi",
-                    type: "heh"
+                    type: "heh",
+                    id: id,
                 }
             });
         } else if (id === "menupoi5") {
@@ -75,12 +84,11 @@ const Quiz = () => {
                 props: {
                     title: "Hei :)",
                     title_info: "Very hi",
-                    type: "heh"
+                    type: "heh",
+                    id: id,
                 }
             });
         }
-
-
     };
 
     const selectionHighlight = (elem) => {
@@ -95,7 +103,7 @@ const Quiz = () => {
         <>
             <div className={"container my-5"}>
                 <div className={"row"}>
-                    <div className={"col col-md-4 menu m-4 p-4"}>
+                    <div className={"col col-md-4 menu my-4 mx-4 p-4"}>
                         <div className={""}>
                             <ul>
                                 <li>
@@ -106,7 +114,7 @@ const Quiz = () => {
                                 <li><h4>Where are you going?</h4></li>
                                 <li>
                                     <div className={"b3 active"}>
-                                        <button onClick={changeState} id={"menu1"}>In Progress</button>
+                                        <button id={"menu1"}>In Progress</button>
                                     </div>
                                 </li>
                             </ul>
@@ -116,7 +124,7 @@ const Quiz = () => {
                                 <li><h4>What type of trip are you looking for?</h4></li>
                                 <li>
                                     <div className={"b3"}>
-                                        <button onClick={changeState} id={"menu2"}>Not Completed</button>
+                                        <button id={"menu2"}>Not Completed</button>
                                     </div>
                                 </li>
                             </ul>
@@ -126,26 +134,36 @@ const Quiz = () => {
                                 <li><h4>Let us know how you feel about these recommendations</h4></li>
                                 <li>
                                     <div className={"b3"}>
-                                        <button onClick={changeState} id={"menupoi1"}>Point of Interest 1</button>
+                                        <button id={"menupoi1"}>Point of Interest
+                                            1
+                                        </button>
                                     </div>
                                     <div className={"b3"}>
-                                        <button onClick={changeState} id={"menupoi2"}>Point of Interest 1</button>
+                                        <button id={"menupoi2"}>Point of Interest
+                                            1
+                                        </button>
                                     </div>
                                     <div className={"b3"}>
-                                        <button onClick={changeState} id={"menupoi3"}>Point of Interest 1</button>
+                                        <button id={"menupoi3"}>Point of Interest
+                                            1
+                                        </button>
                                     </div>
                                     <div className={"b3"}>
-                                        <button onClick={changeState} id={"menupoi4"}>Point of Interest 1</button>
+                                        <button id={"menupoi4"}>Point of Interest
+                                            1
+                                        </button>
                                     </div>
                                     <div className={"b3"}>
-                                        <button onClick={changeState} id={"menupoi5"}>Point of Interest 1</button>
+                                        <button id={"menupoi5"}>Point of Interest
+                                            1
+                                        </button>
                                     </div>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <div className={"col content m-4 p-4"}>
-                        <MainBar props={state.props}/>
+                    <div className={"col content my-4 mx-4 p-4"}>
+                        <MainBar props={state.props} state={state} changeState={changeState}/>
                     </div>
                 </div>
             </div>
@@ -158,30 +176,48 @@ const Quiz = () => {
     );
 };
 
-function MainBar(props) {
+function MainBar({props, state, changeState}) {
+    const backButton = <div className={"b3"}
+                            style={{width: "fit-content", borderRadius: "5rem", padding: ".3rem .7rem"}}>
+        <button className={"btn"} onClick={e => {
+            if (props.id === "menu2") {
+                changeState("menu1");
+            } else if (props.id === "menupoi1") {
+                changeState("menu2");
+            }
+        }}>
+            <FontAwesomeIcon icon={faArrowLeft}/> Back
+        </button>
+    </div>;
     let val =
-        <div id={props.props.type}>
+        <div id={props.type}>
             <div className={"head"}>
+                {['menu2', 'menupoi1'].includes(props.id) ?
+                    backButton : ''
+                }
                 <div>
-                    <h2>{props.props.title}</h2>
+                    <h2>{props.title}</h2>
                 </div>
                 <div>
-                    <h2 className={"sh"}>{props.props.title_info}</h2>
+                    <h2 className={"sh"}>{props.title_info}</h2>
                 </div>
             </div>
-            <MainContent type={props.props.type}/>
+            <MainContent type={props.type} state={state} changeState={changeState}/>
         </div>
     return val;
 }
 
-function MainContent({type}) {
+function MainContent({type, state, changeState}) {
     let val;
 
     if (type === "wheregoing") {
-        val = <WhereGoing/>
+        val = <WhereGoing changeState={changeState}/>
 
     } else if (type === 'triptype') {
-        val = <Triptype/>
+        val = <Triptype changeState={changeState}/>
+    }
+    else if(type==='ratepoi'){
+        val = <RatePoi state={state} changeState={changeState}/>
     }
     return val;
 }

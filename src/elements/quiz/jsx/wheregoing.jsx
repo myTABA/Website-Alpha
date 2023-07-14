@@ -6,17 +6,16 @@ import {faCheckCircle} from "@fortawesome/free-regular-svg-icons";
 import React from "react";
 import axios from "axios";
 
-const WhereGoing = () => {
+const WhereGoing = ({changeState}) => {
     let val =
         <div className={"d-flex justify-content-center"}>
             <button className={"btn btn-outline-primary"} onClick={e => {
                 //todo add any other data here to be marshalled to bff
-                console.log("hi")
                 axios.post('http://localhost:4000/quiz/location-action',{
                     "location": document.getElementById("menu1").innerText.trim()
                 }).then().catch(e=>console.error(e));
 
-                document.getElementById("menu2").click();
+                changeState("menu2");
             }}>
                 Submit
             </button>
@@ -61,7 +60,7 @@ function SmallGen({data}) {
                 m.querySelector("svg").classList.add("flicker-animation");
                 setTimeout(() => {
                     m.querySelector("svg").classList.remove("flicker-animation");
-                }, 1000);
+                }, 500);
 
                 let breadcrumb = document.querySelector(".quiz div.b3.active > button");
                 // document.querySelector("#wheregoing > div.d-flex.justify-content-center > button").removeAttribute("disabled");

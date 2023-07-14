@@ -4,9 +4,7 @@
     width: calc(90%);
 }
 
-.quiz ul > li:not(:first-child) {
-    margin-left: .75rem;
-}
+
 
 .quiz ul > li button {
     border: none;

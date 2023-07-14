@@ -136,8 +136,8 @@ html {
 
 /*colour overrides*/
 .btn.btn-outline-primary {
-    background-color: var(--secondary);
-    color: var(--black);
+    background-color: var(--extra2);
+    color: var(--white);
     /*border-color: var(--primary);*/
     border: none;
     border-radius: 50px;
@@ -145,9 +145,9 @@ html {
 }
 
 .btn.btn-outline-primary:hover {
-    background-color: var(--primary);
+    background-color: var(--extra1);
     transition: 0.2s;
-    color: var(--white);
+    color: var(--black);
     /*border-color: var(--secondary);*/
 }
 

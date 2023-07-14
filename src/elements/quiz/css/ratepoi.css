@@ -1,0 +1,29 @@
+.quiz div.image >img{
+    height: 30rem;
+    width: 100%;
+    object-fit: cover;
+}
+.quiz div.tags >div.badge{
+    background-color: var(--extra2) !important;
+    font-weight: 400;
+    border-radius: 5rem;
+    margin-right: .7rem;
+}
+.quiz div.b3.desc{
+    border: none;
+}
+
+.quiz .form-check{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+    padding: 0;
+    margin: 1rem .5rem ;
+}
+.quiz .form-check-input{
+    margin: 1rem 0;
+    padding: 0;
+}
