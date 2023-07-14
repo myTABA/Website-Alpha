@@ -107,27 +107,27 @@ function Gen() {
 const data = [
     {
         name: "Food & Drink",
-        icon: <FontAwesomeIcon icon={faBreadSlice} size={"8x"}/>
+        icon: <FontAwesomeIcon icon={faBreadSlice} size={"7x"}/>
     },
     {
         name: "Cultural",
-        icon: <FontAwesomeIcon icon={faChurch} size={"8x"}/>
+        icon: <FontAwesomeIcon icon={faChurch} size={"7x"}/>
     },
     {
         name: "Adventurous",
-        icon: <FontAwesomeIcon icon={faPersonFalling} size={"8x"}/>
+        icon: <FontAwesomeIcon icon={faPersonFalling} size={"7x"}/>
     },
     {
         name: "Outdoorsy",
-        icon: <FontAwesomeIcon icon={faTree} size={"8x"}/>
+        icon: <FontAwesomeIcon icon={faTree} size={"7x"}/>
     },
     {
         name: "Sporty",
-        icon: <FontAwesomeIcon icon={faVolleyballBall} size={"8x"}/>
+        icon: <FontAwesomeIcon icon={faVolleyballBall} size={"7x"}/>
     },
     {
         name: "Relaxation",
-        icon: <FontAwesomeIcon icon={faPersonPraying} size={"8x"}/>
+        icon: <FontAwesomeIcon icon={faPersonPraying} size={"7x"}/>
     }
 ];
 

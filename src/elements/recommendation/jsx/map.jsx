@@ -94,6 +94,10 @@ function MapComponent({prop}) {
             featureType: "poi",
             stylers:[{visibility:"off"}]
         },
+        {
+            featureType: "transit",
+            stylers:[{visibility:"off"}]
+        },
         // {
         //     featureType: "roads",
         //     elementType:"labels",
