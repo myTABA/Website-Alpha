@@ -70,10 +70,8 @@ const RatePoi = ({state, changeState}) => {
                 </div>
             </div>
             <div className={"row"}>
-                <div className={"col rating"}>
-
-                    {state.props.id}
-                    <div className={"d-flex justify-content-center"}>
+                <div className={"col rating my-3"}>
+                    <div className={"d-flex justify-content-around"}>
                         <div className={"form-check form-check-inline"}>
                             <input className={"form-check-input"} type={"radio"} id={"i-2"} name={"likert"}/>
                             <label className={"form-check-label"} htmlFor={"i-2"}>Not at all<br/>Interested</label>

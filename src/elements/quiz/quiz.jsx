@@ -228,7 +228,7 @@ function MainBar({props, state, changeState}) {
                     <h2>{props.title}</h2>
                 </div>
                 <div>
-                    <h2 className={"sh"}>{props.title_info}</h2>
+                    <div className={"b2"}>{props.title_info}</div>
                 </div>
             </div>
             <MainContent type={props.type} state={state} changeState={changeState}/>

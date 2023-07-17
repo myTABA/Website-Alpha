@@ -24,6 +24,8 @@
     margin: 1rem .5rem ;
 }
 .quiz .form-check-input{
-    margin: 1rem 0;
+    margin: 2rem 0 0 0;
+    height: 2.2rem;
+    width: 2.2rem;
     padding: 0;
 }
