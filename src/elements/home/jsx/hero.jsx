@@ -31,7 +31,7 @@ export default function Hero() {
 
 function GetStarted() {
     return (
-        <NavLink to={"/quiz"} id={"GetStarted"} className={"btn btn-outline-success w-100 py-3"}>
+        <NavLink to={"/quiz"} id={"GetStarted"} className={"btn btn-outline-primary w-100 py-3"}>
             <h3>Find your next adventure!</h3></NavLink>
         //equivalent to the below but for react router need to use Link
         // <a href="#" id="GetStarted" className="btn btn-outline-success">Personalize your Travel</a>

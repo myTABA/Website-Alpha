@@ -206,7 +206,7 @@ export default function DestinationPOIInspiration() {
                 </div>
                 <div className={"row my-2 d-flex justify-content-center"}>
                     <div
-                        className={`col m-0 mb-5 d-flex align-items-center
+                        className={`col m-0 d-flex align-items-center
                         justify-content-center ${hasMoreItems ? "" : "d-none"}`}>
                         <button className="btn btn-outline-primary" style={{padding: "1rem 2rem"}}
                                 onClick={(e) => {
