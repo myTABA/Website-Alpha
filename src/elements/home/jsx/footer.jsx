@@ -13,7 +13,7 @@ export default function Footer() {
         }
 
     let val =
-        <div className={"container-fluid mt-5 py-5"}>
+        <div className={"container-fluid py-5"}>
             <div className={"row text-center"}>
                 {/*three columns for footer*/}
                 <div className={"col-12 col-md"}>
@@ -78,7 +78,7 @@ export default function Footer() {
         </div>;
 
     return (
-        <div className={"footer mt-5"}>
+        <div className={"footer"}>
             {val}
         </div>
     );
