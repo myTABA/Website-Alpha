@@ -172,3 +172,8 @@ span.badge{
 #menu1, #menu2, #menupoi1, #menupoi2, #menupoi3, #menupoi4, #menupoi5{
     cursor: default;
 }
+
+/*only for the fin centering*/
+#fin h2{
+    text-align: center;
+}

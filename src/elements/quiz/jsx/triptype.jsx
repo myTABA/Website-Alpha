@@ -11,6 +11,7 @@ import ReactDOMServer from "react-dom/server";
 import axios from "axios";
 
 const TripType = ({changeState}) => {
+    let select_elem = new Set();
     let val = <div className={"d-flex justify-content-center"}>
         <button className={"btn btn-outline-primary"} onClick={e => {
             axios.post('http://localhost:4000/quiz/type-action', {
@@ -21,35 +22,18 @@ const TripType = ({changeState}) => {
             Submit
         </button>
     </div>;
-    return <><Gen/>{val}</>
+    return <><Gen select_elem={select_elem}/>{val}</>
 };
-
-let select_elem = new Set();
-function selectItemsAgain(select_elem){
-    console.log(select_elem);
-    const elem = document.getElementById("menu2");
-    if (select_elem.size > 0) {
-        const m = Array.from(select_elem).map(e => e.innerText).join(', ');
-        elem.innerHTML = ReactDOMServer.renderToString(
-                <FontAwesomeIcon icon={faCheckCircle} color={"var(--extra2)"}/>) +
-            ' ' + m;
-    }
-    select_elem.forEach(e=>{
-        e.classList.add("selected");
-        // does not work because the elements are re-rendered, the reference is lost
-    });
-}
-
-function Gen() {
+function Gen({select_elem}) {
     let val = [];
     const elem = document.getElementById("menu2");
-    selectItemsAgain(select_elem);
     console.log(select_elem.size);
     for (const [i, e] of data.entries()) {
         let ele =
             <div className={"col-12 col-md-6 col-lg-4 my-3 position-relative"} key={i + 1} onClick={e => {
                 console.log(select_elem);
                 if (!e.currentTarget.querySelector("div.card.selected")) {
+                    // click elem not selected
                     if (select_elem.size < 3) {
                         // add to select_elem
                         e.currentTarget.querySelector("div.card").classList.add("selected");
@@ -59,12 +43,14 @@ function Gen() {
                         toast.warn("Already selected 3");
                     }
                 } else {
+                    // click elem selected
                     select_elem.delete(e.currentTarget.querySelector("div.card.selected"));
                     e.currentTarget.querySelector("div.card.selected >span").classList.add("d-none");
                     e.currentTarget.querySelector("div.card.selected").classList.remove("selected");
                     // remove from select_elem
                 }
                 if (select_elem.size > 0) {
+                    // update breadcrumb
                     const m = Array.from(select_elem).map(e => e.innerText).join(', ');
                     elem.innerHTML = ReactDOMServer.renderToString(
                             <FontAwesomeIcon icon={faCheckCircle} color={"var(--extra2)"}/>) +

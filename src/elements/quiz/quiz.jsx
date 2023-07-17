@@ -1,11 +1,12 @@
 import {useUser} from "@clerk/clerk-react";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import "./css/quiz.css";
 import WhereGoing from "./jsx/wheregoing";
 import Triptype from "./jsx/triptype";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 import RatePoi from "./jsx/ratepoi";
+import Fin from "./jsx/fin";
 
 
 const Quiz = () => {
@@ -21,12 +22,13 @@ const Quiz = () => {
         let id = e;
         console.log(id);
         const likerts = document.getElementsByName("likert");
-        if(likerts){
-            likerts.forEach(e=>{
-                e.checked=false;
+        if (likerts) {
+            likerts.forEach(e => {
+                e.checked = false;
             });
         }
-        selectionHighlight(document.getElementById(id).parentElement);
+        if (id !== "fin")
+            selectionHighlight(document.getElementById(id).parentElement);
         // if (id.includes("menupoi")) {
         //     id = id.substring(0, id.length - 1);
         // }
@@ -40,7 +42,9 @@ const Quiz = () => {
                 }
             });
         } else if (id === "menu2") {
-            document.getElementById(id).innerHTML = "In progress";
+            if (document.getElementById(id).innerHTML === "Not Completed") {
+                document.getElementById(id).innerHTML = "In Progress";
+            }
             setState({
                 props: {
                     title: "What type of trip are you looking for?",
@@ -49,8 +53,7 @@ const Quiz = () => {
                     id: id,
                 }
             });
-        }
-        else if (id.includes("menupoi")) {
+        } else if (id.includes("menupoi")) {
             setState({
                 props: {
                     title: "How interested are you in visiting:",
@@ -59,10 +62,16 @@ const Quiz = () => {
                     id: id,
                 }
             });
-        }else if(id==="fin"){
+        } else if (id === "fin") {
             //finished state, after clicking submit on menupoi5
-        }
-        else if (id === "menupoi2") {
+            setState({
+                props: {
+                    title: "Your recommendations are ready!",
+                    type: "fin",
+                    id: id
+                }
+            })
+        } else if (id === "menupoi2") {
             setState({
                 props: {
                     title: "Liked Destinations",
@@ -202,6 +211,8 @@ function MainBar({props, state, changeState}) {
                 changeState("menupoi3");
             } else if (props.id === "menupoi5") {
                 changeState("menupoi4");
+            } else if (props.id === "fin") {
+                changeState("menupoi5");
             }
         }}>
             <FontAwesomeIcon icon={faArrowLeft}/> Back
@@ -229,12 +240,55 @@ function MainContent({type, state, changeState}) {
     let val;
 
     if (type === "wheregoing") {
-        val = <WhereGoing changeState={changeState}/>
+        val = <WhereGoing changeState={changeState}/>;
+        // very rigid code to select the selected element if it exists. DFS
+        useEffect(() => {
+            const innertext = document.getElementById("menu1").innerText;
+            console.log(innertext);
+            if (innertext !== "In Progress") {
+                const [city, country] = innertext.split(', ');
+                const start = document.getElementById(type);
+                const item = start.querySelectorAll("div.row > h3");
+                let ans;
+                for (const [i, e] of item.entries()) {
+                    if (e.innerText === country) {
+                        ans = e;
+                        break;
+                    }
+                }
+                let x = ans.parentElement.parentElement.childNodes[1].querySelectorAll("div.card-title > h4");
+                for (const [i, e] of x.entries()) {
+                    if (e.innerText === city.trim()) {
+                        ans = e;
+                        break;
+                    }
+                }
+                ans.click();
+            }
+        }, []);
 
     } else if (type === 'triptype') {
-        val = <Triptype changeState={changeState}/>
+        val = <Triptype changeState={changeState}/>;
+        // very rigid code to select the selected elements if exists. DFS
+        useEffect(()=>{
+            const arr = document.getElementById("menu2").innerText.split(',');
+            const start = document.getElementById(type);
+            let x = start.querySelectorAll("div.card-body > div.card-title.text-center.b1");
+            console.log(arr);
+            console.log(x.entries());
+            arr.forEach(e=>{
+                for(const[i,r] of x.entries()){
+                    if(e.trim()===r.innerText){
+                        r.click();
+                        break;
+                    }
+                }
+            });
+        },[]);
     } else if (type === 'ratepoi') {
-        val = <RatePoi state={state} changeState={changeState}/>
+        val = <RatePoi state={state} changeState={changeState}/>;
+    } else if (type === "fin") {
+        val = <Fin changeState={changeState}/>;
     }
     return val;
 }

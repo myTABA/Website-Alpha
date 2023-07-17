@@ -1,6 +1,10 @@
 import '../css/ratepoi.css';
 import axios from "axios";
 import React, {useEffect, useState} from "react";
+import ReactDOMServer from "react-dom/server";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faCheckCircle} from "@fortawesome/free-regular-svg-icons";
+
 const RatePoi = ({state, changeState}) => {
     console.log(state);
 
@@ -20,8 +24,11 @@ const RatePoi = ({state, changeState}) => {
             setContent({
                 name: v.features[0].properties.name,
                 tags: v.features[0].properties.kinds.split(','),
+                desc: "",
+                imgsrc: ""
                 //todo other data comes here
             });
+            document.getElementById(state.props.id).innerText = v.features[0].properties.name;
         });
     }, [state.props.id]);
     //only call the axios when ID changes
@@ -90,13 +97,22 @@ const RatePoi = ({state, changeState}) => {
                                 }).then().catch(e => console.log(e));
                             }
                         });
+
+                        // styles update
+                        const k = document.getElementById(id);
+                        const tick = ReactDOMServer.renderToString(<FontAwesomeIcon icon={faCheckCircle}
+                                                                                    color={"var(--extra2"}/>);
+                        k.style.color = "var(--extra2)";
+                        k.innerHTML = tick + " " + k.innerText;
+                        k.parentElement.style.borderColor = "var(--extra2)";
+
+
                         if (id !== "menupoi5") {
                             const new_id = id.substring(0, id.length - 1) + (parseInt(id.at(id.length - 1)) + 1);
                             changeState(new_id);
-                        }else {
-
+                        } else {
+                            changeState("fin");
                         }
-
                     }}>Submit
                     </button>
                 </div>
@@ -106,7 +122,7 @@ const RatePoi = ({state, changeState}) => {
 };
 
 function getData(i) {
-    i = parseInt(i[i.length-1])-1;
+    i = parseInt(i[i.length - 1]) - 1;
     console.log(i);
 
     if (i === 0) {
