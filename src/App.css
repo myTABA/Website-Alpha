@@ -29,7 +29,6 @@ body {
     margin-top: calc(1.6rem * 4.25);
 }
 
-/*todo test this*/
 @media only screen and (max-width: 991px) {
     nav.navbar > div.container {
         width: 100%;

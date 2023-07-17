@@ -1,9 +1,6 @@
 import '../css/ratepoi.css';
 import axios from "axios";
 import React, {useEffect, useState} from "react";
-
-const tarr = ["https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bmV3JTIweW9ya3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60", "https://images.unsplash.com/photo-1500916434205-0c77489c6cf7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmV3JTIweW9ya3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60", "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bmV3JTIweW9ya3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"]
-let i = 0;
 const RatePoi = ({state, changeState}) => {
     console.log(state);
 
@@ -16,26 +13,26 @@ const RatePoi = ({state, changeState}) => {
 
 
     useEffect(() => {
-        const dataPromise = getData();
+        const dataPromise = getData(state.props.id);
         dataPromise.then(e => {
             console.log('promise called');
             const v = e.data;
             setContent({
                 name: v.features[0].properties.name,
                 tags: v.features[0].properties.kinds.split(','),
+                //todo other data comes here
             });
         });
     }, [state.props.id]);
     //only call the axios when ID changes
 
-    console.log(i);
     let val =
         <div className={"container my-5"}>
             <div className={"row"}>
                 <div className={"col-12 col-md image"}>
                     <img
                         // replace with content.imgsrc
-                        src={tarr[i]}/>
+                        src={''}/>
                 </div>
                 <div className={"col-12 col-md info"}>
                     <h3>{content.name}</h3>
@@ -83,19 +80,23 @@ const RatePoi = ({state, changeState}) => {
                         const id = state.props.id;
                         console.log(id);
                         const menupoinumber = state.props.id.split("").reverse().join("")[0];
+                        //post req is made directly on id, i.e. 1,2,3,4,5
+                        const elems = document.getElementsByName("likert");
+                        elems.forEach(e => {
+                            if (e.checked) {
+                                const val = parseInt(e.id.slice(1));
+                                axios.post(`http://localhost:4000/quiz/interest-level-action/${menupoinumber}`, {
+                                    interest: val
+                                }).then().catch(e => console.log(e));
+                            }
+                        });
                         if (id !== "menupoi5") {
-                            const elems = document.getElementsByName("likert");
-                            elems.forEach(e => {
-                                if (e.checked) {
-                                    const val = parseInt(e.id.slice(1));
-                                    axios.post(`http://localhost:4000/quiz/interest-level-action/${menupoinumber}`, {
-                                        interest: val
-                                    }).then().catch(e => console.log(e));
-                                }
-                            });
                             const new_id = id.substring(0, id.length - 1) + (parseInt(id.at(id.length - 1)) + 1);
                             changeState(new_id);
+                        }else {
+
                         }
+
                     }}>Submit
                     </button>
                 </div>
@@ -104,18 +105,19 @@ const RatePoi = ({state, changeState}) => {
     return val;
 };
 
-function getData() {
+function getData(i) {
+    i = parseInt(i[i.length-1])-1;
+    console.log(i);
+
     if (i === 0) {
         return axios.get("http://localhost:4000/quiz/type-action").then(e => {
-            i++;
             return e;
         }).catch(e => {
-            console.log(e)
+            console.log(e);
         });
     } else {
         return axios.get(`http://localhost:4000/quiz/interest-level-action/${i}`).then(e => {
             console.log(`next req ${i}`);
-            i++;
             return e;
         }).catch(e => console.log(e));
     }

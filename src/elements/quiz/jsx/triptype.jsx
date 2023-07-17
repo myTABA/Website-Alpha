@@ -13,7 +13,6 @@ import axios from "axios";
 const TripType = ({changeState}) => {
     let val = <div className={"d-flex justify-content-center"}>
         <button className={"btn btn-outline-primary"} onClick={e => {
-            //todo add any other data here to be marshalled to bff
             axios.post('http://localhost:4000/quiz/type-action', {
                 "type": document.getElementById("menu2").innerText.trim().split(", ")
             }).then().catch(e => console.error(e));

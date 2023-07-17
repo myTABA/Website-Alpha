@@ -36,7 +36,6 @@ function RecItem({img, name, num, match, rating_star, rating_count, description,
         <div
             // data-bs-toggle={"modal"} data-bs-target={"#overlayContent"}
             className={"rec-item-navlink"}>
-            {/*todo call a fx here which polls backend for data which renders the data on the modal div*/}
             {/*will most likely require js to handle this, cant call the react component here*/}
             <div className={"row rec-item"}>
                 <div className={"col-12 col-md-6"}>

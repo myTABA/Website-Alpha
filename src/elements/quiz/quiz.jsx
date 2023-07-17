@@ -20,6 +20,12 @@ const Quiz = () => {
     const changeState = (e) => {
         let id = e;
         console.log(id);
+        const likerts = document.getElementsByName("likert");
+        if(likerts){
+            likerts.forEach(e=>{
+                e.checked=false;
+            });
+        }
         selectionHighlight(document.getElementById(id).parentElement);
         // if (id.includes("menupoi")) {
         //     id = id.substring(0, id.length - 1);
@@ -38,12 +44,13 @@ const Quiz = () => {
             setState({
                 props: {
                     title: "What type of trip are you looking for?",
-                    title_info: "Select upto 3 options blow",
+                    title_info: "Select up to 3 options below",
                     type: "triptype",
                     id: id,
                 }
             });
-        } else if (id.includes("menupoi")) {
+        }
+        else if (id.includes("menupoi")) {
             setState({
                 props: {
                     title: "How interested are you in visiting:",
@@ -52,7 +59,10 @@ const Quiz = () => {
                     id: id,
                 }
             });
-        } else if (id === "menupoi2") {
+        }else if(id==="fin"){
+            //finished state, after clicking submit on menupoi5
+        }
+        else if (id === "menupoi2") {
             setState({
                 props: {
                     title: "Liked Destinations",
@@ -140,22 +150,22 @@ const Quiz = () => {
                                     </div>
                                     <div className={"b3"}>
                                         <button id={"menupoi2"}>Point of Interest
-                                            1
+                                            2
                                         </button>
                                     </div>
                                     <div className={"b3"}>
                                         <button id={"menupoi3"}>Point of Interest
-                                            1
+                                            3
                                         </button>
                                     </div>
                                     <div className={"b3"}>
                                         <button id={"menupoi4"}>Point of Interest
-                                            1
+                                            4
                                         </button>
                                     </div>
                                     <div className={"b3"}>
                                         <button id={"menupoi5"}>Point of Interest
-                                            1
+                                            5
                                         </button>
                                     </div>
                                 </li>
@@ -184,6 +194,14 @@ function MainBar({props, state, changeState}) {
                 changeState("menu1");
             } else if (props.id === "menupoi1") {
                 changeState("menu2");
+            } else if (props.id === "menupoi2") {
+                changeState("menupoi1");
+            } else if (props.id === "menupoi3") {
+                changeState("menupoi2");
+            } else if (props.id === "menupoi4") {
+                changeState("menupoi3");
+            } else if (props.id === "menupoi5") {
+                changeState("menupoi4");
             }
         }}>
             <FontAwesomeIcon icon={faArrowLeft}/> Back
@@ -192,8 +210,8 @@ function MainBar({props, state, changeState}) {
     let val =
         <div id={props.type}>
             <div className={"head"}>
-                {['menu2', 'menupoi1'].includes(props.id) ?
-                    backButton : ''
+                {['menu1'].includes(props.id) ?
+                    '' : backButton
                 }
                 <div>
                     <h2>{props.title}</h2>
@@ -215,13 +233,10 @@ function MainContent({type, state, changeState}) {
 
     } else if (type === 'triptype') {
         val = <Triptype changeState={changeState}/>
-    }
-    else if(type==='ratepoi'){
+    } else if (type === 'ratepoi') {
         val = <RatePoi state={state} changeState={changeState}/>
     }
     return val;
 }
 
 export default Quiz;
-
-// todo for each button there will be an associated state that gets triggered. can containerise them but in essence, each button has a different mainbar state

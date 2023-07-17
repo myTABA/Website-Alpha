@@ -10,7 +10,6 @@ const WhereGoing = ({changeState}) => {
     let val =
         <div className={"d-flex justify-content-center"}>
             <button className={"btn btn-outline-primary"} onClick={e => {
-                //todo add any other data here to be marshalled to bff
                 axios.post('http://localhost:4000/quiz/location-action',{
                     "location": document.getElementById("menu1").innerText.trim()
                 }).then().catch(e=>console.error(e));
@@ -72,8 +71,6 @@ function SmallGen({data}) {
                     parent.querySelector("div.card-title >h4").innerHTML + ", " +
                     m.closest("div.container").querySelector("div.row > h3").innerHTML;
 
-                //todo also shift to next button, create helper function in diff file for all to access
-                // closest will help :)
             }}>
                 <div className={"card"}>
                     <div className={"card-body"}>
