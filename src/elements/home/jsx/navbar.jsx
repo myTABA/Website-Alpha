@@ -138,7 +138,7 @@ function LoginBtn({dkey}) {
 
 class Navbar extends Component {
 
-    // navabr scroll script js
+    // navbar scroll script js
     constructor(props) {
         super(props);
         // set state of component:

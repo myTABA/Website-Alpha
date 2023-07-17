@@ -37,7 +37,7 @@ function selectItemsAgain(select_elem){
     }
     select_elem.forEach(e=>{
         e.classList.add("selected");
-        // does not work because the elements are rerendered, the reference is lost
+        // does not work because the elements are re-rendered, the reference is lost
     });
 }
 
@@ -57,7 +57,7 @@ function Gen() {
                         e.currentTarget.querySelector("div.card.selected > span").classList.remove("d-none");
                         select_elem.add(e.currentTarget.querySelector("div.card.selected"));
                     } else {
-                        toast.warn("Already seelected 3");
+                        toast.warn("Already selected 3");
                     }
                 } else {
                     select_elem.delete(e.currentTarget.querySelector("div.card.selected"));

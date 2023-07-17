@@ -11,7 +11,7 @@ function ScrollToTop({history}) {
         document.documentElement.scrollTo({
             top: 0,
             left: 0,
-            // using randomiser to swap between scrolling styles
+            // using randomizer to swap between scrolling styles
             // behavior: r === 0 ? "instant" : "smooth"
             behavior: "smooth",
         });

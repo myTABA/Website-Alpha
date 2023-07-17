@@ -50,7 +50,7 @@ function ModalContent({overlayRef}) {
                                     <img
                                         src={"https://images.unsplash.com/photo-1452796651103-7c07fca7a2c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnJvb2tseW4lMjBicmlkZ2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60"}/>
                                 </div>
-                                {/*this is the second half of the screen, the non image partr*/}
+                                {/*this is the second half of the screen, the non image part*/}
                                 <div className={"col"}>
                                     <div className={"row"}>
 

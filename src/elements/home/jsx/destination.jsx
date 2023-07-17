@@ -61,7 +61,7 @@ export default function DestinationPOIInspiration() {
     //     so, i've written a function for recalculating everything on window resize.
     //     if the window size is greater than 768px(tablet screen), then the variable display is set, else reset
     //
-    // the top 4 filters are always visible, so theyre set as visibility true,
+    // the top 4 filters are always visible, so they're set as visibility true,
     //     for others we set them dynamically based on value of display
     // this means for small screens, all other filters are not displayed.
 
@@ -79,7 +79,7 @@ export default function DestinationPOIInspiration() {
         // on resize, handler is called which just sets the screen width to current width.
         //     this is pretty redundant code which a browser tackles on its own
         // what this means is that when user resizes screen, we read current screen width and set it
-        // this is imporant because the screen size variables wont automatically set the display variable
+        // this is important because the screen size variables won't automatically set the display variable
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
@@ -120,7 +120,7 @@ export default function DestinationPOIInspiration() {
         },
         {
             name: "Mount Rushmore",
-            location: "United States of Ameirca",
+            location: "United States of America",
             img: "https://images.unsplash.com/photo-1592610687683-41d676fcda72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bW91bnQlMjBydXNobW9yZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=900&q=60",
             url: "",
         },

@@ -7,7 +7,7 @@ import {Tooltip} from "react-tooltip";
 export default function Account({user}) {
     function EmailCreator(elem) {
         // const opacity = .5;
-        // if the status is undefined, it is verified(atleast for the example user object i am using)
+        // if the status is undefined, it is verified(at least for the example user object i am using)
         // coerce to bool then flip
         // true - verified
         // const status = !!elem.elem.verification.status;
@@ -249,8 +249,8 @@ export default function Account({user}) {
                             }).catch((error) => {
                                 // there is 2 cases where the password update does not take place
                                 // 1. current password is incorrect
-                                // 2. new password doesnt meet the security features
-                                // i am unsure how to diffrentiate between those two
+                                // 2. new password doesn't meet the security features
+                                // i am unsure how to differentiate between those two
                                 console.log(error);
                                 toast.error("Current password incorrect or new password does not meet password criteria");
                                 document.getElementById("oldpass").value = "";
