@@ -4,6 +4,7 @@ import "../css/destination.css";
 import {useEffect, useState} from "react";
 import {NavLink} from "react-router-dom";
 import {render} from "@testing-library/react";
+import {scryRenderedComponentsWithType} from "react-dom/test-utils";
 
 function LittleObjects({img, name, isVisible}) {
 
@@ -139,8 +140,17 @@ export default function DestinationPOIInspiration() {
     ];
     const max_items = data.length;
     console.log(max_items);
+    console.log(screenWidth);
     // append only 3 of the total data objects to the generator
-    const initialRenderItems = max_items > 3 ? 3 : max_items;
+    let initialInitialRender;
+    if (screenWidth < 768) {
+        initialInitialRender = 1;
+    } else if (screenWidth < 992) {
+        initialInitialRender = 3;
+    } else {
+        initialInitialRender = 4;
+    }
+    const initialRenderItems = max_items > initialInitialRender ? initialInitialRender : max_items;
     const [tdata, setTdata] = useState(data.slice(0, initialRenderItems));
     // create a state to keep track of number of elements that have been rendered + 1 (for index of next)
     const [items, setItems] = useState(initialRenderItems);
@@ -193,43 +203,44 @@ export default function DestinationPOIInspiration() {
                 <div className="row my-2">
                     <BigObjGenerator
                         data={tdata}/>
+                </div>
+                <div className={"row my-2 d-flex justify-content-center"}>
                     <div
-                        className={`col-12 col-md-4 col-lg-3 bigobj m-0 mb-5 d-flex align-items-center
+                        className={`col m-0 mb-5 d-flex align-items-center
                         justify-content-center ${hasMoreItems ? "" : "d-none"}`}>
-                        <div className="card" style={{height: "fit-content", cursor: "pointer"}}
-                             onClick={(e) => {
-                                 const screenWidth = window.innerWidth;
-                                 const [tablet, desktop] = [768, 992];
-                                 let render_items;
-                                 // is phone width, so only one item per row
-                                 if (screenWidth < tablet) {
-                                     render_items = 1;
-                                 }
-                                 // is tablet width so 3 items per row
-                                 else if (screenWidth < desktop) {
-                                     render_items = 3;
-                                 }
-                                 // is desktop width so 4 items per row
-                                 else if (screenWidth >= desktop) {
-                                     render_items = 4;
-                                 }
-                                 // checking for exceeding the total data we have
-                                 if (render_items + items >= max_items) {
-                                     setHasMoreItems(false);
-                                     setTdata(data);
-                                 } else {
-                                     setTdata(data.slice(0, items + render_items));
-                                 }
-                                 // update the items rendered
-                                 setItems(items + render_items);
-                             }}>
-                            <FontAwesomeIcon icon={faArrowRight} className={"card-img-top"} size={"6x"}/>
-                            <div className="card-body">
-                                <h3 className="card-title text-center">
-                                    See More
-                                </h3>
-                            </div>
-                        </div>
+                        <button className="btn btn-outline-primary" style={{padding: "1rem 2rem"}}
+                                onClick={(e) => {
+                                    const screenWidth = window.innerWidth;
+                                    const [tablet, desktop] = [768, 992];
+                                    let render_items;
+                                    // is phone width, so only one item per row
+                                    if (screenWidth < tablet) {
+                                        render_items = 1;
+                                    }
+                                    // is tablet width so 3 items per row
+                                    else if (screenWidth < desktop) {
+                                        render_items = 3;
+                                    }
+                                    // is desktop width so 4 items per row
+                                    else if (screenWidth >= desktop) {
+                                        render_items = 4;
+                                    }
+                                    // checking for exceeding the total data we have
+                                    if (render_items + items >= max_items) {
+                                        setHasMoreItems(false);
+                                        setTdata(data);
+                                    } else {
+                                        setTdata(data.slice(0, items + render_items));
+                                    }
+                                    // update the items rendered
+                                    setItems(items + render_items);
+                                }}>
+
+                            <h3 className="text-center">
+                                Load another row
+                            </h3>
+
+                        </button>
                     </div>
                 </div>
             </div>
