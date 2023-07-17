@@ -1,14 +1,10 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import "../css/triptype.css";
-import {
-    faBreadSlice,
-    faChurch, faPersonFalling, faPersonPraying, faTree,
-    faVolleyballBall
-} from "@fortawesome/free-solid-svg-icons";
 import {faCheckCircle} from "@fortawesome/free-regular-svg-icons";
 import {toast} from "react-toastify";
 import ReactDOMServer from "react-dom/server";
 import axios from "axios";
+import {Adventure, Cultural, FoodDrink, Outdoors, Relaxation, Sport} from "../../../svgs/cSVG";
 
 const TripType = ({changeState}) => {
     let select_elem = new Set();
@@ -92,27 +88,27 @@ function Gen({select_elem}) {
 const data = [
     {
         name: "Food & Drink",
-        icon: <FontAwesomeIcon icon={faBreadSlice} size={"7x"}/>
+        icon: <FoodDrink/>
     },
     {
         name: "Cultural",
-        icon: <FontAwesomeIcon icon={faChurch} size={"7x"}/>
+        icon: <Cultural/>
     },
     {
         name: "Adventurous",
-        icon: <FontAwesomeIcon icon={faPersonFalling} size={"7x"}/>
+        icon: <Adventure/>
     },
     {
         name: "Outdoorsy",
-        icon: <FontAwesomeIcon icon={faTree} size={"7x"}/>
+        icon: <Outdoors/>
     },
     {
         name: "Sporty",
-        icon: <FontAwesomeIcon icon={faVolleyballBall} size={"7x"}/>
+        icon: <Sport/>
     },
     {
         name: "Relaxation",
-        icon: <FontAwesomeIcon icon={faPersonPraying} size={"7x"}/>
+        icon: <Relaxation/>
     }
 ];
 

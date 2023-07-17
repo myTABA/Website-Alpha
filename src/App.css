@@ -14,7 +14,7 @@
     /*cobalt*/
     --extra2: #67AAF9;
     --black: black;
-    --white: whitesmoke;
+    --white: white;
     --green: var(--bs-success);
     --red: var(--bs-danger);
 }
