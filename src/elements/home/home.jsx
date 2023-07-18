@@ -18,7 +18,7 @@ const TextFunction = ({text, pTag}) => {
 // home page structure for components is defined here. this is rendered in App.js,
 //     where react router takes care of dynamic rendering and setting URLs
 export default function Home() {
-    let content = "We specialize in creating personalized recommendations tailored to your interests, making it easy to find travel experiences that truly matter to you." +
+    let content = "We create personalized travel recommendations tailored to your interests, making it easy to find travel experiences that truly matter to you." +        "\n" +
         "\nmyTABA makes it easy to spend less time searching and more time discovering your next great adventure." +
         "\nFind out why myTABA is the best way to plan your next trip, and get ready to make unforgettable memories." +
         "\n"
