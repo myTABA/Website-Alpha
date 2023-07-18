@@ -8,15 +8,31 @@ import axios from "axios";
 
 const WhereGoing = ({changeState}) => {
     let val =
-        <div className={"d-flex justify-content-center"}>
-            <button id={"menu1submit"} className={"d-none btn btn-outline-primary"} onClick={e => {
-                axios.post('http://localhost:4000/quiz/location-action',{
-                    "location": document.getElementById("menu1").innerText.trim()
-                }).then().catch(e=>console.error(e));
-                changeState("menu2");
-            }}>
-                Submit
-            </button>
+        <div className={"row"}>
+            <div className={"d-flex justify-content-center"}>
+                <button id={"menu1submit"} className={"d-none btn btn-outline-primary"} onClick={e => {
+                    axios.post('http://localhost:4000/quiz/location-action', {
+                        "location": document.getElementById("menu1").innerText.trim()
+                    }).then().catch(e => console.error(e));
+                    changeState("menu2");
+                }}>
+                    Submit
+                </button>
+            </div>
+            <div className={"d-flex align-items-center flex-column my-3"}>
+                <div className={"b2"}>
+                    Destination not listed?
+                </div>
+                <div className={"my-2"}>
+                    <button className={"btn btn-outline-secondary"} onClick={e=>{
+                        changeState("wheregoingrequest");
+                    }}>
+                        <h4>
+                            Request a new destination
+                        </h4>
+                    </button>
+                </div>
+            </div>
         </div>
     return <><BigGen/>{val}</>
 };
@@ -125,7 +141,7 @@ const data = [
                 img: "https://images.unsplash.com/photo-1583422409516-2895a77efded?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmFyY2Vsb25hfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60"
             },
             {
-                name: "Mont-Saint-Michael",
+                name: "Mont-Saint-Michel",
                 img: "https://images.unsplash.com/photo-1583422409516-2895a77efded?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmFyY2Vsb25hfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60"
             },
         ],

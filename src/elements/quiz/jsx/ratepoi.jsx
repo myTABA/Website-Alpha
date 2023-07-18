@@ -28,7 +28,10 @@ const RatePoi = ({state, changeState}) => {
                 imgsrc: ""
                 //todo other data comes here
             });
-            document.getElementById(state.props.id).innerText = v.features[0].properties.name;
+            const breadcrumb = document.getElementById(state.props.id);
+            breadcrumb.innerText = v.features[0].properties.name;
+            breadcrumb.style.color="var(--black)";
+            breadcrumb.parentElement.style.borderColor="var(--black)";
         });
     }, [state.props.id]);
     //only call the axios when ID changes

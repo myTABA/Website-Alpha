@@ -6,6 +6,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 import RatePoi from "./jsx/ratepoi";
 import Fin from "./jsx/fin";
+import Wheregoingrequest from "./jsx/wheregoingrequest";
 
 
 const Quiz = () => {
@@ -27,11 +28,25 @@ const Quiz = () => {
                 e.checked = false;
             });
         }
-        if (id !== "fin")
+        if (id !== "fin" && id !== "wheregoingrequest")
             selectionHighlight(document.getElementById(id).parentElement);
         // if (id.includes("menupoi")) {
         //     id = id.substring(0, id.length - 1);
         // }
+
+        // id is based off the breadcumb bar. i am using that as reference to filter down as menupois are coupled as one
+        /*
+        |       |   id                  |   type                |   info                            |
+        |   1   |   menu1               |   wheregoing          |   first question                  |
+        |   2   |   menu2               |   triptype            |   select category                 |
+        |   3   |   menupoi             |   ratepoi             |   rating pois                     |
+        |   4   |   fin                 |   fin                 |   finish page                     |
+        |   5   |   wheregoingrequest   |   wheregoingrequest   |   request page for destination    |
+        |   6   |   menu1 [variant]     |   wheregoing          |   return to menu1 but with        |
+        |       |                       |                       |   edited title                    |
+         */
+
+
         if (id === "menu1") {
             setState({
                 props: {
@@ -39,6 +54,15 @@ const Quiz = () => {
                     title_info: "For multiple destinations make a new request after this one!",
                     type: "wheregoing",
                     id: id,
+                }
+            });
+        } else if (id === "wheregoingrequest") {
+            setState({
+                props: {
+                    title: "Destination Request",
+                    title_info: "We are constantly adding destinations!",
+                    type: "wheregoingrequest",
+                    id: id
                 }
             });
         } else if (id === "menu2") {
@@ -56,15 +80,14 @@ const Quiz = () => {
         } else if (id.includes("menupoi")) {
             setState({
                 props: {
-                    title: "How interested are you in visiting:",
-                    title_info: "Help us learn more about your trip preferences by rating the following",
+                    title: "Help us learn more about your trip preferences!",
+                    title_info: "How interested are you in visiting:",
                     type: "ratepoi",
                     id: id,
                 }
             });
         } else if (id === "fin") {
             //finished state, after clicking submit on menupoi5
-            console.log('yay');
             setState({
                 props: {
                     title: "Your recommendations are ready!",
@@ -73,42 +96,6 @@ const Quiz = () => {
                     id: id
                 }
             })
-        } else if (id === "menupoi2") {
-            setState({
-                props: {
-                    title: "Liked Destinations",
-                    title_info: "Previously Liked Destinations",
-                    type: "liked",
-                    id: id,
-                }
-            });
-        } else if (id === "menupoi3") {
-            setState({
-                props: {
-                    title: "Hei :)",
-                    title_info: "Very hi",
-                    type: "heh",
-                    id: id,
-                }
-            });
-        } else if (id === "menupoi4") {
-            setState({
-                props: {
-                    title: "Hei :)",
-                    title_info: "Very hi",
-                    type: "heh",
-                    id: id,
-                }
-            });
-        } else if (id === "menupoi5") {
-            setState({
-                props: {
-                    title: "Hei :)",
-                    title_info: "Very hi",
-                    type: "heh",
-                    id: id,
-                }
-            });
         }
     };
 
@@ -184,7 +171,7 @@ const Quiz = () => {
                         </div>
                     </div>
                     <div className={"col content my-4 mx-4 p-4"}>
-                        <MainBar props={state.props} state={state} changeState={changeState}/>
+                        <MainBar props={state.props} state={state} changeState={changeState} setStateONLYFORREQ={setState}/>
                     </div>
                 </div>
             </div>
@@ -197,11 +184,11 @@ const Quiz = () => {
     );
 };
 
-function MainBar({props, state, changeState}) {
+function MainBar({props, state, changeState, setStateONLYFORREQ}) {
     const backButton = <div className={"b3"}
                             style={{width: "fit-content", borderRadius: "5rem", padding: ".3rem .7rem"}}>
         <button className={"btn"} onClick={() => {
-            if (props.id === "menu2") {
+            if (props.id === "menu2" || props.id === "wheregoingrequest") {
                 changeState("menu1");
             } else if (props.id === "menupoi1") {
                 changeState("menu2");
@@ -229,21 +216,21 @@ function MainBar({props, state, changeState}) {
                 <h2>{props.title}</h2>
             </div>
             <div>
-                <div className={"b2"}>{props.title_info}</div>
+                <h2 className={"sh"}>{props.title_info}</h2>
             </div>
         </div>
-        <MainContent type={props.type} state={state} changeState={changeState}/>
+        <MainContent type={props.type} state={state} changeState={changeState} setStateONLYFORREQ={setStateONLYFORREQ}/>
     </div>;
 }
 
-function MainContent({type, state, changeState}) {
+function MainContent({type, state, changeState, setStateONLYFORREQ}) {
     let val;
 
     if (type === "wheregoing") {
         val = <WhereGoing changeState={changeState}/>;
         // very rigid code to select the selected element if it exists. DFS
         useEffect(() => {
-            if(type==="wheregoing") {
+            if (type === "wheregoing") {
                 const innertext = document.getElementById("menu1").innerText;
                 console.log(innertext);
                 if (innertext !== "In Progress") {
@@ -269,11 +256,14 @@ function MainContent({type, state, changeState}) {
             }
         }, [type]);
 
+    } else if (type === "wheregoingrequest") {
+        val = <Wheregoingrequest setState={setStateONLYFORREQ}/>;
+
     } else if (type === 'triptype') {
         val = <Triptype changeState={changeState}/>;
         // very rigid code to select the selected elements if exists. DFS
-        useEffect(()=>{
-            if(type==="triptype") {
+        useEffect(() => {
+            if (type === "triptype") {
                 const arr = document.getElementById("menu2").innerText.split(',');
                 const start = document.getElementById(type);
                 let x = start.querySelectorAll("div.card-body > div.card-title.text-center.b1");
@@ -288,7 +278,7 @@ function MainContent({type, state, changeState}) {
                     }
                 });
             }
-        },[type]);
+        }, [type]);
     } else if (type === 'ratepoi') {
         val = <RatePoi state={state} changeState={changeState}/>;
     } else if (type === "fin") {
