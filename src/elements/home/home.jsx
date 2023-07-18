@@ -43,7 +43,7 @@ export default function Home() {
             <CTA
                 title={title}
                 text={text}
-                button={"Discover your next adventure"}/>
+                button={"Start planning your trip!"}/>
             <TravelGuide/>
             <CTA/>
         </div>
