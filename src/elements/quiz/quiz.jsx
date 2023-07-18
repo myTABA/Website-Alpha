@@ -1,4 +1,3 @@
-import {useUser} from "@clerk/clerk-react";
 import {useEffect, useState} from "react";
 import "./css/quiz.css";
 import WhereGoing from "./jsx/wheregoing";
@@ -15,7 +14,8 @@ const Quiz = () => {
         props: {
             title: "Where are you travelling?",
             title_info: "For multiple destinations make a new request after this one!",
-            type: "wheregoing"
+            type: "wheregoing",
+            id: "menu1"
         }
     });
     const changeState = (e) => {
@@ -64,9 +64,11 @@ const Quiz = () => {
             });
         } else if (id === "fin") {
             //finished state, after clicking submit on menupoi5
+            console.log('yay');
             setState({
                 props: {
                     title: "Your recommendations are ready!",
+                    title_info: '',
                     type: "fin",
                     id: id
                 }
@@ -112,7 +114,7 @@ const Quiz = () => {
 
     const selectionHighlight = (elem) => {
         let elems = document.querySelectorAll(".quiz div.b3.active");
-        for (const [i, elemsKey] of elems.entries()) {
+        for (const [, elemsKey] of elems.entries()) {
             elemsKey.classList.remove("active");
         }
         elem.classList.add("active");
@@ -198,7 +200,7 @@ const Quiz = () => {
 function MainBar({props, state, changeState}) {
     const backButton = <div className={"b3"}
                             style={{width: "fit-content", borderRadius: "5rem", padding: ".3rem .7rem"}}>
-        <button className={"btn"} onClick={e => {
+        <button className={"btn"} onClick={() => {
             if (props.id === "menu2") {
                 changeState("menu1");
             } else if (props.id === "menupoi1") {
@@ -218,22 +220,20 @@ function MainBar({props, state, changeState}) {
             <FontAwesomeIcon icon={faArrowLeft}/> Back
         </button>
     </div>;
-    let val =
-        <div id={props.type}>
-            <div className={"head"}>
-                {['menu1'].includes(props.id) ?
-                    '' : backButton
-                }
-                <div>
-                    <h2>{props.title}</h2>
-                </div>
-                <div>
-                    <div className={"b2"}>{props.title_info}</div>
-                </div>
+    return <div id={props.type}>
+        <div className={"head"}>
+            {['menu1'].includes(props.id) ?
+                '' : backButton
+            }
+            <div>
+                <h2>{props.title}</h2>
             </div>
-            <MainContent type={props.type} state={state} changeState={changeState}/>
+            <div>
+                <div className={"b2"}>{props.title_info}</div>
+            </div>
         </div>
-    return val;
+        <MainContent type={props.type} state={state} changeState={changeState}/>
+    </div>;
 }
 
 function MainContent({type, state, changeState}) {
@@ -243,48 +243,52 @@ function MainContent({type, state, changeState}) {
         val = <WhereGoing changeState={changeState}/>;
         // very rigid code to select the selected element if it exists. DFS
         useEffect(() => {
-            const innertext = document.getElementById("menu1").innerText;
-            console.log(innertext);
-            if (innertext !== "In Progress") {
-                const [city, country] = innertext.split(', ');
-                const start = document.getElementById(type);
-                const item = start.querySelectorAll("div.row > h3");
-                let ans;
-                for (const [i, e] of item.entries()) {
-                    if (e.innerText === country) {
-                        ans = e;
-                        break;
+            if(type==="wheregoing") {
+                const innertext = document.getElementById("menu1").innerText;
+                console.log(innertext);
+                if (innertext !== "In Progress") {
+                    const [city, country] = innertext.split(', ');
+                    const start = document.getElementById(type);
+                    const item = start.querySelectorAll("div.row > h3");
+                    let ans;
+                    for (const [, e] of item.entries()) {
+                        if (e.innerText === country) {
+                            ans = e;
+                            break;
+                        }
                     }
-                }
-                let x = ans.parentElement.parentElement.childNodes[1].querySelectorAll("div.card-title > h4");
-                for (const [i, e] of x.entries()) {
-                    if (e.innerText === city.trim()) {
-                        ans = e;
-                        break;
+                    let x = ans.parentElement.parentElement.childNodes[1].querySelectorAll("div.card-title > h4");
+                    for (const [, e] of x.entries()) {
+                        if (e.innerText === city.trim()) {
+                            ans = e;
+                            break;
+                        }
                     }
+                    ans.click();
                 }
-                ans.click();
             }
-        }, []);
+        }, [type]);
 
     } else if (type === 'triptype') {
         val = <Triptype changeState={changeState}/>;
         // very rigid code to select the selected elements if exists. DFS
         useEffect(()=>{
-            const arr = document.getElementById("menu2").innerText.split(',');
-            const start = document.getElementById(type);
-            let x = start.querySelectorAll("div.card-body > div.card-title.text-center.b1");
-            console.log(arr);
-            console.log(x.entries());
-            arr.forEach(e=>{
-                for(const[i,r] of x.entries()){
-                    if(e.trim()===r.innerText){
-                        r.click();
-                        break;
+            if(type==="triptype") {
+                const arr = document.getElementById("menu2").innerText.split(',');
+                const start = document.getElementById(type);
+                let x = start.querySelectorAll("div.card-body > div.card-title.text-center.b1");
+                console.log(arr);
+                console.log(x.entries());
+                arr.forEach(e => {
+                    for (const [, r] of x.entries()) {
+                        if (e.trim() === r.innerText) {
+                            r.click();
+                            break;
+                        }
                     }
-                }
-            });
-        },[]);
+                });
+            }
+        },[type]);
     } else if (type === 'ratepoi') {
         val = <RatePoi state={state} changeState={changeState}/>;
     } else if (type === "fin") {

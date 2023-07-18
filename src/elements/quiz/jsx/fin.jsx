@@ -5,11 +5,11 @@ function Fin(changeState) {
         <div className={"container"}>
             <div className={"row my-5"}>
                 <span className={"text-center"}>
-                <button className={"btn btn-outline-primary"}>
+                <NavLink to={"/recommendations"} className={"btn btn-outline-primary"}>
                     <h3>
                         Explore your trip suggestions now!
                     </h3>
-                </button>
+                </NavLink>
                 </span>
             </div>
             <div className={"row"}>

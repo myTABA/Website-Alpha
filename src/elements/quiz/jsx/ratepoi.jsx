@@ -33,23 +33,6 @@ const RatePoi = ({state, changeState}) => {
     }, [state.props.id]);
     //only call the axios when ID changes
 
-    useEffect(() => {
-        const radios = document.getElementsByName("likert");
-        const svg = `<svg width="17" height="13" viewBox="0 0 17 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M6.40039 12.9L16.9754 2.32498L14.8754 0.224976L6.40039 8.69998L2.12539 4.42498L0.0253906 6.52498L6.40039 12.9Z" fill="#67AAF9"/>
-</svg>
-`;
-        for(const r of radios){
-            r.addEventListener('change',()=>{
-                if(r.checked){
-                    r.innerHTML = svg;
-                }
-                else{
-                    r.innerHTML='';
-                }
-            });
-        }
-    }, []);
 
     let val =
         <div className={"container my-5"}>
@@ -57,7 +40,7 @@ const RatePoi = ({state, changeState}) => {
                 <div className={"col-12 col-md image"}>
                     <img
                         // replace with content.imgsrc
-                        src={''}/>
+                        src={content.imgsrc}/>
                 </div>
                 <div className={"col-12 col-md info"}>
                     <h3>{content.name}</h3>
@@ -81,7 +64,7 @@ const RatePoi = ({state, changeState}) => {
                             <label className={"form-check-label"} htmlFor={"i-1"}>Somewhat<br/>Interested</label>
                         </div>
                         <div className={"form-check form-check-inline"}>
-                            <input className={"form-check-input"} type={"radio"} id={"i0"} name={"likert"}/>
+                            <input className={"form-check-input"} defaultChecked={true} type={"radio"} id={"i0"} name={"likert"}/>
                             <label className={"form-check-label"} htmlFor={"i0"}>Moderately<br/>Interested</label>
                         </div>
                         <div className={"form-check form-check-inline"}>

@@ -9,7 +9,7 @@ import {Adventure, Cultural, FoodDrink, Outdoors, Relaxation, Sport} from "../..
 const TripType = ({changeState}) => {
     let select_elem = new Set();
     let val = <div className={"d-flex justify-content-center"}>
-        <button className={"btn btn-outline-primary"} onClick={e => {
+        <button id={"menu2submit"} className={"d-none btn btn-outline-primary"} onClick={e => {
             axios.post('http://localhost:4000/quiz/type-action', {
                 "type": document.getElementById("menu2").innerText.trim().split(", ")
             }).then().catch(e => console.error(e));
@@ -53,10 +53,17 @@ function Gen({select_elem}) {
                         ' ' + m;
                     elem.style.color = "var(--extra2)";
                     elem.parentElement.style.borderColor = "var(--extra2)";
+
+                    //also update submit button to be visible
+                    document.getElementById("menu2submit").classList.remove("d-none");
+
                 } else {
                     elem.innerHTML = "In Progress";
                     elem.style.color = "var(--black)";
                     elem.parentElement.style.borderColor = "var(--black)";
+
+                    // disable submit button
+                    document.getElementById("menu2submit").classList.add("d-none");
                 }
 
             }}>

@@ -9,11 +9,10 @@ import axios from "axios";
 const WhereGoing = ({changeState}) => {
     let val =
         <div className={"d-flex justify-content-center"}>
-            <button className={"btn btn-outline-primary"} onClick={e => {
+            <button id={"menu1submit"} className={"d-none btn btn-outline-primary"} onClick={e => {
                 axios.post('http://localhost:4000/quiz/location-action',{
                     "location": document.getElementById("menu1").innerText.trim()
                 }).then().catch(e=>console.error(e));
-
                 changeState("menu2");
             }}>
                 Submit
@@ -70,6 +69,9 @@ function SmallGen({data}) {
                 breadcrumb.innerHTML = tick + " " +
                     parent.querySelector("div.card-title >h4").innerHTML + ", " +
                     m.closest("div.container").querySelector("div.row > h3").innerHTML;
+
+                //enable the submit button as atleast one is selected
+                document.getElementById("menu1submit").classList.remove("d-none");
 
             }}>
                 <div className={"card"}>

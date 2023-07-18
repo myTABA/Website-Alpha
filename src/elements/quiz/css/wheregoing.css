@@ -37,10 +37,3 @@
 .flicker-animation{
     animation: flicker .5s infinite;
 }
-
-.quiz .form-check-input:checked[type=radio]{
-    --bs-form-check-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='17' height='13' viewBox='0 0 17 13' fill='%2367AAF9'%3e%3cpath d='M6.40039 12.9L16.9754 2.32498L14.8754 0.224976L6.40039 8.69998L2.12539 4.42498L0.0253906 6.52498L6.40039 12.9Z' fill='var(--extra2)'/%3e%3c/svg%3e");
-    color: var(--extra2);
-    background-color: var(--white);
-    border-color: var(--extra2);
-}

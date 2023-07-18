@@ -175,6 +175,8 @@ span.badge{
 
 .quiz {
     position: relative;
+    /*inherit from app.css*/
+    min-height: calc(100vh - (1.6rem * 4.25));
 }
 
 .quiz::before {

@@ -24,7 +24,6 @@ function Map() {
     let val =
         <div ref={mapAreaParent} className={"d-none d-md-flex row rec-map"}>
             <div className={"col map-popup"}>
-                <div ref={overlayRef} className={"map-overlay"}></div>
                 {/*<ModalContent overlayRef={overlayRef}/>*/}
                 <Wrapper apiKey={process.env.REACT_APP_GOOGLE_KEY} render={render}/>
 
@@ -75,7 +74,7 @@ const calcCenter = () => {
     for (const [i, e] of tlocs.entries()) {
         lat += e.lat;
         lng += e.lng;
-        bounds.extend(new window.google.maps.LatLng(e.lat,e.lng));
+        bounds.extend(new window.google.maps.LatLng(e.lat, e.lng));
     }
 
     return {
@@ -88,15 +87,15 @@ const calcCenter = () => {
 function MapComponent({prop}) {
     const ref = useRef();
     const infoWindow = new window.google.maps.InfoWindow();
-    const [center,zoom] = [prop.centre,prop.zoom];
-    const mapStyle =[
+    const [center, zoom] = [prop.centre, prop.zoom];
+    const mapStyle = [
         {
             featureType: "poi",
-            stylers:[{visibility:"off"}]
+            stylers: [{visibility: "off"}]
         },
         {
             featureType: "transit",
-            stylers:[{visibility:"off"}]
+            stylers: [{visibility: "off"}]
         },
         // {
         //     featureType: "roads",
@@ -112,12 +111,12 @@ function MapComponent({prop}) {
             styles: mapStyle,
         });
 
-        for(const[i,e] of tlocs.entries()){
+        for (const [i, e] of tlocs.entries()) {
             const marker = new window.google.maps.Marker({
                 position: e,
                 map,
                 title: "hey",
-                label: (i+1).toString(),
+                label: (i + 1).toString(),
             });
             marker.addListener("click", () => {
                 infoWindow.close();
