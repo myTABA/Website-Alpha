@@ -25,7 +25,7 @@ function TravelGuide() {
                 <div className={"col"}>
                     <h2>
                         Find local tips and tricks.
-                        \nCheck out our local travel guides!
+                        <br/>Check out our local travel guides!
                     </h2>
                 </div>
             </div>
