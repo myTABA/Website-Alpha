@@ -7,6 +7,7 @@ import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 import RatePoi from "./jsx/ratepoi";
 import Fin from "./jsx/fin";
 import Wheregoingrequest from "./jsx/wheregoingrequest";
+import {faCheckCircle} from "@fortawesome/free-regular-svg-icons";
 
 
 const Quiz = () => {
@@ -109,10 +110,36 @@ const Quiz = () => {
 
     let val =
         <>
-            <div className={"container my-5"}>
+            <div className={"container mt-5"}>
                 <div className={"row"}>
-                    <div className={"col col-md-4 menu my-4 mx-4 p-4"}>
-                        <div className={""}>
+                    <div className={"col-12 col-md-4 menu my-4 mx-4 p-4"}>
+                        {/*this div breadcrumb is just for mobile)*/}
+                        <div className={"d-block d-md-none"} id={"mb-breadcrumb"}>
+                            <ul>
+                                <li>
+                                    <h3 id={"mb-bc-header"}>Get your recommendations in 3 easy steps</h3>
+                                </li>
+                                <li id={"mb-bc-1"} className={"d-none"}>
+                                    <div className={"b3"} style={{borderColor: "var(--extra2)"}}>
+                                        <button style={{color: "var(--extra2)"}}>
+                                            <FontAwesomeIcon icon={faCheckCircle}/>&nbsp;&nbsp;
+                                            <span>In Progress</span>
+                                        </button>
+                                    </div>
+                                </li>
+                                <li id={"mb-bc-2"} className={"d-none"}>
+                                    <div className={"b3"} style={{borderColor: "var(--extra2)"}}>
+                                        <button style={{color: "var(--extra2)"}}>
+                                            <FontAwesomeIcon icon={faCheckCircle}/>&nbsp;&nbsp;
+                                            <span>In Progress</span>
+                                        </button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        {/*end mobile bc*/}
+
+                        <div className={"d-none d-md-block"}>
                             <ul>
                                 <li>
                                     <h3>Get your recommendations in 3 easy steps</h3>
@@ -127,7 +154,7 @@ const Quiz = () => {
                                 </li>
                             </ul>
                         </div>
-                        <div>
+                        <div className={"d-none d-md-block"}>
                             <ul>
                                 <li><h4>What type of trip are you looking for?</h4></li>
                                 <li>
@@ -137,7 +164,7 @@ const Quiz = () => {
                                 </li>
                             </ul>
                         </div>
-                        <div>
+                        <div className={"d-none d-md-block"}>
                             <ul>
                                 <li><h4>How interested are you in the following destinations?</h4></li>
                                 <li>
@@ -171,7 +198,8 @@ const Quiz = () => {
                         </div>
                     </div>
                     <div className={"col content my-4 mx-4 p-4"}>
-                        <MainBar props={state.props} state={state} changeState={changeState} setStateONLYFORREQ={setState}/>
+                        <MainBar props={state.props} state={state} changeState={changeState}
+                                 setStateONLYFORREQ={setState}/>
                     </div>
                 </div>
             </div>

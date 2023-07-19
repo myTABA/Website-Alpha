@@ -1,18 +1,32 @@
 #triptype div.card.selected {
     border: 1px var(--extra2) solid;
 }
-#triptype div.card{
-    padding: 2rem 0;
-}
-
-#triptype div.col-12.col-md-6.col-lg-4.my-3.position-relative > .card > span {
-    left: 2rem;
+#triptype div.col-4.col-lg-4.my-3.position-relative > .card > span {
+    left: 1rem;
     position: absolute;
-    top: 1.5rem;
+    top: 1rem;
     z-index: 1;
     color: var(--extra2);
 }
+#triptype div.card-img-top{
+    height: auto;
+}
+#triptype div.card{
+    padding: 2rem 0;
+}
 #triptype div.card-img-top > svg{
-    height: 11rem;
-    width: 12rem;
+    height: 9rem;
+    width: 8rem;
+}
+#triptype div.card-title{
+    font-size: 1.35rem;
+}
+@media only screen and (min-width: 768px){
+    #triptype div.card-img-top > svg{
+        height:11rem;
+        width: 10rem;
+    }
+    #triptype div.card-title{
+        font-size: 1.8rem;
+    }
 }

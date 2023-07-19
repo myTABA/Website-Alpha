@@ -14,6 +14,13 @@ const TripType = ({changeState}) => {
                 "type": document.getElementById("menu2").innerText.trim().split(", ")
             }).then().catch(e => console.error(e));
             changeState("menupoi1");
+
+            // mobile stuff
+            const x = document.getElementById("mb-bc-2");
+            const header = document.getElementById("mb-bc-header");
+            header.innerText = "Step 3, Part 1/5";
+            x.querySelector("span").innerText = document.getElementById("menu2").innerText.trim();
+            x.classList.remove("d-none");
         }}>
             Submit
         </button>
@@ -26,7 +33,7 @@ function Gen({select_elem}) {
     console.log(select_elem.size);
     for (const [i, e] of data.entries()) {
         let ele =
-            <div className={"col-12 col-md-6 col-lg-4 my-3 position-relative"} key={i + 1} onClick={e => {
+            <div className={"col-4 col-lg-4 my-3 position-relative"} key={i + 1} onClick={e => {
                 console.log(select_elem);
                 if (!e.currentTarget.querySelector("div.card.selected")) {
                     // click elem not selected

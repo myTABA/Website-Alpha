@@ -109,12 +109,17 @@ const RatePoi = ({state, changeState}) => {
                         k.parentElement.style.borderColor = "var(--extra2)";
 
 
+                        // mobile stuff
+                        const header = document.getElementById("mb-bc-header");
                         if (id !== "menupoi5") {
                             const new_id = id.substring(0, id.length - 1) + (parseInt(id.at(id.length - 1)) + 1);
+                            header.innerText = `Step 2, Part ${menupoinumber}/5`;
                             changeState(new_id);
                         } else {
+                            header.innerText = `Complete!`;
                             changeState("fin");
                         }
+
                     }}>Submit
                     </button>
                 </div>

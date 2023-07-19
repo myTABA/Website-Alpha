@@ -15,6 +15,13 @@ const WhereGoing = ({changeState}) => {
                         "location": document.getElementById("menu1").innerText.trim()
                     }).then().catch(e => console.error(e));
                     changeState("menu2");
+
+                    // mobile stuff
+                    const x = document.getElementById("mb-bc-1");
+                    const header = document.getElementById("mb-bc-header");
+                    header.innerText = "Step 2";
+                    x.querySelector("span").innerText = document.getElementById("menu1").innerText.trim();
+                    x.classList.remove("d-none");
                 }}>
                     Submit
                 </button>

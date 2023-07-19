@@ -35,11 +35,11 @@ const TravelGenerator = ({cards}) => {
     let val = [];
     for (const [i, card] of cards.entries()) {
         val.push(
-            <div className={"col-12 col-md-4 col-lg-3 p-2 m-0"}>
+            <div className={"col-12 col-md-4 col-lg-3 p-2 m-0"} key={i + 1}>
                 <TravelCard
                     img={card.img}
                     location={card.location}
-                    key={i + 1}/>
+                />
             </div>
         );
     }
