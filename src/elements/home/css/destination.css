@@ -36,38 +36,42 @@ div.bigobj {
     padding: 1rem;
 }
 
+div.lilobj > div.card >p.card-text{
+    font-size: .9rem;
+    font-weight: bold;
+}
+
 div.lilobj .card {
-    height: 3.5em;
-    width: 2em;
+    height: 5.5rem;
+    width: 6rem;
     border: none;
 }
 
 /*media queries for changing size of little icons*/
 @media only screen and (min-width: 768px) {
     div.lilobj > .card {
-        width: 2.4em;
-        height: 3em;
+        width: 8.75rem;
+    }
+    div.lilobj > div.card >p.card-text{
+        font-size: 1rem;
     }
 }
 
 @media only screen and (min-width: 992px) {
     div.lilobj > .card {
-        width: 3.5em;
-        height: 3.5em;
+        /*just a big number to prevent text wrap, width limited by col width*/
+        width: 8rem;
     }
 }
 
-@media only screen and (min-width: 1400px) {
-    div.lilobj > .card {
-        width: 5em;
-        height: 5em;
-    }
-}
+div.lilobj > .card > div.card-img-top {
 
-div.lilobj > .card > img.card-img-top {
-    height: 50%;
     /*this should adjust for portrait orientations*/
     object-fit: cover;
+}
+div.lilobj > .card > div.card-img-top > svg{
+    height: 4rem;
+    width: 4rem;
 }
 
 /*the following 2 selectors handle adjusting the text in a singular line*/

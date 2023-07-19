@@ -82,8 +82,8 @@ nav.navbar a:hover {
 }
 
 .signup-login > button {
-    background-color: var(--secondary);
-    color: var(--black);
+    background-color: var(--extra2);
+    color: var(--white);
     padding: 0.5rem 1rem;
     border-radius: 50px;
     margin: 0 5px;
@@ -92,8 +92,8 @@ nav.navbar a:hover {
 }
 
 .signup-login > button:hover {
-    background-color: var(--primary);
-    color: var(--white);
+    background-color: var(--extra1);
+    color: var(--black);
 }
 
 /*not needed because it is a button on both screens*/

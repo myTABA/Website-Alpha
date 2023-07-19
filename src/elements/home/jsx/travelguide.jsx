@@ -18,9 +18,6 @@ function TravelGuide() {
         {
             img: "https://plus.unsplash.com/premium_photo-1677151193419-9be7a26c02cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1760&q=80"
         },
-        {
-
-        }
     ];
     let val =
         <div className={"container"}>
@@ -31,19 +28,11 @@ function TravelGuide() {
             </div>
             <div className={"row"}>
                 <TravelCards cards={cards}/>
-                <div className={"col-12 col-md-4 col-lg-3 p-2 m-0"}>
-                    <NavLink to={"/travel-guides"} className={"travel-link"}>
-                        <div className={"card travel"}>
-                            <div
-                                className={"card-body p-0 d-flex flex-column align-items-center justify-content-evenly"}>
-                                <div className={"more-guides"}>
-                                    <FontAwesomeIcon icon={faBook} size={"10x"} color={"var(--primary)"}/>
-                                </div>
-                                <div className={"text-center"}>
-                                    See more Guides
-                                </div>
-                            </div>
-                        </div>
+            </div>
+            <div className={"row"}>
+                <div className={"d-flex justify-content-center"}>
+                    <NavLink to={"/travel-guides"} className={"btn btn-outline-primary travel-link"}>
+                        <h3>See more guides</h3>
                     </NavLink>
                 </div>
             </div>

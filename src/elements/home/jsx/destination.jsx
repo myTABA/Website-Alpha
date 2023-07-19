@@ -1,27 +1,50 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faArrowRight, faFilter} from "@fortawesome/free-solid-svg-icons";
+import {faFilter} from "@fortawesome/free-solid-svg-icons";
 import "../css/destination.css";
 import {useEffect, useState} from "react";
 import {NavLink} from "react-router-dom";
-import {render} from "@testing-library/react";
-import {scryRenderedComponentsWithType} from "react-dom/test-utils";
+import {Adventure, Cultural, FoodDrink, Outdoors, Refresh, Relaxation, Sport} from "../../../svgs/cSVG";
 
 function LittleObjects({img, name, isVisible}) {
 
-    // set defaults
-    // ❗❗ Only for testing ❗❗
-    img = img ? img : 'https://cdn.britannica.com/46/154246-050-7C72E12F/view-Rome.jpg';
-    name = name ? name : 'Icon Name';
     // this variable below is a little tricky
     // read below to understand
     isVisible = isVisible ? "" : "d-none";
 
     return (
-        <div className={"col lilobj d-flex justify-content-center " + isVisible}>
+        <div className={"lilobj d-flex justify-content-center " + isVisible} onClick={e => {
+            const svg = e.currentTarget.querySelector("div.card-img-top > svg");
+            const text = e.currentTarget.querySelector("p.card-text");
+            const chgColor = (svg, text) => {
+                svg.style.color = "var(--extra2)";
+                text.style.color = "var(--extra2)";
+                text.style.textDecoration = "underline";
+            };
+
+            const resetColor = (svg, text) => {
+                svg.style.color = "var(--black)";
+                text.style.color = "var(--black)";
+                text.style.textDecoration = "none";
+            };
+
+            if (text.style.color === "var(--extra2)") {
+                resetColor(svg, text);
+            } else {
+                chgColor(svg, text);
+            }
+
+            if (text.innerText === "Refresh") {
+                document.querySelectorAll("div.lilobj").forEach(e => {
+                    resetColor(e.querySelector("div.card-img-top > svg"),
+                        e.querySelector("p.card-text"));
+                });
+            }
+        }}>
             <div className="card">
-                <img className={"card-img-top"}
-                     src={img}/>
-                <p className="card-text text-center" style={{fontSize: .5 + "em"}}>{name}</p>
+                <div className={"card-img-top text-center"}>
+                    {img}
+                </div>
+                <p className="card-text text-center">{name}</p>
             </div>
         </div>
     );
@@ -164,40 +187,35 @@ export default function DestinationPOIInspiration() {
                     <h2>Not sure where to go?<br/>Get Inspired</h2>
                 </div>
                 <div className="row my-2">
-                    <LittleObjects
-                        img={"https://images.unsplash.com/photo-1503917988258-f87a78e3c995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8RnJhbmNlfGVufDB8fDB8fHww&auto=format&fit=crop&w=900&q=60"}
-                        isVisible={true}/>
-                    <LittleObjects
-                        img={"https://images.unsplash.com/photo-1543039625-14cbd3802e7d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8b3V0ZG9vcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=900&q=60"}
-                        isVisible={true}/>
-                    <LittleObjects
-                        img={"https://images.unsplash.com/photo-1444492417251-9c84a5fa18e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8b3V0ZG9vcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=900&q=60"}
-                        isVisible={true}/>
-                    <LittleObjects
-                        img={"https://images.unsplash.com/photo-1420582282039-a6d11404cb66?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8b3V0ZG9vcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=900&q=60"}
-                        isVisible={display}/>
-                    <LittleObjects
-                        img={"https://images.unsplash.com/photo-1445108771252-d1cc31a02a3c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8b3V0ZG9vcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=900&q=60"}
-                        isVisible={display}/>
-                    <LittleObjects
-                        img={"https://images.unsplash.com/photo-1501555088652-021faa106b9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG91dGRvb3J8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=900&q=60"}
-                        isVisible={display}/>
-                    <LittleObjects
-                        img={"https://images.unsplash.com/photo-1470246973918-29a93221c455?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fG91dGRvb3J8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=900&q=60"}
-                        isVisible={display}/>
-                    <LittleObjects
-                        isVisible={display}/>
-                    <LittleObjects
-                        isVisible={display}/>
-                    <LittleObjects
-                        isVisible={display}/>
-                    <LittleObjects
-                        isVisible={screenWidth < 1400}/>
-                    <div className="col lilobj d-flex justify-content-center">
-                        <div className="card">
-                            <FontAwesomeIcon icon={faFilter} size={"xl"}/>
-                            <p className="card-text text-center" style={{fontSize: .5 + "em"}}>{"Filter"}</p>
-                        </div>
+                    <div className={"col d-flex"}>
+                        <LittleObjects
+                            img={<FoodDrink/>}
+                            isVisible={true}
+                            name={"Food & Drink"}/>
+                        <LittleObjects
+                            img={<Cultural/>}
+                            isVisible={true}
+                            name={"Cultural"}/>
+                        <LittleObjects
+                            img={<Adventure/>}
+                            isVisible={true}
+                            name={"Adventurous"}/>
+                        <LittleObjects
+                            img={<Outdoors/>}
+                            isVisible={true}
+                            name={"Outdoorsy"}/>
+                        <LittleObjects
+                            img={<Sport/>}
+                            isVisible={true}
+                            name={"Sporty"}/>
+                        <LittleObjects
+                            img={<Relaxation/>}
+                            isVisible={true}
+                            name={"Relaxation"}/>
+                        <LittleObjects
+                            img={<Refresh/>}
+                            isVisible={true}
+                            name={"Refresh"}/>
                     </div>
                 </div>
                 <div className="row my-2">
