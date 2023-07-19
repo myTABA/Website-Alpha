@@ -23,7 +23,10 @@ function TravelGuide() {
         <div className={"container"}>
             <div className={"row my-2"}>
                 <div className={"col"}>
-                    <h2>Travel Guides</h2>
+                    <h2>
+                        Find local tips and tricks.
+                        \nCheck out our local travel guides!
+                    </h2>
                 </div>
             </div>
             <div className={"row"}>

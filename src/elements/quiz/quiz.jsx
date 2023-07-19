@@ -139,7 +139,7 @@ const Quiz = () => {
                         </div>
                         <div>
                             <ul>
-                                <li><h4>Let us know how you feel about these recommendations</h4></li>
+                                <li><h4>How interested are you in the following destinations?</h4></li>
                                 <li>
                                     <div className={"b3"}>
                                         <button id={"menupoi1"}>Point of Interest

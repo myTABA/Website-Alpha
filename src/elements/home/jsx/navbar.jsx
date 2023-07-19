@@ -43,7 +43,7 @@ function NavButtons({navbarVisible}) {
             <div className={`collapse navbar-collapse ${navbarVisible ? "collapse" : ""}`} id="collapseButton">
                 <div className="navbar-nav mx-auto">
                     <NavLink to={"/"}
-                             className={`nav-link`}>Plan a Trip</NavLink>
+                             className={`nav-link`}>My Recommendations</NavLink>
                     <NavLink to={"/travel-guides"}
                              className={`nav-link`}>Travel
                         Guides</NavLink>
