@@ -7,6 +7,7 @@ import {faThumbsDown as faThumbsDownSolid, faThumbsUp as faThumbsUpSolid} from "
 import {faThumbsDown as faThumbsDownHollow, faThumbsUp as faThumbsUpHollow} from "@fortawesome/free-regular-svg-icons";
 import {useEffect, useState} from "react";
 import {setSelectionRange} from "@testing-library/user-event/dist/utils";
+import {ThumbsDownFilled, ThumbsDownUnfilled, ThumbsUpFilled, ThumbsUpUnfilled} from "../../../svgs/cSVG";
 
 
 function RecItem({img, name, num, match, rating_star, rating_count, description, itinerary_link, tags}) {
@@ -89,30 +90,36 @@ function TagGen({tags}) {
 }
 
 function LikeDislike() {
-    const [faThumbsUp, setFaThumbsUp] = useState(faThumbsUpHollow);
-    const [faThumbsDown, setFaThumbsDown] = useState(faThumbsDownHollow);
+    const [faThumbsUp, setFaThumbsUp] = useState(false);
+    const [faThumbsDown, setFaThumbsDown] = useState(false);
+
+    const thumbsUpHandle = () => {
+        setFaThumbsUp(!faThumbsUp);
+        faThumbsDown ? setFaThumbsDown(!faThumbsDown) : false;
+    };
+    const thumbsDownHandle = () => {
+        setFaThumbsDown(!faThumbsDown);
+        faThumbsUp ? setFaThumbsUp(!faThumbsUp) : false;
+    };
 
     return (
         <>
-            <FontAwesomeIcon icon={faThumbsUp} size={"2x"} color={"var(--extra2)"} onClick={(e) => {
-                if (faThumbsUp === faThumbsUpHollow) {
-                    setFaThumbsUp(faThumbsUpSolid);
-                    // set code here to add this to the user profile
-                    setFaThumbsDown(faThumbsDownHollow);
-                } else {
-                    setFaThumbsUp(faThumbsUpHollow);
-                }
-            }}/>
-            <FontAwesomeIcon icon={faThumbsDown} size={"2x"} color={"red"} onClick={(e) => {
-                e.preventDefault();
-                if (faThumbsDown === faThumbsDownHollow) {
-                    setFaThumbsDown(faThumbsDownSolid);
-                    // set code here to remove from user profile
-                    setFaThumbsUp(faThumbsUpHollow);
-                } else {
-                    setFaThumbsDown(faThumbsDownHollow);
-                }
-            }}/>
+            {faThumbsUp ?
+                <span onClick={thumbsUpHandle}>
+                <ThumbsUpFilled/>
+                </span> :
+                <span onClick={thumbsUpHandle}>
+                    <ThumbsUpUnfilled/>
+                </span>
+            }
+            {faThumbsDown ?
+                <span onClick={thumbsDownHandle}>
+                    <ThumbsDownFilled/>
+                </span>
+                : <span onClick={thumbsDownHandle}>
+                    <ThumbsDownUnfilled/>
+                </span>
+            }
         </>
     );
 }
