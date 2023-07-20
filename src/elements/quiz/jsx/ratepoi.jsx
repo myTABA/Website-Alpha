@@ -67,7 +67,7 @@ const RatePoi = ({state, changeState}) => {
                             <label className={"form-check-label"} htmlFor={"i-1"}>Somewhat<br/>Interested</label>
                         </div>
                         <div className={"form-check form-check-inline"}>
-                            <input className={"form-check-input"} defaultChecked={true} type={"radio"} id={"i0"} name={"likert"}/>
+                            <input className={"form-check-input"} type={"radio"} id={"i0"} name={"likert"}/>
                             <label className={"form-check-label"} htmlFor={"i0"}>Moderately<br/>Interested</label>
                         </div>
                         <div className={"form-check form-check-inline"}>
