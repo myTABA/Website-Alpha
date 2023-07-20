@@ -83,8 +83,8 @@ function LoginBtn({dkey}) {
             // console.log(true);
             return "/";
         } else {
-            console.log(lochref);
-            console.warn(window.location.href);
+            // console.log(lochref);
+            // console.warn(window.location.href);
             return lochref;
         }
     }

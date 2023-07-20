@@ -37,7 +37,7 @@ export default function Hero() {
 
     useEffect(()=>{
         videoRef.current.src=vids[cIndex];
-        videoRef.current.play();
+        // videoRef.current.play();
     },[cIndex]);
 
     return (

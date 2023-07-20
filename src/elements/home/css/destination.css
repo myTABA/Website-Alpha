@@ -37,14 +37,18 @@ div.bigobj {
 }
 
 div.lilobj > div.card >p.card-text{
-    font-size: .9rem;
+    font-size: .75rem;
     font-weight: bold;
 }
 
 div.lilobj .card {
     height: 5.5rem;
-    width: 6rem;
+    width: 4rem;
     border: none;
+}
+div.lilobj > .card > div.card-img-top > svg{
+    height: 4rem;
+    width: 4rem;
 }
 
 /*media queries for changing size of little icons*/
@@ -69,10 +73,7 @@ div.lilobj > .card > div.card-img-top {
     /*this should adjust for portrait orientations*/
     object-fit: cover;
 }
-div.lilobj > .card > div.card-img-top > svg{
-    height: 4rem;
-    width: 4rem;
-}
+
 
 /*the following 2 selectors handle adjusting the text in a singular line*/
 div.bigobj div.card-body {
