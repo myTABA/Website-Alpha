@@ -3,7 +3,7 @@ div.destinationInspiration div.bigobj .card {
     border: none;
 }
 
-div.destinationInspiration div.bigobj > a{
+div.destinationInspiration div.bigobj > a {
     text-decoration: none;
 }
 
@@ -12,7 +12,7 @@ div.destinationInspiration div.bigobj .card > img.card-img-top {
     object-fit: cover;
 }
 
-@media only screen and (max-width: 767px){
+@media only screen and (max-width: 767px) {
     div.destinationInspiration div.bigobj .card {
         height: 26em;
     }
@@ -36,27 +36,49 @@ div.bigobj {
     padding: 1rem;
 }
 
-div.lilobj > div.card >p.card-text{
-    font-size: .75rem;
+div.lilobj > div.card > p.card-text {
+    font-size: .8rem;
     font-weight: bold;
 }
 
 div.lilobj .card {
     height: 5.5rem;
-    width: 4rem;
+    width: 5rem;
     border: none;
 }
-div.lilobj > .card > div.card-img-top > svg{
+
+div.lilobj > .card > div.card-img-top > svg {
     height: 4rem;
     width: 4rem;
 }
 
 /*media queries for changing size of little icons*/
+@media only screen and (max-width: 424px) {
+    div.lilobj .card {
+        height: 5.5rem;
+        width: 5rem;
+        border: none;
+    }
+}
+
+@media only screen and (max-width: 374px) {
+    div.lilobj .card {
+        height: 4.5rem;
+        width: 4.4rem;
+        border: none;
+    }
+    div.lilobj > div.card > p.card-text {
+        font-size: .7rem;
+        font-weight: bold;
+    }
+}
+
 @media only screen and (min-width: 768px) {
     div.lilobj > .card {
         width: 8.75rem;
     }
-    div.lilobj > div.card >p.card-text{
+
+    div.lilobj > div.card > p.card-text {
         font-size: 1rem;
     }
 }
