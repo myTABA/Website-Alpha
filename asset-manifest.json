@@ -1,17 +1,23 @@
 {
   "files": {
-    "main.css": "/Website-Alpha/static/css/main.d6535ef7.css",
-    "main.js": "/Website-Alpha/static/js/main.5d4e71ab.js",
+    "main.css": "/Website-Alpha/static/css/main.cad346a5.css",
+    "main.js": "/Website-Alpha/static/js/main.db5a6d01.js",
     "static/js/874.8c2d21b5.chunk.js": "/Website-Alpha/static/js/874.8c2d21b5.chunk.js",
     "static/js/128.05536f5e.chunk.js": "/Website-Alpha/static/js/128.05536f5e.chunk.js",
     "static/js/787.71e672d5.chunk.js": "/Website-Alpha/static/js/787.71e672d5.chunk.js",
+    "static/media/Website_Andalusia.mp4": "/Website-Alpha/static/media/Website_Andalusia.7cd63dc4e43ef3acfebc.mp4",
+    "static/media/Website_Beach.mp4": "/Website-Alpha/static/media/Website_Beach.12e7ab64f13753ba79b7.mp4",
+    "static/media/Website_Church.mp4": "/Website-Alpha/static/media/Website_Church.6fdd6d081437bf306461.mp4",
+    "static/media/Website_Architecture.mp4": "/Website-Alpha/static/media/Website_Architecture.27864f9f71a720394a0c.mp4",
+    "static/media/Website_Japan.mp4": "/Website-Alpha/static/media/Website_Japan.368ccfff1e3f53070d20.mp4",
+    "static/media/Website_Waterfall.mp4": "/Website-Alpha/static/media/Website_Waterfall.bb4f356843439b31e6b5.mp4",
     "index.html": "/Website-Alpha/index.html",
-    "main.d6535ef7.css.map": "/Website-Alpha/static/css/main.d6535ef7.css.map",
-    "main.5d4e71ab.js.map": "/Website-Alpha/static/js/main.5d4e71ab.js.map",
+    "main.cad346a5.css.map": "/Website-Alpha/static/css/main.cad346a5.css.map",
+    "main.db5a6d01.js.map": "/Website-Alpha/static/js/main.db5a6d01.js.map",
     "787.71e672d5.chunk.js.map": "/Website-Alpha/static/js/787.71e672d5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d6535ef7.css",
-    "static/js/main.5d4e71ab.js"
+    "static/css/main.cad346a5.css",
+    "static/js/main.db5a6d01.js"
   ]
 }
