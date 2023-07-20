@@ -44,14 +44,14 @@ router.post('/location-action', async (req, res) => {
             let bucketName;
             let objectKey;
             imageURL = cluster.img;
-            if (imageURL !== "Joyce/Deepanchu! Send me the pictures and I'll put an addess to S3 HERE!") {
+            if (imageURL !== undefined) {
                 const parts = imageURL.split('/');
                 bucketName = parts[2]; // The bucket is the third element after splitting
                 objectKey = parts.slice(3).join('/');
             } else {
                 // TODO: Hard code no S3 link photo
-                bucketName = 'mytaba-imgs';
-                objectKey = 'esp/barcelona/b25dcbf5609eb65a/f63f4d22278261cdca071c6b2daa5ab9.jpg';
+                bucketName = 'mytaba-trip-types';
+                objectKey = 'trip-type-adventurous.svg';
             }
             
             return generateSignedUrl(bucketName, objectKey)
