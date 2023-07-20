@@ -81,27 +81,29 @@ router.post('/location-action', async (req, res) => {
  
 // Route for handling types_button
 router.post('/type-action', (req, res) => {
-    const apiUrl = `https://xwim6jhv6d3rhgdpudpl3gusky0oycqp.lambda-url.us-east-2.on.aws/profiler/initiate-session/?api-key=${apiKey}`;
-    // TODO: add selected poiids
-    // const data = req.body;
-    const data = {
-        "poiids": [
-          {
-            "poiid": "8602f63570f7ae9b",
-            "score": "1"
-          }
-        ],
-        "travelerid": "abcdefghijklmnop"
-      };
-    axios.put(apiUrl, data)
-        .then(response => {
-            console.log('PUT request successful');
-            console.log('Response:', response.data);
-            sessionId = response.data;
-        })
-        .catch(error => {
-            console.error('Error making PUT request:', error);
-        });
+    res.send('Generating session id!');
+    // const apiUrl = `https://xwim6jhv6d3rhgdpudpl3gusky0oycqp.lambda-url.us-east-2.on.aws/profiler/initiate-session/?api-key=${apiKey}`;
+    // // TODO: add selected poiids
+    // // const data = req.body;
+    // const data = {
+    //     "poiids": [
+    //       {
+    //         "poiid": "8602f63570f7ae9b",
+    //         "score": "1"
+    //       }
+    //     ],
+    //     "travelerid": "abcdefghijklmnop"
+    //   };
+    // axios.put(apiUrl, data)
+    //     .then(response => {
+    //         console.log('PUT request successful');
+    //         console.log('Response:', response.data);
+    //         sessionId = response.data;
+    //         res.send('Generate session id!');
+    //     })
+    //     .catch(error => {
+    //         console.error('Error making PUT request:', error);
+    //     });
 });
 
 // Get first recommendation from API call
@@ -148,14 +150,15 @@ router.get('/type-action', async (req, res) => {
 // Route for handle interest_level button
 router.post('/interest-level-action/:id', (req, res) => {
     // TODO : Update session id
-    interest_level = 0;
-    const interestResponse = req.body.interest;
-    if (req.params.id >= '1' && req.params.id <= '5') {
-        interest_level = interestResponse;
-        res.status(200).json({interest_level});
-    } else {
-        res.status(400).send('Invalid button ID');
-    }
+    res.send('Updating session id!');
+    // interest_level = 0;
+    // const interestResponse = req.body.interest;
+    // if (req.params.id >= '1' && req.params.id <= '5') {
+    //     interest_level = interestResponse;
+    //     res.status(200).json({interest_level});
+    // } else {
+    //     res.status(400).send('Invalid button ID');
+    // }
 });
 
 // Route for getting update POI according to interest level
