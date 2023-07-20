@@ -3,7 +3,7 @@ import {useEffect} from "react";
 import {NavLink} from "react-router-dom";
 
 export default function CTA({title, text, button}) {
-    let   val;
+    let val;
     // set default vals for when data is not provided
     // ❗❗ Only for testing ❗❗
     if (!button) {
@@ -38,7 +38,7 @@ export default function CTA({title, text, button}) {
         const widthAdjust = () => {
             let elem = document.querySelector('.cta-card > .card-body.text-center > a.card-link');
             if (elem) {
-                elem.style.width = elem.offsetWidth + 18 + "px";
+                elem.style.width = elem.offsetWidth + 1.8 + "rem";
             }
         };
         widthAdjust();
@@ -48,13 +48,11 @@ export default function CTA({title, text, button}) {
         <div className={"cta my-5"}>
             <div className={"container"}>
                 <div className={"row"}>
-
                     <div className={"col d-flex justify-content-center"}>
                         <div className={""}>
                             {val}
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

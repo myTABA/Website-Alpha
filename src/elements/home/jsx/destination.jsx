@@ -88,6 +88,7 @@ export default function DestinationPOIInspiration() {
     // the top 4 filters are always visible, so they're set as visibility true,
     //     for others we set them dynamically based on value of display
     // this means for small screens, all other filters are not displayed.
+    // this is all now useless, but i'm loath to delete all this work and logic myself
 
     function getWindowWidth() {
         return window.innerWidth;
@@ -110,7 +111,7 @@ export default function DestinationPOIInspiration() {
 
     const display = screenWidth >= 768;
 
-    // get data from bff
+    // todo get data from bff axios
     const data = [
         {
             name: "Tokyo",

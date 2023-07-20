@@ -20,6 +20,7 @@ function Fin(changeState) {
                     Rate 3 additional destinations
                 </h3>
                 <span className={"text-center my-4"}>
+                    {/*change this to smth else, nothing to do here*/}
                 <NavLink to={"/recommendations"} className={"btn btn-outline-secondary"}>
                     <h4>I want better results!</h4>
                 </NavLink>

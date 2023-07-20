@@ -213,6 +213,7 @@ const Quiz = () => {
 };
 
 function MainBar({props, state, changeState, setStateONLYFORREQ}) {
+    // stateonlyfor req is to change the state when the destination is requested, special case
     const backButton = <div className={"b3"}
                             style={{width: "fit-content", borderRadius: "5rem", padding: ".3rem .7rem"}}>
         <button className={"btn"} onClick={() => {
@@ -252,6 +253,7 @@ function MainBar({props, state, changeState, setStateONLYFORREQ}) {
 }
 
 function MainContent({type, state, changeState, setStateONLYFORREQ}) {
+    // stateonlyfor req is to change the state when the destination is requested, special case
     let val;
 
     if (type === "wheregoing") {
@@ -301,6 +303,7 @@ function MainContent({type, state, changeState, setStateONLYFORREQ}) {
                     for (const [, r] of x.entries()) {
                         if (e.trim() === r.innerText) {
                             r.click();
+                            // use my click handlers to trigger active states
                             break;
                         }
                     }

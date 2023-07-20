@@ -1,5 +1,5 @@
 import "../css/hero.css";
-import {NavLink, useNavigationType} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import Website_Andulasia from "../../../videos/Website_Andalusia.mp4";
 import Website_Architecture from "../../../videos/Website_Architecture.mp4";
 import Website_Beach from "../../../videos/Website_Beach.mp4";
@@ -20,25 +20,23 @@ const vids = [
 ];
 
 export default function Hero() {
+    // create video indexer state and the reference to elem
     const [cIndex, setCindex] = useState(0);
-    const videoRef=useRef(null);
+    const videoRef = useRef(null);
 
-    function nextVid(){
-        setCindex((cIndex+1)%vids.length);
+    function nextVid() {
+        setCindex((cIndex + 1) % vids.length);
     }
 
-    useEffect(()=>{
-        videoRef.current.addEventListener("ended",nextVid);
+    useEffect(() => {
+        videoRef.current.addEventListener("ended", nextVid);
 
-        return()=>{
-            videoRef.current.removeEventListener("ended",nextVid);
-        };
-    },[cIndex]);
+    }, [cIndex]);
 
-    useEffect(()=>{
-        videoRef.current.src=vids[cIndex];
+    useEffect(() => {
+        videoRef.current.src = vids[cIndex];
         // videoRef.current.play();
-    },[cIndex]);
+    }, [cIndex]);
 
     return (
         <div className={"hero"}>

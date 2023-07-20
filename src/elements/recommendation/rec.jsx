@@ -5,14 +5,8 @@ import {useState} from "react";
 // this design was the most painful, so it has been very very compartmentalised
 export default function Recommendation() {
 
-    // this is the recommendation pane items that will be fetched together
-    // let items = [
-    //     {},
-    //     {},
-    //     {},
-    //     {}
-    // ];
     const [items, setItems] = useState([]);
+    // todo replace w axios at some point ig
     import("./response.json").then(m => {
         setItems(m.default.pois);
     }).catch(err => {

@@ -1,12 +1,6 @@
 import "../css/recommendations.css";
-import Recommendation from "../rec";
 import Star from "./Star";
-import {NavLink} from "react-router-dom";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faThumbsDown as faThumbsDownSolid, faThumbsUp as faThumbsUpSolid} from "@fortawesome/free-solid-svg-icons";
-import {faThumbsDown as faThumbsDownHollow, faThumbsUp as faThumbsUpHollow} from "@fortawesome/free-regular-svg-icons";
 import {useEffect, useState} from "react";
-import {setSelectionRange} from "@testing-library/user-event/dist/utils";
 import {ThumbsDownFilled, ThumbsDownUnfilled, ThumbsUpFilled, ThumbsUpUnfilled} from "../../../svgs/cSVG";
 
 
@@ -33,7 +27,7 @@ function RecItem({img, name, num, match, rating_star, rating_count, description,
 
     let val =
         // surround entire card in a clickable link
-        // can do a onclick function and deal with the modal or make it a button and fix styles
+        // can do an onclick function and deal with the modal or make it a button and fix styles
         <div
             // data-bs-toggle={"modal"} data-bs-target={"#overlayContent"}
             className={"rec-item-navlink"}>

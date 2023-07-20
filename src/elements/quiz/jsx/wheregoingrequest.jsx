@@ -4,6 +4,7 @@ import "../css/wheregoingrequest.css";
 import {toast} from "react-toastify";
 
 const WhereGoingRequest = ({setState}) => {
+    // setstate is to change the state when the destination is requested, special case;
     let val =
         <>
             <div className={"row my-5"}>

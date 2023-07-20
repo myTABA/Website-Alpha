@@ -91,15 +91,7 @@ function LoginBtn({dkey}) {
 
     return (
         <span data-key={dkey} className={"nav-link signup-login"}>
-                        {/*<NavLink to={"#"} className={"nav-link"}*/}
-            {/*         data-bs-target={"#Modal"} data-bs-toggle={"modal"}>*/}
-            {/*    Sign Up*/}
-            {/*</NavLink>*/}
             <SignedOut>
-                            {/*<NavLink to={"#"} className={"nav-link"} style={{color: "var(--bs-nav-link-color)"}}*/}
-                {/*         data-bs-target={"#loginModal"} data-bs-toggle={"modal"}>*/}
-                {/*    Login*/}
-                {/*</NavLink>*/}
                 <SignInButton
                     mode={"modal"}
                     redirectUrl={urlHandler(window.location.href)}
@@ -126,16 +118,6 @@ function LoginBtn({dkey}) {
     );
 }
 
-// export default function Navbar() {
-//
-//     return (
-//         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-//             <Logo/>
-//             <NavButtons/>
-//         </nav>
-//     );
-// }
-
 class Navbar extends Component {
 
     // navbar scroll script js
@@ -157,6 +139,7 @@ class Navbar extends Component {
     componentDidMount() {
         window.addEventListener('scroll', this.handleScroll);
     }
+    // useEffect
 
     // when component gets unrendered, remove the event listener
     // kinda useless since navbar is there persistently

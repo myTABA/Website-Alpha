@@ -21,6 +21,7 @@ const RatePoi = ({state, changeState}) => {
         dataPromise.then(e => {
             console.log('promise called');
             const v = e.data;
+            // get dat from server
             setContent({
                 name: v.features[0].properties.name,
                 tags: v.features[0].properties.kinds.split(','),
@@ -41,8 +42,7 @@ const RatePoi = ({state, changeState}) => {
         <div className={"container my-5"}>
             <div className={"row"}>
                 <div className={"col-12 col-md image"}>
-                    <img
-                        // replace with content.imgsrc
+                    <img alt={content.name}
                         src={content.imgsrc}/>
                 </div>
                 <div className={"col-12 col-md info"}>
@@ -58,6 +58,7 @@ const RatePoi = ({state, changeState}) => {
             <div className={"row"}>
                 <div className={"col rating my-3"}>
                     <div className={"d-flex justify-content-around"}>
+                        {/*id of input is the rating num*/}
                         <div className={"form-check form-check-inline"}>
                             <input className={"form-check-input"} type={"radio"} id={"i-2"} name={"likert"}/>
                             <label className={"form-check-label"} htmlFor={"i-2"}>Not at all<br/>Interested</label>
