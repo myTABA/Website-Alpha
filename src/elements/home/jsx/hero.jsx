@@ -5,7 +5,7 @@ import Website_Architecture from "../../../videos/Website_Architecture.mp4";
 import Website_Beach from "../../../videos/Website_Beach.mp4";
 import Website_Church from "../../../videos/Website_Church.mp4";
 import Website_Japan from "../../../videos/Website_Japan.mp4";
-import Website_Mountain from "../../../videos/Website_Mountain.mp4";
+// import Website_Mountain from "../../../videos/Website_Mountain.mp4";
 import Website_Waterfall from "../../../videos/Website_Waterfall.mp4";
 import {useEffect, useRef, useState} from "react";
 
@@ -14,7 +14,7 @@ const vids = [
     Website_Beach,
     Website_Church,
     Website_Japan,
-    Website_Mountain,
+    // Website_Mountain,
     Website_Architecture,
     Website_Waterfall,
 ];
