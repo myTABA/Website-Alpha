@@ -4,6 +4,7 @@ const router = express.Router();
 const axios = require('axios');
 const { S3Client, GetObjectCommand } = require('@aws-sdk/client-s3');
 const { getSignedUrl } = require('@aws-sdk/s3-request-presigner');
+require('dotenv').config();
 
 let interest_level = 0;
 let sessionId = 0;
@@ -12,8 +13,8 @@ let sessionId = 0;
 const s3Client = new S3Client({
     region: 'us-east-2', // Replace with your desired AWS region
     credentials: {
-        accessKeyId: 'AKIA3MQ4Q2A7N475U46X',
-        secretAccessKey: 'droYSBJnsFX0WY/ElOaYN2g7mbMLyG+AzI0ivm1I',
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
     }
 });
 async function generateSignedUrl (bucketName, objectKey) {
@@ -56,7 +57,7 @@ router.post('/location-action', async (req, res) => {
             return generateSignedUrl(bucketName, objectKey)
                 .then((presignedURL) => {
                 if (presignedURL) {
-                    console.log('Presigned URL:', presignedURL);
+                    // console.log('Presigned URL:', presignedURL);
                     cluster.imagesURL = presignedURL;
                 }
                 })
