@@ -1,6 +1,6 @@
 .bg-img {
     /*set hero image here*/
-    background-image: url("https://cdn.britannica.com/46/154246-050-7C72E12F/view-Rome.jpg");
+    /*background-image: url("https://cdn.britannica.com/46/154246-050-7C72E12F/view-Rome.jpg");*/
     opacity: 0.3;
     z-index: -1;
     top: 0;
@@ -10,6 +10,14 @@
     position: absolute;
     width: 100%;
     height: 100%;
+    overflow: hidden;
+}
+
+.bg-img > video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: opacity 1s ease-in-out;
 }
 
 .hero-parent {

@@ -1,13 +1,55 @@
 import "../css/hero.css";
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigationType} from "react-router-dom";
+import Website_Andulasia from "../../../videos/Website_Andalusia.mp4";
+import Website_Architecture from "../../../videos/Website_Architecture.mp4";
+import Website_Beach from "../../../videos/Website_Beach.mp4";
+import Website_Church from "../../../videos/Website_Church.mp4";
+import Website_Japan from "../../../videos/Website_Japan.mp4";
+import Website_Mountain from "../../../videos/Website_Mountain.mp4";
+import Website_Waterfall from "../../../videos/Website_Waterfall.mp4";
+import {useEffect, useRef, useState} from "react";
+
+const vids = [
+    Website_Andulasia,
+    Website_Beach,
+    Website_Church,
+    Website_Japan,
+    Website_Mountain,
+    Website_Architecture,
+    Website_Waterfall,
+];
 
 export default function Hero() {
+    const [cIndex, setCindex] = useState(0);
+    const videoRef=useRef(null);
+
+    function nextVid(){
+        setCindex((cIndex+1)%vids.length);
+    }
+
+    useEffect(()=>{
+        videoRef.current.addEventListener("ended",nextVid);
+
+        return()=>{
+            videoRef.current.removeEventListener("ended",nextVid);
+        };
+    },[cIndex]);
+
+    useEffect(()=>{
+        videoRef.current.src=vids[cIndex];
+        videoRef.current.play();
+    },[cIndex]);
+
     return (
         <div className={"hero"}>
             <div className={"container-fluid"}>
                 <div className="row">
                     <div className="col d-flex justify-content-start align-items-center hero-parent">
-                        <div className={"bg-img"}></div>
+                        <div className={"bg-img"}>
+                            <video id={"hero-video"} ref={videoRef} autoPlay={true} loop={false} muted={true}>
+                                <source src={vids[cIndex]} type={"video/mp4"}/>
+                            </video>
+                        </div>
 
                         <div className={"container"}>
                             <div className={"col-12 col-md-7 col-lg-6 hero-content"}>

@@ -103,7 +103,7 @@ code {
 /*font sizing*/
 
 html {
-    font-size: 62.5%;
+    font-size: 52.5%;
 }
 
 @media only screen and (max-width: 767px) {
