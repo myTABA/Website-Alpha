@@ -1,7 +1,8 @@
 .bg-img {
     /*set hero image here*/
     /*background-image: url("https://cdn.britannica.com/46/154246-050-7C72E12F/view-Rome.jpg");*/
-    opacity: 0.3;
+    background-color: var(--black);
+    opacity: 0.6;
     z-index: -1;
     top: 0;
     bottom: 0;
@@ -22,14 +23,14 @@
 
 .hero-parent {
     position: relative;
-    min-height: 40vh;
+    min-height: 70vh;
     font-weight: 450;
 
 }
 
 @media only screen and (min-width: 768px) {
     .hero-parent {
-        min-height: 60vh;
+        /*min-height: 60vh;*/
         /*font-size: x-large;*/
     }
 
@@ -41,7 +42,7 @@
 
 @media only screen and (min-width: 992px) {
     .hero-parent {
-        min-height: 60vh;
+        /*min-height: 60vh;*/
         /*font-size: x-large;*/
     }
 
