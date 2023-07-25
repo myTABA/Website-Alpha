@@ -14,9 +14,7 @@ let location;
 const s3Client = new S3Client({
     region: 'us-east-2', // Replace with your desired AWS region
     credentials: {
-        // accessKeyId: 'AKIA3MQ4Q2A7D7OBWS35',
         accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-        // secretAccessKey: '+FjIk+yAr8z0sUqMgJYtQVFT1bif9nmjW/zWwxKU'
         secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
     }
 });
