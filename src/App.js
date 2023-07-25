@@ -12,8 +12,6 @@ import Footer from "./elements/home/jsx/footer";
 import {Route, Routes, useNavigate} from "react-router-dom";
 import Home from "./elements/home/home";
 import Recommendation from "./elements/recommendation/rec";
-import Login from "./elements/login/jsx/login";
-import Signup from "./elements/login/jsx/signup";
 import Travel from "./elements/travelguide/jsx/travel";
 import Profile from "./elements/profile/profile";
 import ReactGA from "react-ga4";
@@ -55,25 +53,15 @@ export default function App() {
                     <Route path={"/sign-up/*"} element={<SignUp routing={"path"} path={"/sign-up"}/>}/>
 
                     {/*add recommendations as protected*/}
-
-                    {/*<Route path={'/recommendations'} element={*/}
-                    {/*    <>*/}
-                    {/*        <SignedIn>*/}
-                    {/*            <Recommendation/>*/}
-                    {/*        </SignedIn>*/}
-                    {/*        <SignedOut>*/}
-                    {/*            <RedirectToSignIn/>*/}
-                    {/*        </SignedOut>*/}
-                    {/*    </>*/}
-                    {/*}/>*/}
                     <Route path={'/recommendations'} element={
                         <>
-                            <SignedIn>
-                                <Recommendation/>
-                            </SignedIn>
-                            <SignedOut>
-                                <RedirectToSignIn/>
-                            </SignedOut>
+                            <Recommendation/>
+                            {/*<SignedIn>*/}
+                            {/*    <Recommendation/>*/}
+                            {/*</SignedIn>*/}
+                            {/*<SignedOut>*/}
+                            {/*    <RedirectToSignIn/>*/}
+                            {/*</SignedOut>*/}
                         </>
                     }/>
 
@@ -83,9 +71,6 @@ export default function App() {
                             <SignedOut><RedirectToSignIn/></SignedOut>
                         </>
                     }/>
-
-                    {/*<Route path={"/recommendations"} element={<Recommendation/>}/>*/}
-                    {/*<Route path={"/sign-out/*"} element={<SignOut routing={"path"} path={"/sign-out"}/>}/>*/}
                     <Route path={"/travel-guides"} element={<Travel/>}/>
                     <Route path={"/quiz"} element={<Quiz/>}/>
 
@@ -103,8 +88,6 @@ export default function App() {
                     pauseOnHover
                     theme="colored"
                 />
-                {/*<Login/>*/}
-                {/*<Signup/>*/}
             </ClerkProvider>
         </>
     );
