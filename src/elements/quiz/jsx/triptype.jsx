@@ -10,6 +10,7 @@ const TripType = ({changeState}) => {
     let select_elem = new Set();
     let val = <div className={"d-flex justify-content-center"}>
         <button id={"menu2submit"} className={"d-none btn btn-outline-primary"} onClick={e => {
+            // todo update as per joyce's endpoint
             axios.post('http://localhost:4000/quiz/type-action', {
                 "type": document.getElementById("menu2").innerText.trim().split(", ")
             }).then().catch(e => console.error(e));
