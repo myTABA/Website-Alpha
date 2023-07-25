@@ -8,12 +8,15 @@ require('dotenv').config();
 
 let interest_level = 0;
 let sessionId = 0;
+let location;
 
 // Connect to s3
 const s3Client = new S3Client({
     region: 'us-east-2', // Replace with your desired AWS region
     credentials: {
+        // accessKeyId: 'AKIA3MQ4Q2A7D7OBWS35',
         accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+        // secretAccessKey: '+FjIk+yAr8z0sUqMgJYtQVFT1bif9nmjW/zWwxKU'
         secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
     }
 });
@@ -32,13 +35,18 @@ async function generateSignedUrl (bucketName, objectKey) {
 }
 
 // Route for handling location_button
-router.post('/location-action', async (req, res) => {
-    // const selectedCard = req.body.location;
-    selectedCard = 'barcelona_esp';
+router.post('/location-action',  (req, res) => {
+    // const location = req.body.location;
+    location = 'barcelona_esp';
+    res.send('Get location!');
+});
+
+
+// Route for handling location_button
+router.get('/location-action', async (req, res) => {
     try {
-        const response = await axios.get(`https://xwim6jhv6d3rhgdpudpl3gusky0oycqp.lambda-url.us-east-2.on.aws/profiler/get-cluster/${selectedCard}?api-key=${apiKey}`);
+        const response = await axios.get(`https://xwim6jhv6d3rhgdpudpl3gusky0oycqp.lambda-url.us-east-2.on.aws/profiler/get-cluster/${location}?api-key=${apiKey}`);
         const data = response.data;
-        // TODO : change S3 link to url for images
         let clusters = data.cluster;
         const promises = clusters.map((cluster) => {
             let bucketName;
@@ -78,7 +86,6 @@ router.post('/location-action', async (req, res) => {
         res.status(500).json({ error: 'An error occurred' });
     }
 });
- 
 // Route for handling types_button
 router.post('/type-action', (req, res) => {
     res.send('Generating session id!');
