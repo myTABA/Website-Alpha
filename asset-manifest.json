@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Website-Alpha/static/css/main.11171b2d.css",
-    "main.js": "/Website-Alpha/static/js/main.415d1862.js",
+    "main.css": "/Website-Alpha/static/css/main.a8ce1f6f.css",
+    "main.js": "/Website-Alpha/static/js/main.e44ebd81.js",
     "static/js/874.8c2d21b5.chunk.js": "/Website-Alpha/static/js/874.8c2d21b5.chunk.js",
     "static/js/128.05536f5e.chunk.js": "/Website-Alpha/static/js/128.05536f5e.chunk.js",
     "static/js/787.71e672d5.chunk.js": "/Website-Alpha/static/js/787.71e672d5.chunk.js",
@@ -12,12 +12,12 @@
     "static/media/Website_Japan.mp4": "/Website-Alpha/static/media/Website_Japan.368ccfff1e3f53070d20.mp4",
     "static/media/Website_Waterfall.mp4": "/Website-Alpha/static/media/Website_Waterfall.bb4f356843439b31e6b5.mp4",
     "index.html": "/Website-Alpha/index.html",
-    "main.11171b2d.css.map": "/Website-Alpha/static/css/main.11171b2d.css.map",
-    "main.415d1862.js.map": "/Website-Alpha/static/js/main.415d1862.js.map",
+    "main.a8ce1f6f.css.map": "/Website-Alpha/static/css/main.a8ce1f6f.css.map",
+    "main.e44ebd81.js.map": "/Website-Alpha/static/js/main.e44ebd81.js.map",
     "787.71e672d5.chunk.js.map": "/Website-Alpha/static/js/787.71e672d5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.11171b2d.css",
-    "static/js/main.415d1862.js"
+    "static/css/main.a8ce1f6f.css",
+    "static/js/main.e44ebd81.js"
   ]
 }
