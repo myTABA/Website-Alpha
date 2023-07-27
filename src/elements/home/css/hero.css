@@ -2,7 +2,7 @@
     /*set hero image here*/
     /*background-image: url("https://cdn.britannica.com/46/154246-050-7C72E12F/view-Rome.jpg");*/
     background-color: var(--black);
-    opacity: 0.6;
+    opacity: 1;
     z-index: -1;
     top: 0;
     bottom: 0;
