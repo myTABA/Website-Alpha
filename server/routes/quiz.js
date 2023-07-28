@@ -12,7 +12,7 @@ let location;
 
 // Connect to s3
 const s3Client = new S3Client({
-    region: 'us-east-2', // Replace with your desired AWS region
+    region: 'us-east-1', // Replace with your desired AWS region
     credentials: {
         accessKeyId: process.env.AWS_ACCESS_KEY_ID,
         secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
@@ -43,7 +43,8 @@ router.post('/location-action',  (req, res) => {
 // Route for handling location_button
 router.get('/location-action', async (req, res) => {
     try {
-        const response = await axios.get(`https://xwim6jhv6d3rhgdpudpl3gusky0oycqp.lambda-url.us-east-2.on.aws/profiler/get-cluster/${location}?api-key=${apiKey}`);
+        const response = await axios.get(`https://mji2plpsylpc3uqdfwfb2cwtvq0mzbna.lambda-url.us-east-1.on.aws/profiler/get-cluster/${location}?api-key=${apiKey}`);
+        // const response = await axios.get(`https://xwim6jhv6d3rhgdpudpl3gusky0oycqp.lambda-url.us-east-2.on.aws/profiler/get-cluster/${location}?api-key=${apiKey}`);
         const data = response.data;
         let clusters = data.cluster;
         const promises = clusters.map((cluster) => {
