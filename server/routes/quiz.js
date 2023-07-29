@@ -125,10 +125,10 @@ router.get('/type-action', async (req, res) => {
         // Call get poi detail
         const responseDetail = await axios.get(`https://bvln6ak7ovklghu2suidzwjrq40jhdju.lambda-url.us-east-2.on.aws/poidetails/get-poi-details/${poiId}?infolimit=name&infolimit=city&infolimit=country&infolimit=descrh&infolimit=descrc&infolimit=latlong&infolimit=ids&infolimit=images&api-key=${apiKey}`);
         detail = responseDetail.data;
-        imageURL = detail.pois[0].images[0];
+        imageURL = detail.pois[0].images;
         let bucketName;
         let objectKey;
-        if (imageURL !== undefined) {
+        if (imageURL !== 'nan') {
             const parts = imageURL.split('/');
             bucketName = parts[2]; // The bucket is the third element after splitting
             objectKey = parts.slice(3).join('/');
@@ -182,10 +182,10 @@ router.get('/interest-level-action/:id', async (req, res) => {
             const responseDetail = await axios.get(`https://bvln6ak7ovklghu2suidzwjrq40jhdju.lambda-url.us-east-2.on.aws/poidetails/get-poi-details/${poiId}?infolimit=name&infolimit=city&infolimit=country&infolimit=descrh&infolimit=descrc&infolimit=latlong&infolimit=ids&infolimit=images&api-key=${apiKey}`);
             // TODO : change S3 link to url for images
             detail = responseDetail.data;
-            imageURL = detail.pois[0].images[0];
+            imageURL = detail.pois[0].images;
             let bucketName;
             let objectKey;
-            if (imageURL !== undefined) {
+            if (imageURL !== 'nan') {
                 const parts = imageURL.split('/');
                 bucketName = parts[2]; // The bucket is the third element after splitting
                 objectKey = parts.slice(3).join('/');
@@ -221,10 +221,10 @@ router.get('/interest-level-action/:id', async (req, res) => {
                 const responseDetail = await axios.get(`https://bvln6ak7ovklghu2suidzwjrq40jhdju.lambda-url.us-east-2.on.aws/poidetails/get-poi-details/${poiId}?infolimit=name&infolimit=city&infolimit=country&infolimit=descrh&infolimit=descrc&infolimit=latlong&infolimit=ids&infolimit=images&api-key=${apiKey}`);
                 element.poiDetail = responseDetail.data.pois[0];
                 // TODO : change S3 link to url for images
-                imageURL = element.poiDetail.images[0];
+                imageURL = element.poiDetail.images;
                 let bucketName;
                 let objectKey;
-                if (imageURL !== undefined) {
+                if (imageURL !== 'nan') {
                     const parts = imageURL.split('/');
                     bucketName = parts[2]; // The bucket is the third element after splitting
                     objectKey = parts.slice(3).join('/');
