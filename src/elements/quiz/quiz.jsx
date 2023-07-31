@@ -292,6 +292,7 @@ function MainContent({type, state, changeState, setStateONLYFORREQ}) {
     } else if (type === 'triptype') {
         val = <Triptype changeState={changeState}/>;
         // very rigid code to select the selected elements if exists. DFS
+        // todo will have to update this code to run after axios fetches the data
         useEffect(() => {
             if (type === "triptype") {
                 const arr = document.getElementById("menu2").innerText.split(',');
