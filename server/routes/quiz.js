@@ -121,8 +121,9 @@ router.get('/type-action', async (req, res) => {
     try {
         const response = await axios.get(`https://3aphhcfwtbfk5wdqewyxbyakje0hpkfw.lambda-url.us-east-2.on.aws/recommender/session/${sessionId}?country=esp&city=barcelona&limit=1&topp=0.8&topk=200&temp=0.2&api-key=${apiKey}`);
         data = response.data;
-        poiId = data.pois[0].poiid;
+        poiId = data.pois[0].poi_id;
         // Call get poi detail
+        
         const responseDetail = await axios.get(`https://bvln6ak7ovklghu2suidzwjrq40jhdju.lambda-url.us-east-2.on.aws/poidetails/get-poi-details/${poiId}?infolimit=name&infolimit=city&infolimit=country&infolimit=descrh&infolimit=descrc&infolimit=latlong&infolimit=ids&infolimit=images&api-key=${apiKey}`);
         detail = responseDetail.data;
         imageURL = detail.pois[0].images;
@@ -176,7 +177,7 @@ router.get('/interest-level-action/:id', async (req, res) => {
         try {
             const response = await axios.get(`https://3aphhcfwtbfk5wdqewyxbyakje0hpkfw.lambda-url.us-east-2.on.aws/recommender/session/${sessionId}?country=esp&city=barcelona&limit=1&topp=0.8&topk=200&temp=0.2&api-key=${apiKey}`);
             data = response.data;
-            poiId = data.pois[0].poiid;
+            poiId = data.pois[0].poi_id;
             // Call get poi detail
             console.log(poiId);
             const responseDetail = await axios.get(`https://bvln6ak7ovklghu2suidzwjrq40jhdju.lambda-url.us-east-2.on.aws/poidetails/get-poi-details/${poiId}?infolimit=name&infolimit=city&infolimit=country&infolimit=descrh&infolimit=descrc&infolimit=latlong&infolimit=ids&infolimit=images&api-key=${apiKey}`);
