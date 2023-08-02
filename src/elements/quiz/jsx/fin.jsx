@@ -1,5 +1,11 @@
 import {NavLink} from "react-router-dom";
 
+/**
+ * Final State
+ * @param changeState change state function
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function Fin(changeState) {
     let val =
         <div className={"container"}>

@@ -1,6 +1,11 @@
 import {TravelCard} from "../../home/jsx/travelguide";
 import "../../home/css/travelguide.css";
 
+/**
+ * Travel Guides page
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export default function Travel() {
     const cards = [
         {
@@ -31,6 +36,12 @@ export default function Travel() {
     return <div className={"travelGuide my-5"}>{val}</div>;
 }
 
+/**
+ * Generator function for the cards
+ * @param cards json data
+ * @returns {*[]}
+ * @constructor
+ */
 const TravelGenerator = ({cards}) => {
     let val = [];
     for (const [i, card] of cards.entries()) {

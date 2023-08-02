@@ -3,6 +3,12 @@ import {faSearch} from "@fortawesome/free-solid-svg-icons";
 import "../css/wheregoingrequest.css";
 import {toast} from "react-toastify";
 
+/**
+ * The request destination page
+ * @param setState the setState function in its raw form. Does not update breadcrumbs.
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const WhereGoingRequest = ({setState}) => {
     // setstate is to change the state when the destination is requested, special case;
     let val =

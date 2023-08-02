@@ -6,6 +6,12 @@ import {faCheckCircle} from "@fortawesome/free-regular-svg-icons";
 import React from "react";
 import axios from "axios";
 
+/**
+ * Defines the component and render of the first question of quiz
+ * @param changeState function to update the state
+ * @returns {Element}
+ * @constructor
+ */
 const WhereGoing = ({changeState}) => {
     let val =
         <div className={"row"}>
@@ -44,6 +50,11 @@ const WhereGoing = ({changeState}) => {
     return <><BigGen/>{val}</>
 };
 
+/**
+ * Generator function to put in all the rows of "cards" from json data
+ * @returns {*[]} array of jsx elements
+ * @constructor
+ */
 function BigGen() {
     let val = [];
     for (const [i, e] of data.entries()) {
@@ -63,6 +74,12 @@ function BigGen() {
     return val;
 }
 
+/**
+ * Generator function to generate "cards" in the rows.
+ * @param data the cities data
+ * @returns {*[]}
+ * @constructor
+ */
 function SmallGen({data}) {
     let val = [];
     for (const [i, e] of data.entries()) {
@@ -118,6 +135,7 @@ function SmallGen({data}) {
     return val;
 }
 
+// the functions are written expecting this data. will have to modify the code as json gets received from BACKEND
 const data = [
     {
         country: "Spain",

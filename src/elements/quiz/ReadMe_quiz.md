@@ -1,0 +1,1 @@
+Several inline onclick handlers which handle post requests and simultaneously change state

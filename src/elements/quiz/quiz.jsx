@@ -9,9 +9,14 @@ import Fin from "./jsx/fin";
 import Wheregoingrequest from "./jsx/wheregoingrequest";
 import {faCheckCircle} from "@fortawesome/free-regular-svg-icons";
 
-
+/**
+ * Main element that houses everything else.
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const Quiz = () => {
 
+    //ditto same logic as profile, we define states for each segment
     const [state, setState] = useState({
         props: {
             title: "Where are you travelling?",
@@ -20,10 +25,15 @@ const Quiz = () => {
             id: "menu1"
         }
     });
+    /**
+     * Handler function to change the state and update the content.
+     * @param e event action
+     */
     const changeState = (e) => {
         let id = e;
         console.log(id);
         const likerts = document.getElementsByName("likert");
+        // uncheck all likert radio for when the ratepoi page updates
         if (likerts) {
             likerts.forEach(e => {
                 e.checked = false;
@@ -112,7 +122,8 @@ const Quiz = () => {
         <>
             <div className={"container mt-5"}>
                 <div className={"row"}>
-                    <div className={"col-12 col-md-4 menu my-4 mx-4 p-4"}>
+                    {/*i have absolutely no idea but the weird margin issue resolved here, switch between col and col-12 and rn col seems to work*/}
+                    <div className={"col col-md-4 menu my-4 mx-4 p-4"}>
                         {/*this div breadcrumb is just for mobile)*/}
                         <div className={"d-block d-md-none"} id={"mb-breadcrumb"}>
                             <ul>
@@ -212,6 +223,15 @@ const Quiz = () => {
     );
 };
 
+/**
+ * Main Content that is updated for the quiz.
+ * @param props the state
+ * @param state to pass to child
+ * @param changeState change state function
+ * @param setStateONLYFORREQ change state again, but special case, one time use only for the request sub-state
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function MainBar({props, state, changeState, setStateONLYFORREQ}) {
     // stateonlyfor req is to change the state when the destination is requested, special case
     const backButton = <div className={"b3"}
@@ -252,6 +272,15 @@ function MainBar({props, state, changeState, setStateONLYFORREQ}) {
     </div>;
 }
 
+/**
+ * Update of the content in the component
+ * @param type based off the table, which component needs be rendered
+ * @param state current state
+ * @param changeState change state function which internally invokes setState
+ * @param setStateONLYFORREQ change state function but only for one time use
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function MainContent({type, state, changeState, setStateONLYFORREQ}) {
     // stateonlyfor req is to change the state when the destination is requested, special case
     let val;
@@ -259,6 +288,7 @@ function MainContent({type, state, changeState, setStateONLYFORREQ}) {
     if (type === "wheregoing") {
         val = <WhereGoing changeState={changeState}/>;
         // very rigid code to select the selected element if it exists. DFS
+        // ideally you will want to shift this inside the component so you can use useEffect hook to run this again when the data is loaded and rendered.
         useEffect(() => {
             if (type === "wheregoing") {
                 const innertext = document.getElementById("menu1").innerText;
@@ -287,11 +317,13 @@ function MainContent({type, state, changeState, setStateONLYFORREQ}) {
         }, [type]);
 
     } else if (type === "wheregoingrequest") {
+        // special case utilised here
         val = <Wheregoingrequest setState={setStateONLYFORREQ}/>;
 
     } else if (type === 'triptype') {
         val = <Triptype changeState={changeState}/>;
         // very rigid code to select the selected elements if exists. DFS
+        // ideally you will want to shift this inside the component so you can use useEffect hook to run this again when the data is loaded and rendered.
         // todo will have to update this code to run after axios fetches the data
         useEffect(() => {
             if (type === "triptype") {

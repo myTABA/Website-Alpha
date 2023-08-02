@@ -7,11 +7,16 @@ import axios from "axios";
 import {Adventure, Cultural, FoodDrink, Outdoors, Relaxation, Sport} from "../../../svgs/cSVG";
 import {useEffect, useState} from "react";
 
+/**
+ * part 2 of the quiz.
+ * @param changeState change state function
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const TripType = ({changeState}) => {
     let select_elem = new Set();
     let val = <div className={"d-flex justify-content-center"}>
         <button id={"menu2submit"} className={"d-none btn btn-outline-primary"} onClick={e => {
-            // todo update as per joyce's endpoint
             const selections = document.querySelectorAll(".card.selected");
             let arr = [];
             selections.forEach(e => {
@@ -53,7 +58,6 @@ function Gen({select_elem}) {
 
     let val = [];
     const elem = document.getElementById("menu2");
-    console.log(select_elem.size);
 
     return <>
         <div className={"container my-4"}>

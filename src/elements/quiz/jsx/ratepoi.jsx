@@ -5,6 +5,13 @@ import ReactDOMServer from "react-dom/server";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCheckCircle} from "@fortawesome/free-regular-svg-icons";
 
+/**
+ * Rating POIs
+ * @param state current state
+ * @param changeState change state function
+ * @returns {Element}
+ * @constructor
+ */
 const RatePoi = ({state, changeState}) => {
     console.log(state);
 
@@ -129,6 +136,11 @@ const RatePoi = ({state, changeState}) => {
     return val;
 };
 
+/**
+ * Get the data from server
+ * @param i the props id
+ * @returns {Promise<axios.AxiosResponse<any> | void>|Promise<axios.AxiosResponse<any>>}
+ */
 function getData(i) {
     i = parseInt(i[i.length - 1]) - 1;
     console.log(i);
@@ -147,6 +159,12 @@ function getData(i) {
     }
 }
 
+/**
+ * Generate all tags associated with POI.
+ * @param tags list of tags
+ * @returns {*} JSX array of div tags
+ * @constructor
+ */
 function TagMaker({tags}) {
     return tags.map((tag, i) => (
         <div key={i + 1} className={"badge bg-secondary"}>
