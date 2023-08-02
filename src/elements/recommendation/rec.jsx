@@ -3,10 +3,15 @@ import RecommendationPane from "./jsx/recommendationList";
 import {useState} from "react";
 
 // this design was the most painful, so it has been very very compartmentalised
+/**
+ * Main component of the recommendation canvas.
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export default function Recommendation() {
 
     const [items, setItems] = useState([]);
-    // todo replace w axios at some point ig
+    // todo replace w axios at some point ig, joyce's endpoint for ratepoi#5
     import("./response.json").then(m => {
         setItems(m.default.pois);
     }).catch(err => {

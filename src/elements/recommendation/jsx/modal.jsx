@@ -3,7 +3,7 @@ import {useEffect, useRef} from "react";
 import modal from "bootstrap/js/src/modal";
 
 // todo create unique id for all elements and link them to modal where it is rendered via props
-
+// !!!UNUSED CODE!!!
 function ModalContent({overlayRef}) {
 
     // define the modal element that needs to be checked

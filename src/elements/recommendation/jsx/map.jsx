@@ -4,10 +4,16 @@ import {Status, Wrapper} from "@googlemaps/react-wrapper";
 
 
 // this is simple, just plots the map
+/**
+ * Plots the map canvas
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function Map() {
     const overlayRef = useRef(null);
     const mapAreaParent = useRef(null);
 
+    // can replace those texts with react loaders
     const render = (status) => {
         switch (status) {
             case Status.LOADING:
@@ -40,10 +46,8 @@ function Map() {
     // });
 
     return val;
-
-    // todo on click, display the blacked out div and display the modal which would be a normal div
 }
-
+// this data will be received from backend, via axios
 const tlocs = [
     {
         lat: 51.497541,
@@ -75,9 +79,11 @@ const calcCenter = () => {
         lat += e.lat;
         lng += e.lng;
         bounds.extend(new window.google.maps.LatLng(e.lat, e.lng));
+        //this thing auto zooms and centres on waypoints.
     }
 
     return {
+        // these values are immaterial, as long as bound is present.
         centre: {lat: lat / tlocs.length, lng: lng / tlocs.length},
         bound: bounds,
         zoom: 7

@@ -3,7 +3,20 @@ import Star from "./Star";
 import {useEffect, useState} from "react";
 import {ThumbsDownFilled, ThumbsDownUnfilled, ThumbsUpFilled, ThumbsUpUnfilled} from "../../../svgs/cSVG";
 
-
+/**
+ * Singular Recommendation Item
+ * @param img image link
+ * @param name name of POI
+ * @param num number of POI in list, NOT REQUIRED
+ * @param match match %
+ * @param rating_star how many stars
+ * @param rating_count number of votes
+ * @param description description of the POI
+ * @param itinerary_link link to redirect to onclick; NOT USED
+ * @param tags list of tags
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function RecItem({img, name, num, match, rating_star, rating_count, description, itinerary_link, tags}) {
 
     //placeholders and setting defaults
@@ -70,7 +83,19 @@ function RecItem({img, name, num, match, rating_star, rating_count, description,
     return val;
 }
 
+/**
+ * Tag Generator for POI
+ * @param tags list of tags
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function TagGen({tags}) {
+    /**
+     * Single tag elememt
+     * @param tag text tag
+     * @returns {JSX.Element}
+     * @constructor
+     */
     const Tag = ({tag}) => {
         return <>
             <span className={"badge bg-primary tag"}>{tag}</span>
@@ -83,6 +108,11 @@ function TagGen({tags}) {
     return <span>{val}</span>;
 }
 
+/**
+ * Thumbs up like and dislike logic and render.
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function LikeDislike() {
     const [faThumbsUp, setFaThumbsUp] = useState(false);
     const [faThumbsDown, setFaThumbsDown] = useState(false);
@@ -118,6 +148,11 @@ function LikeDislike() {
     );
 }
 
+/**
+ * AJAX call to google servers, could reuse this code somewhere in backend. Frontend cannot make calls to google's server.
+ * @param gig
+ * @returns {Promise<unknown>}
+ */
 const makeAJAXcall = (gig) => {
     return new Promise((resolve, reject) => {
         const xhr = new XMLHttpRequest();
@@ -141,6 +176,13 @@ const makeAJAXcall = (gig) => {
     });
 };
 
+/**
+ * The left pane listing POIs
+ * @param items_rec json list of recommended pois
+ * @param items_must json list of must see pois
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function RecommendationPane({items_rec, items_must}) {
     //items is an array of objects for populating the RecItems
     // we get the items object array from rec.jsx
@@ -174,6 +216,12 @@ function RecommendationPane({items_rec, items_must}) {
 
 }
 
+/**
+ * The List for the POIs
+ * @param items the items data that updates the list
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function RecommendationList({items}) {
     const [val, setVal] = useState([]);
 
@@ -188,6 +236,7 @@ function RecommendationList({items}) {
                     try {
                         // const gData = await makeAJAXcall(ids.gig);
                         const gData = {};
+                        // can update from the json itself, if it has. at the time i did this, this was not included in the data
                         updatedVal.push(
                             <RecItem
                                 img={elem.imagelocs[0]}
