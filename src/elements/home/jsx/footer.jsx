@@ -2,6 +2,11 @@ import "../css/footer.css";
 import {SocialIcon} from "react-social-icons";
 import {NavLink} from "react-router-dom";
 
+/**
+ * The footer element
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export default function Footer() {
 
     let icon_css =

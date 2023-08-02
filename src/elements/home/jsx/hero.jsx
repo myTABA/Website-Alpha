@@ -19,11 +19,20 @@ const vids = [
     Website_Waterfall,
 ];
 
+/**
+ * The hero component, brings together every other element together.
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export default function Hero() {
     // create video indexer state and the reference to elem
     const [cIndex, setCindex] = useState(0);
     const videoRef = useRef(null);
 
+    /**
+     * Increment the index to view next video.
+     * Overflow issue: Ideally in Java, we avoid this, because running for long enough causes overflow. However, in JS, this number is MASSIVE.
+     */
     function nextVid() {
         setCindex((cIndex + 1) % vids.length);
     }
@@ -69,6 +78,11 @@ export default function Hero() {
     );
 }
 
+/**
+ * Just a button.
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function GetStarted() {
     return (
         <NavLink to={"/quiz"} id={"GetStarted"} className={"btn btn-outline-primary w-100 py-3"}>

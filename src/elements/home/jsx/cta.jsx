@@ -2,6 +2,14 @@ import "../css/cta.css";
 import {useEffect} from "react";
 import {NavLink} from "react-router-dom";
 
+/**
+ * Call to action general structure, relocates user to /quiz
+ * @param title title of CTA
+ * @param text Text body for the CTA
+ * @param button The button text for CTA
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export default function CTA({title, text, button}) {
     let val;
     // set default vals for when data is not provided

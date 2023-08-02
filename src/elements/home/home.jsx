@@ -5,7 +5,14 @@ import CTA from "./jsx/cta";
 import {useEffect} from "react";
 
 
-// needdd to do this because cant render custom text otherwise
+// needdd to do this because cant render custom text otherwise, alternatively enclose whatever you want in <React.Fragment> and assign a key to it
+/**
+ * Generates paragraph tags from the text given.
+ * @param text text content
+ * @param pTag require <p>?
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const TextFunction = ({text, pTag}) => {
     if (pTag) {
         return <p className={"b1 my-5"}>{text}</p>;
@@ -17,6 +24,11 @@ const TextFunction = ({text, pTag}) => {
 
 // home page structure for components is defined here. this is rendered in App.js,
 //     where react router takes care of dynamic rendering and setting URLs
+/**
+ * Structure of the Home page.
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export default function Home() {
     let content = "We create personalized travel recommendations tailored to your interests, making it easy to find travel experiences that truly matter to you." +        "\n" +
         "\nmyTABA makes it easy to spend less time searching and more time discovering your next great adventure." +

@@ -3,6 +3,11 @@ import React, {Component, useEffect, useState} from "react";
 import {NavLink} from "react-router-dom";
 import {SignedIn, SignedOut, SignInButton, SignUpButton, UserButton} from "@clerk/clerk-react";
 
+/**
+ * The logo part of navbar.
+ * @returns {Element}
+ * @constructor
+ */
 function Logo() {
     return (
         <>
@@ -19,6 +24,12 @@ function Logo() {
     );
 }
 
+/**
+ * Navigation buttons on the navbar. Middle content.
+ * @param navbarVisible boolean for if navbar needs to be visible or not
+ * @returns {Element}
+ * @constructor
+ */
 function NavButtons({navbarVisible}) {
 
     function getWindowWidth() {
@@ -68,13 +79,25 @@ function NavButtons({navbarVisible}) {
     );
 }
 
+/**
+ * Renders the login, logout button
+ * @param dkey determining tag for lgs/sms(large screen/small screen)
+ * @returns {Element}
+ * @constructor
+ */
 function LoginBtn({dkey}) {
 
+    /**
+     * Shred the URL returning only the last relevant bit of URL.
+     * @param href entire URL
+     * @returns {*} text, final relative URL
+     */
     const urlHandler = (href) => {
         href = href.split("/");
         return href[href.length - 1];
     }
 
+    // this does not seem to function as expected.
     const logoutHandler = (lochref) => {
         const protectedURL = ['recommendations', 'profile'];
         let curr_url = lochref.split('/');

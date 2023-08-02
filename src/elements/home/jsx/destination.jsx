@@ -1,10 +1,16 @@
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faFilter} from "@fortawesome/free-solid-svg-icons";
 import "../css/destination.css";
 import {useEffect, useState} from "react";
 import {NavLink} from "react-router-dom";
 import {Adventure, Cultural, FoodDrink, Outdoors, Refresh, Relaxation, Sport} from "../../../svgs/cSVG";
 
+/**
+ * Filter icon. Creates an icon element.
+ * @param img the image that needs to be put in
+ * @param name name of the icon
+ * @param isVisible boolean, if want to be visible, currently true for all.
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function LittleObjects({img, name, isVisible}) {
 
     // this variable below is a little tricky
@@ -50,6 +56,15 @@ function LittleObjects({img, name, isVisible}) {
     );
 }
 
+/**
+ * The Destination element.
+ * @param url URL to be directed to on clicking it
+ * @param img the image to be displayed
+ * @param name Name of POI
+ * @param location Location of POI
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function BigObjects({url, img, name, location}) {
     img = img ? img : 'https://cdn.britannica.com/46/154246-050-7C72E12F/view-Rome.jpg';
     name = name ? name : 'POI Name';
@@ -74,6 +89,11 @@ function BigObjects({url, img, name, location}) {
     );
 }
 
+/**
+ * The main object that brings together the other two components.
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export default function DestinationPOIInspiration() {
 
     // this is all code for littleobjs
@@ -112,6 +132,7 @@ export default function DestinationPOIInspiration() {
     const display = screenWidth >= 768;
 
     // todo get data from bff axios
+    // once the axios promise is done, data needs to be replaced with a useState hook so that when the actual data is received, the component is updated
     const data = [
         {
             name: "Tokyo",
@@ -163,8 +184,6 @@ export default function DestinationPOIInspiration() {
         },
     ];
     const max_items = data.length;
-    console.log(max_items);
-    console.log(screenWidth);
     // append only 3 of the total data objects to the generator
     let initialInitialRender;
     if (screenWidth < 768) {

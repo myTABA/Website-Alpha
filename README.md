@@ -5,7 +5,39 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## .env.local variables
 
 Clerk Key as REACT_APP_CLERK_PUBLISHABLE_KEY
-Google Key as GOOGLE_KEY
+
+Google Key as REACT_APP_GOOGLE_KEY
+
+AWS access key as AWS_ACCESS_KEY
+
+AWS secret access key as AWS_SECRET_ACCESS_KEY
+
+## General Directory Structure
+public folder houses the public assets: index.html, favicon
+
+src folder houses all the code.
+app.js is where the "routing" is taken care of. this is the page where components are rendered.
+
+### src/elements
+Houses the react components.
+
+Any non folder file is a "global" file to be used for all components as a whole(scrollToTop.jsx).
+Any non folder file in the src folder is to be meant for the website as a whole, though they're interchangable.
+
+Each folder inside of this is affiliated with a "page".
+A single jsx file acts as the canvas that renders all other elements required for the page.
+Each folder inside it has a jsx and a css folder for respective jsx and styling code
+
+JSX are split up component wise.
+
+## Handy Tips
+If replacing or updating any data with backend, all requests are asynchronous in nature, e.g. axios. hence, the data is not available when the webpage renders. Will throw errors. 
+
+Create a useState hook for the data, set it to `[]` initially so that it loops over empty array in render. Then in the `then` portion of the promise, update the state.
+
+Once the state updates, the component will refresh and display the data.
+
+Alternatively, conditional renders. use an `if-else` block and set a state to be a boolean which checks whether data has been loaded. I don't recommend this one because it will involve substantial rewrite and restructuring.
 
 ## Available Scripts
 
@@ -19,10 +51,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+### `npm run deploy`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Runs the predeploy command which builds the app.
+Then it pushes the build folder to gh pages
 
 ### `npm run build`
 
@@ -33,6 +65,11 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run eject`
 

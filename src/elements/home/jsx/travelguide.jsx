@@ -1,8 +1,11 @@
 import "../css/travelguide.css";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faBook} from "@fortawesome/free-solid-svg-icons";
 import {NavLink} from "react-router-dom";
 
+/**
+ * TraveGuide element.
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function TravelGuide() {
     // this is the data
     const cards = [
@@ -49,7 +52,12 @@ function TravelGuide() {
 
 }
 
-// generator function
+/**
+ * Generator function for the cards.
+ * @param cards json data
+ * @returns {*[]} Array of JSX elements
+ * @constructor
+ */
 function TravelCards({cards}){
     let val = [];
     for (const [i,card] of cards.entries()) {
@@ -64,6 +72,13 @@ function TravelCards({cards}){
     return val;
 }
 
+/**
+ * Single element of the TravelCard.
+ * @param location The location of where it is meant for
+ * @param img image link
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function TravelCard({location, img}) {
     if (!img) {
         img = "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg";
