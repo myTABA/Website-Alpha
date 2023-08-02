@@ -1,8 +1,13 @@
 import {useUser} from "@clerk/clerk-react";
 import {useState} from "react";
-import "../css/profile.css";
-import Account from "./Account";
+import "./css/profile.css";
+import Account from "./jsx/Account";
 
+/**
+ * Main component of the profile page
+ * @returns {JSX.Element|null}
+ * @constructor
+ */
 const Profile = () => {
     const {user} = useUser();
 
@@ -14,8 +19,12 @@ const Profile = () => {
             type: "account"
         }
     });
+    /**
+     * changes the State, to update the content of the container on right.
+     * @param e event action
+     */
     const changeState = (e) => {
-        console.log(e.target.textContent);
+        // console.log(e.target.textContent);
         selectionHighlight(e.target.parentElement);
         if (e.target.textContent === "Account") {
             setState({
@@ -65,11 +74,11 @@ const Profile = () => {
     };
 
 
+    // jic; if the user is not logged in, the user object wont exist.
     const {isLoaded, isSignedIn} = useUser();
     if (!isLoaded || !isSignedIn) {
         return null;
     }
-    console.log(user);
 
     let val =
         <>
@@ -135,6 +144,12 @@ const Profile = () => {
     );
 };
 
+/**
+ * Header of the main component
+ * @param props i should have ideally put the argument in {}, but since i did not do it, it becomes a json. So the props variable has a props key which contains our "state json"
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function MainBar(props) {
     let val =
         <>
@@ -151,6 +166,13 @@ function MainBar(props) {
     return val;
 }
 
+/**
+ * The main body of the content, where we put the content
+ * @param user user object
+ * @param type the selected tab
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function MainContent({user, type}) {
     let val;
 

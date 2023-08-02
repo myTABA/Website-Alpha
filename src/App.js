@@ -13,7 +13,7 @@ import {Route, Routes, useNavigate} from "react-router-dom";
 import Home from "./elements/home/home";
 import Recommendation from "./elements/recommendation/rec";
 import Travel from "./elements/travelguide/jsx/travel";
-import Profile from "./elements/profile/jsx/profile";
+import Profile from "./elements/profile/profile";
 import ReactGA from "react-ga4";
 import {ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

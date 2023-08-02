@@ -4,7 +4,20 @@ import {faEdit} from "@fortawesome/free-regular-svg-icons";
 import {toast} from "react-toastify";
 import {Tooltip} from "react-tooltip";
 
+/**
+ * The Account Portion of the Profile
+ * @param user Clerk's user object
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export default function Account({user}) {
+
+    /**
+     * Generates the emails, adding appropriate tags.
+     * @param elem single entry of the email object in the emailAddress array supplied by clerk
+     * @returns {JSX.Element}
+     * @constructor
+     */
     function EmailCreator(elem) {
         // const opacity = .5;
         // if the status is undefined, it is verified(at least for the example user object i am using)
@@ -70,10 +83,17 @@ export default function Account({user}) {
     }
 
 
+    //feel free to use the following to view the user object.
+    // console.log(user);
     let emails = [];
     for (const [i, em] of user.emailAddresses.entries()) {
         emails.push(<EmailCreator elem={em} key={i + 1}/>);
     }
+
+    /**
+     * Handler function to update the first and last names of user. Can also add username updation, uncomment appropriate code.
+     * @param e event action
+     */
     const updateDetes = (e) => {
         e.preventDefault();
         let fname = document.getElementById("fname").value ? document.getElementById("fname").value : document.getElementById("fname").placeholder;
