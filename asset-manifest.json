@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Website-Alpha/static/css/main.6fee53cc.css",
-    "main.js": "/Website-Alpha/static/js/main.d441883a.js",
+    "main.js": "/Website-Alpha/static/js/main.c1cd8894.js",
     "static/js/874.8c2d21b5.chunk.js": "/Website-Alpha/static/js/874.8c2d21b5.chunk.js",
     "static/js/128.05536f5e.chunk.js": "/Website-Alpha/static/js/128.05536f5e.chunk.js",
     "static/js/787.71e672d5.chunk.js": "/Website-Alpha/static/js/787.71e672d5.chunk.js",
@@ -13,11 +13,11 @@
     "static/media/Website_Waterfall.mp4": "/Website-Alpha/static/media/Website_Waterfall.bb4f356843439b31e6b5.mp4",
     "index.html": "/Website-Alpha/index.html",
     "main.6fee53cc.css.map": "/Website-Alpha/static/css/main.6fee53cc.css.map",
-    "main.d441883a.js.map": "/Website-Alpha/static/js/main.d441883a.js.map",
+    "main.c1cd8894.js.map": "/Website-Alpha/static/js/main.c1cd8894.js.map",
     "787.71e672d5.chunk.js.map": "/Website-Alpha/static/js/787.71e672d5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6fee53cc.css",
-    "static/js/main.d441883a.js"
+    "static/js/main.c1cd8894.js"
   ]
 }
