@@ -218,7 +218,7 @@ router.get('/interest-level-action/:id', async (req, res) => {
             const jsonData = [];
             let elements = data.pois;
             const promises = elements.map(async(element) => {
-                poiId = element.poiid;
+                poiId = element.poi_id;
                 const responseDetail = await axios.get(`https://bvln6ak7ovklghu2suidzwjrq40jhdju.lambda-url.us-east-2.on.aws/poidetails/get-poi-details/${poiId}?infolimit=name&infolimit=city&infolimit=country&infolimit=descrh&infolimit=descrc&infolimit=latlong&infolimit=ids&infolimit=images&api-key=${apiKey}`);
                 element.poiDetail = responseDetail.data.pois[0];
                 // TODO : change S3 link to url for images
