@@ -6,7 +6,6 @@ const { S3Client, GetObjectCommand } = require('@aws-sdk/client-s3');
 const { getSignedUrl } = require('@aws-sdk/s3-request-presigner');
 require('dotenv').config();
 
-let interest_level = 0;
 let sessionId = 0;
 let location;
 
