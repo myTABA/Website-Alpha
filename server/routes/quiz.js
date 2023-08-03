@@ -172,9 +172,8 @@ router.get('/interest-level-action/:id', async (req, res) => {
             data = response.data;
             poiId = data.pois[0].poi_id;
             // Call get poi detail
-            console.log(poiId);
+            // console.log(poiId);
             const responseDetail = await axios.get(`https://bvln6ak7ovklghu2suidzwjrq40jhdju.lambda-url.us-east-2.on.aws/poidetails/get-poi-details/${poiId}?infolimit=name&infolimit=city&infolimit=country&infolimit=descrh&infolimit=descrc&infolimit=latlong&infolimit=ids&infolimit=images&api-key=${apiKey}`);
-            // TODO : change S3 link to url for images
             detail = responseDetail.data;
             imageURL = detail.pois[0].images;
             let bucketName;
@@ -191,7 +190,7 @@ router.get('/interest-level-action/:id', async (req, res) => {
             generateSignedUrl(bucketName, objectKey)
             .then((presignedURL) => {
                 if (presignedURL) {
-                    console.log('Presigned URL:', presignedURL);
+                    // console.log('Presigned URL:', presignedURL);
                     detail.pois[0].imagesURL = presignedURL;
                     res.json(detail);
                 }
@@ -214,7 +213,6 @@ router.get('/interest-level-action/:id', async (req, res) => {
                 poiId = element.poi_id;
                 const responseDetail = await axios.get(`https://bvln6ak7ovklghu2suidzwjrq40jhdju.lambda-url.us-east-2.on.aws/poidetails/get-poi-details/${poiId}?infolimit=name&infolimit=city&infolimit=country&infolimit=descrh&infolimit=descrc&infolimit=latlong&infolimit=ids&infolimit=images&api-key=${apiKey}`);
                 element.poiDetail = responseDetail.data.pois[0];
-                // TODO : change S3 link to url for images
                 imageURL = element.poiDetail.images;
                 let bucketName;
                 let objectKey;
@@ -231,7 +229,7 @@ router.get('/interest-level-action/:id', async (req, res) => {
                 return generateSignedUrl(bucketName, objectKey)
                     .then((presignedURL) => {
                         if (presignedURL) {
-                            console.log('Presigned URL:', presignedURL);
+                            // console.log('Presigned URL:', presignedURL);
                             element.poiDetail.imagesURL = presignedURL;
                             jsonData.push(element);
                         }
