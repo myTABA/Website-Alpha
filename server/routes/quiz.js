@@ -103,7 +103,7 @@ router.post('/type-action', (req, res) => {
 // Get first recommendation from API call
 router.get('/type-action', async (req, res) => {
     // TODO : hard code session ID
-    // sessionId = 'jsurn48fk2h8p0s1';
+    sessionId = 'jsurn48fk2h8p0s1';
     let poiId = 0;
     try {
         const response = await axios.get(`https://3aphhcfwtbfk5wdqewyxbyakje0hpkfw.lambda-url.us-east-2.on.aws/recommender/session/${sessionId}?country=esp&city=barcelona&limit=1&topp=0.8&topk=200&temp=0.2&api-key=${apiKey}`);

@@ -21,8 +21,7 @@ const RatePoi = ({state, changeState}) => {
         tags: [],
         desc: ""
     });
-
-
+    const [poiid, setPoiid] = useState("");
     useEffect(() => {
         const dataPromise = getData(state.props.id);
         dataPromise.then(e => {
@@ -30,16 +29,18 @@ const RatePoi = ({state, changeState}) => {
             const v = e.data;
             // get dat from server
             setContent({
-                name: v.features[0].properties.name,
-                tags: v.features[0].properties.kinds.split(','),
-                desc: "",
-                imgsrc: ""
+                name: v.pois[0].name,
+                tags: v.pois[0].name,
+                desc: v.pois[0].descrc,
+                imgsrc: v.pois[0].imagesURL,
                 //todo other data comes here
             });
+            setPoiid(v.pois[0].poi_id);
             const breadcrumb = document.getElementById(state.props.id);
-            breadcrumb.innerText = v.features[0].properties.name;
+            breadcrumb.innerText = v.pois[0].name;
             breadcrumb.style.color="var(--black)";
             breadcrumb.parentElement.style.borderColor="var(--black)";
+            
         });
     }, [state.props.id]);
     //only call the axios when ID changes
@@ -55,7 +56,7 @@ const RatePoi = ({state, changeState}) => {
                 <div className={"col-12 col-md info"}>
                     <h3>{content.name}</h3>
                     <div className={"tags"}>
-                        <TagMaker tags={content.tags}/>
+                        {content.tags}
                     </div>
                     <div className={"b3 desc"}>
                         {content.desc}
@@ -103,7 +104,12 @@ const RatePoi = ({state, changeState}) => {
                             if (e.checked) {
                                 const val = parseInt(e.id.slice(1));
                                 axios.post(`http://localhost:4000/quiz/interest-level-action/${menupoinumber}`, {
-                                    interest: val
+                                    "poi_ids": [
+                                        {
+                                          "poi_id": poiid,
+                                          "score": val
+                                        }
+                                      ]
                                 }).then().catch(e => console.log(e));
                             }
                         });

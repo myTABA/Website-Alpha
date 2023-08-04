@@ -22,12 +22,12 @@ const TripType = ({changeState}) => {
             selections.forEach(e => {
                 let poiid = e.querySelector(".cpoiid").innerText;
                 arr.push({
-                    "poiid": poiid,
+                    "poi_id": poiid,
                     "score": 2
                 });
             });
             axios.post('http://localhost:4000/quiz/type-action', {
-                "poiids": arr
+                "poi_ids": arr
             }).then().catch(e => console.error(e));
             changeState("menupoi1");
 
