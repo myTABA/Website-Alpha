@@ -83,7 +83,7 @@ const calcCenter = () => {
     }
 
     return {
-        // these values are immaterial, as long as bound is present.
+        // these values are immaterial, as long as bound is present.pm
         centre: {lat: lat / tlocs.length, lng: lng / tlocs.length},
         bound: bounds,
         zoom: 7
