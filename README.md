@@ -39,6 +39,9 @@ Once the state updates, the component will refresh and display the data.
 
 Alternatively, conditional renders. use an `if-else` block and set a state to be a boolean which checks whether data has been loaded. I don't recommend this one because it will involve substantial rewrite and restructuring.
 
+## Notes
+For most components that are repeated and are data-based, e.g. data coming from json that goes in a component and renders a singular item, i have used a "generator" component. This component accepts the entire data and passes single objects to the actual render component. It essentially generates a list of rendered elements from a list of objects(json).
+
 ## Available Scripts
 
 In the project directory, you can run:
