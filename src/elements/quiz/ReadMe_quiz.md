@@ -2,17 +2,30 @@ Several inline onclick handlers which handle post requests and simultaneously ch
 
 There is a table in the code files for reference. Readded here.
 |       |   id                  |   type                |   info                                    |
-|   1   |   menu1               |   wheregoing          |   first question                          |
-|   2   |   menu2               |   triptype            |   select category                         |
-|   3   |   menupoi             |   ratepoi             |   rating pois                             |
-|   4   |   fin                 |   fin                 |   finish page                             |
-|   5   |   wheregoingrequest   |   wheregoingrequest   |   request page for destination            |
-|   6   |   menu1 [variant]     |   wheregoing          |   return to menu1 but with edited title   |       
 
-The submiut and back buttons trigger the `changeState()` function which calls a `selectionHighlight()` function.
+|   1   |   menu1               |   wheregoing          |   first question                          |
+
+|   2   |   menu2               |   triptype            |   select category                         |
+
+|   3   |   menupoi             |   ratepoi             |   rating pois                             |
+
+|   4   |   fin                 |   fin                 |   finish page                             |
+
+|   5   |   wheregoingrequest   |   wheregoingrequest   |   request page for destination            |
+
+|   6   |   menu1 [variant]     |   wheregoing          |   return to menu1 but with edited title   |
+
+
+The submit and back buttons trigger the `changeState()` function which calls a `selectionHighlight()` function.
 This selects the breadcrumb and sets colour on it.
+
 Then the state is changed to a predefined one, with parameters being updated as necessary and this causes component updation.
 
+
+`MainBar` component handles the right side of the content, handling the rendering.
+It begins with the header information that is housed while the rest of the content is managed by `MainContent` very similar design to profile.
+
+`MainContent` handles the if-else structure to handle the render of different components.
 
 ## Things to do:
 1. Endpoint axios connections for location-action

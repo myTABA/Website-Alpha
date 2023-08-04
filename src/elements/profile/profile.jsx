@@ -65,6 +65,10 @@ const Profile = () => {
         }
     };
 
+    /**
+     * This selects the navigation button on the left.
+     * @param elem the element that needs be selected.
+     */
     const selectionHighlight = (elem) => {
         let elems = document.querySelectorAll(".profile h3.sh.active");
         for (const [i, elemsKey] of elems.entries()) {
