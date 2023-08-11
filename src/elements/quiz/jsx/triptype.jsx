@@ -20,7 +20,7 @@ const TripType = ({changeState}) => {
             const selections = document.querySelectorAll(".card.selected");
             let arr = [];
             selections.forEach(e => {
-                let poiid = e.querySelector(".cpoiid").innerText;
+                let poiid = e.querySelector(".cpoi_id").innerText;
                 arr.push({
                     "poi_id": poiid,
                     "score": 2
@@ -49,8 +49,8 @@ function Gen({select_elem}) {
     const [data, setData] = useState([]);
     useEffect(() => {
         axios.get("http://localhost:4000/quiz/location-action").then(e => {
-                console.log(e.data.cluster);
-                setData(e.data.cluster);
+                console.log(e.data.clusters);
+                setData(e.data.clusters);
             }
         );
     }, []);
@@ -115,8 +115,8 @@ function Gen({select_elem}) {
                                 <div className={"b1 card-title text-center"}>
                                     {e.type}
                                 </div>
-                                <div className={"d-none cpoiid"}>
-                                    {e.cpoiid}
+                                <div className={"d-none cpoi_id"}>
+                                    {e.cpoi_id}
                                 </div>
                             </div>
                         </div>

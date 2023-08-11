@@ -43,14 +43,13 @@ router.post('/location-action',  (req, res) => {
 router.get('/location-action', async (req, res) => {
     try {
         location = 'barcelona_esp';
-        const response = await axios.get(`https://mji2plpsylpc3uqdfwfb2cwtvq0mzbna.lambda-url.us-east-1.on.aws/profiler/get-cluster/${location}?api-key=${apiKey}`);
-        // const response = await axios.get(`https://xwim6jhv6d3rhgdpudpl3gusky0oycqp.lambda-url.us-east-2.on.aws/profiler/get-cluster/${location}?api-key=${apiKey}`);
+        const response = await axios.get(`https://xwim6jhv6d3rhgdpudpl3gusky0oycqp.lambda-url.us-east-2.on.aws/profiler/get-city/${location}?api-key=${apiKey}`);
         const data = response.data;
-        let clusters = data.cluster;
+        let clusters = data.clusters;
         const promises = clusters.map((cluster) => {
             let bucketName;
             let objectKey;
-            imageURL = cluster.img;
+            imageURL = cluster.image;
             if (imageURL !== undefined) {
                 const parts = imageURL.split('/');
                 bucketName = parts[2]; // The bucket is the third element after splitting
